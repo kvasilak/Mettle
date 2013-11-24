@@ -12,22 +12,27 @@ using System.Collections;
 using ZedGraph;
 using System.Diagnostics;
 
+
 namespace Charter
 {
+
     public partial class Form1 : Form
     {
         string RxString;
         RollingPointPairList list = new RollingPointPairList(1000);
         RollingPointPairList list1 = new RollingPointPairList(1000);
 
-        double x, y1, y2;
-        int i;
+        int li;
+        int ri;
 
+        public event TagHandeler TagEvent;
+        public delegate void TagHandeler(Form1 f, EventTag e);
+
+ 
         public Form1()
         {
             InitializeComponent();
 
-            txtData.Text = "This is a test";
         }
 
         //show serial connect dialog
@@ -73,6 +78,8 @@ namespace Charter
             {
                 try
                 {
+                    //SerialPortFixer.Execute(cboComPort.Text);
+                    
                     serialPort1.PortName = cboComPort.Text;
                     serialPort1.BaudRate = int.Parse(cboBaudRate.Text);
                     serialPort1.DataBits = 8;
@@ -101,20 +108,47 @@ namespace Charter
 
         private void serialPort1_DataReceived(object sender, SerialDataReceivedEventArgs e)
         {
-            //String tmpstr = serialPort1.ReadExisting();
-            String tmpstr = serialPort1.ReadLine();
+            if (serialPort1.IsOpen)
+            {
+                try
+                {
+                    String tmpstr = serialPort1.ReadLine();
 
-            RxString = tmpstr;
-            this.Invoke(new EventHandler(HandleMesage));
+                    RxString = tmpstr;
+                    this.Invoke(new EventHandler(HandleMesage));
+                }
+                catch (Exception ex)
+                {
+                    return;
+                }
+            }
         }
 
+        private void HandleMesage(object sender, EventArgs e)
+        {
+            //int a=0;
+            //int b = 0;
+            int position = 0;
+
+            do //may have multiple tags per line
+            {
+                position = ParseTags(RxString, position);
+            }
+            while ((position >0) && (position < RxString.Length));
+
+
+            txtData.AppendText(RxString);
+            txtData.AppendText("\n");
+
+
+        }
+        
         private int ParseTags(string instr, int offset)
         {
             int start;
             int end = instr.Length;
             int comma;
-            string s1;
-            string s2;
+            int d;
 
             //Tag format is >string, string<
             start = instr.IndexOf(">", offset);
@@ -130,55 +164,62 @@ namespace Charter
 
                     if (comma > 0)
                     {
-                        s1 = instr.Substring(start + 1, comma - (start + 1));
+                        //set the tag recieved event
+                        EventTag t = new EventTag();
 
-                        s2 = instr.Substring(comma + 1, end - (comma + 1));
+                        t.Name = instr.Substring(start + 1, comma - (start + 1));
+                        t.Data = instr.Substring(comma + 1, end - (comma + 1));
 
-                        textTags.AppendText(s1 + "; " + s2 + "\n");
+                        //textTags.AppendText(t.Name + "; " + t.Data + "\n");
+
+
+                        if (int.TryParse(t.Data, out d))
+                        {
+                            t.Value = d;
+                            t.ValueValid = true;
+
+                        }
+
+                        //make sure someone is listening
+                        if(null != TagEvent)
+                            TagEvent(this, t);
                     }
                 }
             }
             return end;
         }
 
-        private void HandleMesage(object sender, EventArgs e)
+        private void UpdateGraph(Form1 f, EventTag e) //(string chan, int d)
         {
-            int a=0;
-            int b = 0;
-            int position=0;
-
-            do //may have multiple tags per line
+            if (e.Name == "Left")
             {
-                position = ParseTags(RxString, position);
+                list.Add(li, e.Value);
             }
-            while (position < RxString.Length);
-
-
-            txtData.AppendText(RxString);
-            txtData.AppendText("\n");
-
-            if (RxString.Length > 0)
+            else if (e.Name == "Right")
             {
-
-                i++;
-
-                // Keep the X scale at a rolling  interval, with one
-                // major step between the max X value and the end of the axis
-                Scale xScale = zedGraphControl1.GraphPane.XAxis.Scale;
-
-                if (i > xScale.Max - xScale.MajorStep)
-                {
-                    xScale.Max = i + xScale.MajorStep;
-                    xScale.Min = xScale.Max - 1000.0;
-                }
+                list1.Add(ri, e.Value);
             }
+
+            li++;
+            ri++;
+
+            // Keep the X scale at a rolling  interval, with one
+            // major step between the max X value and the end of the axis
+            Scale xScale = zedGraphControl1.GraphPane.XAxis.Scale;
+
+            if (li > xScale.Max - xScale.MajorStep)
+            {
+                xScale.Max = li + xScale.MajorStep;
+                xScale.Min = xScale.Max - 1000;
+            }
+
+            zedGraphControl1.AxisChange();
+            zedGraphControl1.Invalidate();
         }
-
-
 
         private void btnClose_Click(object sender, EventArgs e)
         {
-            if (serialPort1.IsOpen) serialPort1.Close();
+            SafeSerialClose();
         }
 
         private void Form1_Resize(object sender, EventArgs e)
@@ -215,21 +256,43 @@ namespace Charter
             zedGraphControl1.GraphPane.XAxis.Scale.Min = 0;
             zedGraphControl1.GraphPane.XAxis.Scale.Max = 1000;
 
-            zedGraphControl1.GraphPane.XAxis.Scale.MinorStep = 10;
-            zedGraphControl1.GraphPane.XAxis.Scale.MajorStep = 50;
+            zedGraphControl1.GraphPane.XAxis.Scale.MinorStep = 2;
+            zedGraphControl1.GraphPane.XAxis.Scale.MajorStep = 10;
             zedGraphControl1.AxisChange();
 
             // Generate a red curve with diamond
-            // symbols, and "Porsche" in the legend
             LineItem myCurve = myPane.AddCurve("", list, Color.Red, SymbolType.None);
                 
             // Generate a blue curve with circle
-            // symbols, and "Piper" in the legend
             LineItem myCurve2 = myPane.AddCurve("", list1, Color.Blue, SymbolType.None);
 
             // Tell ZedGraph to refigure the
             // axes since the data have changed
             zgc.AxisChange();
+
+            TagEvent += new TagHandeler(UpdateGraph);
+        }
+
+        //TODO, close the serial port in a seperate thread to prevent
+        //A GUI deadlock
+        private void SafeSerialClose()
+        {
+            if (serialPort1.IsOpen)
+            {
+                
+                serialPort1.Close();
+
+            }
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            SafeSerialClose();
+        }
+
+        private void serialPort1_ErrorReceived(object sender, SerialErrorReceivedEventArgs e)
+        {
+            MessageBox.Show("Serial port error; " + e.ToString());
         }
     }
 }

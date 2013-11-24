@@ -42,7 +42,12 @@
             this.zedGraphControl1 = new ZedGraph.ZedGraphControl();
             this.tabText = new System.Windows.Forms.TabPage();
             this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
-            this.textTags = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.tabMain.SuspendLayout();
             this.tabSetup.SuspendLayout();
             this.tabChart.SuspendLayout();
@@ -64,7 +69,12 @@
             // 
             // tabSetup
             // 
-            this.tabSetup.Controls.Add(this.textTags);
+            this.tabSetup.Controls.Add(this.label5);
+            this.tabSetup.Controls.Add(this.label4);
+            this.tabSetup.Controls.Add(this.label3);
+            this.tabSetup.Controls.Add(this.textBox3);
+            this.tabSetup.Controls.Add(this.textBox2);
+            this.tabSetup.Controls.Add(this.textBox1);
             this.tabSetup.Controls.Add(this.txtData);
             this.tabSetup.Controls.Add(this.label2);
             this.tabSetup.Controls.Add(this.label1);
@@ -85,11 +95,11 @@
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.txtData.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtData.Location = new System.Drawing.Point(462, 2);
+            this.txtData.Location = new System.Drawing.Point(519, 2);
             this.txtData.Multiline = true;
             this.txtData.Name = "txtData";
             this.txtData.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtData.Size = new System.Drawing.Size(192, 354);
+            this.txtData.Size = new System.Drawing.Size(334, 354);
             this.txtData.TabIndex = 10;
             this.txtData.WordWrap = false;
             // 
@@ -195,21 +205,56 @@
             // 
             // serialPort1
             // 
+            this.serialPort1.ErrorReceived += new System.IO.Ports.SerialErrorReceivedEventHandler(this.serialPort1_ErrorReceived);
             this.serialPort1.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.serialPort1_DataReceived);
             // 
-            // textTags
+            // textBox1
             // 
-            this.textTags.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.textTags.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textTags.Location = new System.Drawing.Point(661, 3);
-            this.textTags.Multiline = true;
-            this.textTags.Name = "textTags";
-            this.textTags.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textTags.Size = new System.Drawing.Size(192, 354);
-            this.textTags.TabIndex = 11;
-            this.textTags.WordWrap = false;
+            this.textBox1.Location = new System.Drawing.Point(23, 174);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 11;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(23, 221);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(100, 20);
+            this.textBox2.TabIndex = 12;
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(23, 270);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(100, 20);
+            this.textBox3.TabIndex = 13;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(33, 254);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(85, 13);
+            this.label3.TabIndex = 14;
+            this.label3.Text = "Select COM port";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(33, 205);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(85, 13);
+            this.label4.TabIndex = 15;
+            this.label4.Text = "Select COM port";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(33, 158);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(85, 13);
+            this.label5.TabIndex = 16;
+            this.label5.Text = "Select COM port";
             // 
             // Form1
             // 
@@ -219,6 +264,7 @@
             this.Controls.Add(this.tabMain);
             this.Name = "Form1";
             this.Text = "Arduino Charting Tool";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.Resize += new System.EventHandler(this.Form1_Resize);
             this.tabMain.ResumeLayout(false);
@@ -244,7 +290,12 @@
         private System.IO.Ports.SerialPort serialPort1;
         private System.Windows.Forms.TextBox txtData;
         private ZedGraph.ZedGraphControl zedGraphControl1;
-        private System.Windows.Forms.TextBox textTags;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
 
