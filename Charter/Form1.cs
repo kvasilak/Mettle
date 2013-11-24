@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.IO.Ports;
 using System.Collections;
 using ZedGraph;
+using System.Diagnostics;
 
 namespace Charter
 {
@@ -107,35 +108,57 @@ namespace Charter
             this.Invoke(new EventHandler(HandleMesage));
         }
 
+        private int ParseTags(string instr, int offset)
+        {
+            int start;
+            int end = instr.Length;
+            int comma;
+            string s1;
+            string s2;
+
+            //Tag format is >string, string<
+            start = instr.IndexOf(">", offset);
+
+            if(start >= 0)//May be first character
+            {
+                end = instr.IndexOf("<", offset + start + 1);
+
+                if (end > 0)
+                {
+                    //found start and end, find the comma
+                    comma = instr.IndexOf(",", start + 1);
+
+                    if (comma > 0)
+                    {
+                        s1 = instr.Substring(start + 1, comma - (start + 1));
+
+                        s2 = instr.Substring(comma + 1, end - (comma + 1));
+
+                        textTags.AppendText(s1 + "; " + s2 + "\n");
+                    }
+                }
+            }
+            return end;
+        }
+
         private void HandleMesage(object sender, EventArgs e)
         {
             int a=0;
             int b = 0;
+            int position=0;
 
-            char[] delimiterChars = { ' ', ',', '.', ':' };
+            do //may have multiple tags per line
+            {
+                position = ParseTags(RxString, position);
+            }
+            while (position < RxString.Length);
 
-            //need to build clean null terminated string
-            //and strip off \n
 
             txtData.AppendText(RxString);
             txtData.AppendText("\n");
 
             if (RxString.Length > 0)
             {
-                string[] columns = RxString.Split(delimiterChars);
-
-                if (int.TryParse(columns[0], out a))
-                {
-                    list.Add(i, a);
-                }
-
-                if (int.TryParse(columns[1], out b))
-                {
-                    list1.Add(i, b);
-                }
-
-                zedGraphControl1.AxisChange();
-                zedGraphControl1.Invalidate();
 
                 i++;
 

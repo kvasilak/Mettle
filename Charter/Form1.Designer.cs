@@ -42,6 +42,7 @@
             this.zedGraphControl1 = new ZedGraph.ZedGraphControl();
             this.tabText = new System.Windows.Forms.TabPage();
             this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
+            this.textTags = new System.Windows.Forms.TextBox();
             this.tabMain.SuspendLayout();
             this.tabSetup.SuspendLayout();
             this.tabChart.SuspendLayout();
@@ -63,6 +64,7 @@
             // 
             // tabSetup
             // 
+            this.tabSetup.Controls.Add(this.textTags);
             this.tabSetup.Controls.Add(this.txtData);
             this.tabSetup.Controls.Add(this.label2);
             this.tabSetup.Controls.Add(this.label1);
@@ -87,7 +89,7 @@
             this.txtData.Multiline = true;
             this.txtData.Name = "txtData";
             this.txtData.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtData.Size = new System.Drawing.Size(391, 354);
+            this.txtData.Size = new System.Drawing.Size(192, 354);
             this.txtData.TabIndex = 10;
             this.txtData.WordWrap = false;
             // 
@@ -195,6 +197,20 @@
             // 
             this.serialPort1.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.serialPort1_DataReceived);
             // 
+            // textTags
+            // 
+            this.textTags.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.textTags.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textTags.Location = new System.Drawing.Point(661, 3);
+            this.textTags.Multiline = true;
+            this.textTags.Name = "textTags";
+            this.textTags.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textTags.Size = new System.Drawing.Size(192, 354);
+            this.textTags.TabIndex = 11;
+            this.textTags.WordWrap = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -228,6 +244,7 @@
         private System.IO.Ports.SerialPort serialPort1;
         private System.Windows.Forms.TextBox txtData;
         private ZedGraph.ZedGraphControl zedGraphControl1;
+        private System.Windows.Forms.TextBox textTags;
     }
 }
 
