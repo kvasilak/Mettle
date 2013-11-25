@@ -194,10 +194,14 @@ namespace Charter
             if (e.Name == "Left")
             {
                 list.Add(li, e.Value);
+
+                aGauge1.Value = e.Value;
             }
             else if (e.Name == "Right")
             {
                 list1.Add(ri, e.Value);
+
+                aGauge4.Value = e.Value-50;
             }
 
             li++;
