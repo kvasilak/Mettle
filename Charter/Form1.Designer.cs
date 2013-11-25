@@ -53,11 +53,18 @@
             this.aGauge2 = new AGaugeApp.AGauge();
             this.aGauge1 = new AGaugeApp.AGauge();
             this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
+            this.aGauge3 = new AGaugeApp.AGauge();
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.aGauge5 = new AGaugeApp.AGauge();
             this.tabMain.SuspendLayout();
             this.tabSetup.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tabChart.SuspendLayout();
             this.tabText.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
+            this.splitContainer1.Panel1.SuspendLayout();
+            this.splitContainer1.Panel2.SuspendLayout();
+            this.splitContainer1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabMain
@@ -71,7 +78,7 @@
             this.tabMain.Location = new System.Drawing.Point(0, -1);
             this.tabMain.Name = "tabMain";
             this.tabMain.SelectedIndex = 0;
-            this.tabMain.Size = new System.Drawing.Size(864, 446);
+            this.tabMain.Size = new System.Drawing.Size(892, 418);
             this.tabMain.TabIndex = 0;
             // 
             // tabSetup
@@ -86,7 +93,7 @@
             this.tabSetup.Controls.Add(this.cboComPort);
             this.tabSetup.Location = new System.Drawing.Point(4, 22);
             this.tabSetup.Name = "tabSetup";
-            this.tabSetup.Size = new System.Drawing.Size(856, 420);
+            this.tabSetup.Size = new System.Drawing.Size(856, 487);
             this.tabSetup.TabIndex = 2;
             this.tabSetup.Text = "Setup";
             this.tabSetup.UseVisualStyleBackColor = true;
@@ -174,7 +181,7 @@
             this.txtData.Multiline = true;
             this.txtData.Name = "txtData";
             this.txtData.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtData.Size = new System.Drawing.Size(334, 354);
+            this.txtData.Size = new System.Drawing.Size(334, 421);
             this.txtData.TabIndex = 10;
             this.txtData.WordWrap = false;
             // 
@@ -244,11 +251,11 @@
             // 
             // tabChart
             // 
-            this.tabChart.Controls.Add(this.zedGraphControl1);
+            this.tabChart.Controls.Add(this.splitContainer1);
             this.tabChart.Location = new System.Drawing.Point(4, 22);
             this.tabChart.Name = "tabChart";
             this.tabChart.Padding = new System.Windows.Forms.Padding(3);
-            this.tabChart.Size = new System.Drawing.Size(856, 420);
+            this.tabChart.Size = new System.Drawing.Size(884, 392);
             this.tabChart.TabIndex = 1;
             this.tabChart.Text = "Chart";
             this.tabChart.UseVisualStyleBackColor = true;
@@ -256,7 +263,7 @@
             // 
             // zedGraphControl1
             // 
-            this.zedGraphControl1.Location = new System.Drawing.Point(6, 6);
+            this.zedGraphControl1.Location = new System.Drawing.Point(3, 3);
             this.zedGraphControl1.Name = "zedGraphControl1";
             this.zedGraphControl1.ScrollGrace = 0D;
             this.zedGraphControl1.ScrollMaxX = 0D;
@@ -265,7 +272,7 @@
             this.zedGraphControl1.ScrollMinX = 0D;
             this.zedGraphControl1.ScrollMinY = 0D;
             this.zedGraphControl1.ScrollMinY2 = 0D;
-            this.zedGraphControl1.Size = new System.Drawing.Size(845, 286);
+            this.zedGraphControl1.Size = new System.Drawing.Size(870, 151);
             this.zedGraphControl1.TabIndex = 12;
             // 
             // tabText
@@ -276,7 +283,7 @@
             this.tabText.Location = new System.Drawing.Point(4, 22);
             this.tabText.Name = "tabText";
             this.tabText.Padding = new System.Windows.Forms.Padding(3);
-            this.tabText.Size = new System.Drawing.Size(856, 420);
+            this.tabText.Size = new System.Drawing.Size(856, 487);
             this.tabText.TabIndex = 0;
             this.tabText.Text = "Text";
             this.tabText.UseVisualStyleBackColor = true;
@@ -605,12 +612,250 @@
             this.serialPort1.ErrorReceived += new System.IO.Ports.SerialErrorReceivedEventHandler(this.serialPort1_ErrorReceived);
             this.serialPort1.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.serialPort1_DataReceived);
             // 
+            // aGauge3
+            // 
+            this.aGauge3.BaseArcColor = System.Drawing.Color.Gray;
+            this.aGauge3.BaseArcRadius = 150;
+            this.aGauge3.BaseArcStart = 145;
+            this.aGauge3.BaseArcSweep = 70;
+            this.aGauge3.BaseArcWidth = 2;
+            this.aGauge3.Cap_Idx = ((byte)(1));
+            this.aGauge3.CapColors = new System.Drawing.Color[] {
+        System.Drawing.Color.Black,
+        System.Drawing.Color.Black,
+        System.Drawing.Color.Black,
+        System.Drawing.Color.Black,
+        System.Drawing.Color.Black};
+            this.aGauge3.CapPosition = new System.Drawing.Point(10, 10);
+            this.aGauge3.CapsPosition = new System.Drawing.Point[] {
+        new System.Drawing.Point(10, 10),
+        new System.Drawing.Point(10, 10),
+        new System.Drawing.Point(10, 10),
+        new System.Drawing.Point(10, 10),
+        new System.Drawing.Point(10, 10)};
+            this.aGauge3.CapsText = new string[] {
+        "",
+        "",
+        "",
+        "",
+        ""};
+            this.aGauge3.CapText = "";
+            this.aGauge3.Center = new System.Drawing.Point(175, 100);
+            this.aGauge3.Location = new System.Drawing.Point(3, 3);
+            this.aGauge3.MaxValue = 55F;
+            this.aGauge3.MinValue = -55F;
+            this.aGauge3.Name = "aGauge3";
+            this.aGauge3.NeedleColor1 = AGaugeApp.AGauge.NeedleColorEnum.Red;
+            this.aGauge3.NeedleColor2 = System.Drawing.Color.DimGray;
+            this.aGauge3.NeedleRadius = 160;
+            this.aGauge3.NeedleType = 0;
+            this.aGauge3.NeedleWidth = 2;
+            this.aGauge3.Range_Idx = ((byte)(1));
+            this.aGauge3.RangeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.aGauge3.RangeEnabled = true;
+            this.aGauge3.RangeEndValue = 15F;
+            this.aGauge3.RangeInnerRadius = 140;
+            this.aGauge3.RangeOuterRadius = 150;
+            this.aGauge3.RangesColor = new System.Drawing.Color[] {
+        System.Drawing.Color.LightGreen,
+        System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128))))),
+        System.Drawing.SystemColors.Control,
+        System.Drawing.SystemColors.Control,
+        System.Drawing.SystemColors.Control};
+            this.aGauge3.RangesEnabled = new bool[] {
+        false,
+        true,
+        false,
+        false,
+        false};
+            this.aGauge3.RangesEndValue = new float[] {
+        300F,
+        15F,
+        0F,
+        0F,
+        0F};
+            this.aGauge3.RangesInnerRadius = new int[] {
+        70,
+        140,
+        70,
+        70,
+        70};
+            this.aGauge3.RangesOuterRadius = new int[] {
+        80,
+        150,
+        80,
+        80,
+        80};
+            this.aGauge3.RangesStartValue = new float[] {
+        -100F,
+        -15F,
+        0F,
+        0F,
+        0F};
+            this.aGauge3.RangeStartValue = -15F;
+            this.aGauge3.ScaleLinesInterColor = System.Drawing.Color.Red;
+            this.aGauge3.ScaleLinesInterInnerRadius = 145;
+            this.aGauge3.ScaleLinesInterOuterRadius = 150;
+            this.aGauge3.ScaleLinesInterWidth = 2;
+            this.aGauge3.ScaleLinesMajorColor = System.Drawing.Color.Black;
+            this.aGauge3.ScaleLinesMajorInnerRadius = 140;
+            this.aGauge3.ScaleLinesMajorOuterRadius = 150;
+            this.aGauge3.ScaleLinesMajorStepValue = 10F;
+            this.aGauge3.ScaleLinesMajorWidth = 2;
+            this.aGauge3.ScaleLinesMinorColor = System.Drawing.Color.Gray;
+            this.aGauge3.ScaleLinesMinorInnerRadius = 145;
+            this.aGauge3.ScaleLinesMinorNumOf = 9;
+            this.aGauge3.ScaleLinesMinorOuterRadius = 150;
+            this.aGauge3.ScaleLinesMinorWidth = 1;
+            this.aGauge3.ScaleNumbersColor = System.Drawing.Color.Black;
+            this.aGauge3.ScaleNumbersFormat = null;
+            this.aGauge3.ScaleNumbersRadius = 162;
+            this.aGauge3.ScaleNumbersRotation = 90;
+            this.aGauge3.ScaleNumbersStartScaleLine = 1;
+            this.aGauge3.ScaleNumbersStepScaleLines = 2;
+            this.aGauge3.Size = new System.Drawing.Size(94, 200);
+            this.aGauge3.TabIndex = 13;
+            this.aGauge3.Text = "aGauge3";
+            this.aGauge3.Value = 0F;
+            // 
+            // splitContainer1
+            // 
+            this.splitContainer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.splitContainer1.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
+            this.splitContainer1.Location = new System.Drawing.Point(0, 6);
+            this.splitContainer1.MinimumSize = new System.Drawing.Size(868, 500);
+            this.splitContainer1.Name = "splitContainer1";
+            this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainer1.Panel1
+            // 
+            this.splitContainer1.Panel1.BackColor = System.Drawing.SystemColors.Control;
+            this.splitContainer1.Panel1.Controls.Add(this.aGauge5);
+            this.splitContainer1.Panel1.Controls.Add(this.aGauge3);
+            // 
+            // splitContainer1.Panel2
+            // 
+            this.splitContainer1.Panel2.Controls.Add(this.zedGraphControl1);
+            this.splitContainer1.Size = new System.Drawing.Size(876, 555);
+            this.splitContainer1.SplitterDistance = 219;
+            this.splitContainer1.TabIndex = 15;
+            // 
+            // aGauge5
+            // 
+            this.aGauge5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.aGauge5.BaseArcColor = System.Drawing.Color.Gray;
+            this.aGauge5.BaseArcRadius = 150;
+            this.aGauge5.BaseArcStart = 35;
+            this.aGauge5.BaseArcSweep = -70;
+            this.aGauge5.BaseArcWidth = 2;
+            this.aGauge5.Cap_Idx = ((byte)(1));
+            this.aGauge5.CapColors = new System.Drawing.Color[] {
+        System.Drawing.Color.Black,
+        System.Drawing.Color.Black,
+        System.Drawing.Color.Black,
+        System.Drawing.Color.Black,
+        System.Drawing.Color.Black};
+            this.aGauge5.CapPosition = new System.Drawing.Point(10, 10);
+            this.aGauge5.CapsPosition = new System.Drawing.Point[] {
+        new System.Drawing.Point(10, 10),
+        new System.Drawing.Point(10, 10),
+        new System.Drawing.Point(10, 10),
+        new System.Drawing.Point(10, 10),
+        new System.Drawing.Point(10, 10)};
+            this.aGauge5.CapsText = new string[] {
+        "",
+        "",
+        "",
+        "",
+        ""};
+            this.aGauge5.CapText = "";
+            this.aGauge5.Center = new System.Drawing.Point(-80, 100);
+            this.aGauge5.Location = new System.Drawing.Point(777, 4);
+            this.aGauge5.MaxValue = 55F;
+            this.aGauge5.MinValue = -55F;
+            this.aGauge5.Name = "aGauge5";
+            this.aGauge5.NeedleColor1 = AGaugeApp.AGauge.NeedleColorEnum.Blue;
+            this.aGauge5.NeedleColor2 = System.Drawing.Color.DimGray;
+            this.aGauge5.NeedleRadius = 160;
+            this.aGauge5.NeedleType = 0;
+            this.aGauge5.NeedleWidth = 2;
+            this.aGauge5.Range_Idx = ((byte)(1));
+            this.aGauge5.RangeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.aGauge5.RangeEnabled = true;
+            this.aGauge5.RangeEndValue = 15F;
+            this.aGauge5.RangeInnerRadius = 140;
+            this.aGauge5.RangeOuterRadius = 150;
+            this.aGauge5.RangesColor = new System.Drawing.Color[] {
+        System.Drawing.Color.LightGreen,
+        System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128))))),
+        System.Drawing.SystemColors.Control,
+        System.Drawing.SystemColors.Control,
+        System.Drawing.SystemColors.Control};
+            this.aGauge5.RangesEnabled = new bool[] {
+        false,
+        true,
+        false,
+        false,
+        false};
+            this.aGauge5.RangesEndValue = new float[] {
+        300F,
+        15F,
+        0F,
+        0F,
+        0F};
+            this.aGauge5.RangesInnerRadius = new int[] {
+        70,
+        140,
+        70,
+        70,
+        70};
+            this.aGauge5.RangesOuterRadius = new int[] {
+        80,
+        150,
+        80,
+        80,
+        80};
+            this.aGauge5.RangesStartValue = new float[] {
+        -100F,
+        -15F,
+        0F,
+        0F,
+        0F};
+            this.aGauge5.RangeStartValue = -15F;
+            this.aGauge5.ScaleLinesInterColor = System.Drawing.Color.Red;
+            this.aGauge5.ScaleLinesInterInnerRadius = 145;
+            this.aGauge5.ScaleLinesInterOuterRadius = 150;
+            this.aGauge5.ScaleLinesInterWidth = 2;
+            this.aGauge5.ScaleLinesMajorColor = System.Drawing.Color.Black;
+            this.aGauge5.ScaleLinesMajorInnerRadius = 140;
+            this.aGauge5.ScaleLinesMajorOuterRadius = 150;
+            this.aGauge5.ScaleLinesMajorStepValue = 10F;
+            this.aGauge5.ScaleLinesMajorWidth = 2;
+            this.aGauge5.ScaleLinesMinorColor = System.Drawing.Color.Gray;
+            this.aGauge5.ScaleLinesMinorInnerRadius = 145;
+            this.aGauge5.ScaleLinesMinorNumOf = 9;
+            this.aGauge5.ScaleLinesMinorOuterRadius = 150;
+            this.aGauge5.ScaleLinesMinorWidth = 1;
+            this.aGauge5.ScaleNumbersColor = System.Drawing.Color.Black;
+            this.aGauge5.ScaleNumbersFormat = null;
+            this.aGauge5.ScaleNumbersRadius = 162;
+            this.aGauge5.ScaleNumbersRotation = 90;
+            this.aGauge5.ScaleNumbersStartScaleLine = 1;
+            this.aGauge5.ScaleNumbersStepScaleLines = 2;
+            this.aGauge5.Size = new System.Drawing.Size(96, 200);
+            this.aGauge5.TabIndex = 14;
+            this.aGauge5.Text = "aGauge5";
+            this.aGauge5.Value = 0F;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(865, 444);
+            this.ClientSize = new System.Drawing.Size(892, 416);
             this.Controls.Add(this.tabMain);
+            this.MinimumSize = new System.Drawing.Size(908, 455);
             this.Name = "Form1";
             this.Text = "Arduino Charting Tool";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
@@ -623,6 +868,10 @@
             this.groupBox1.PerformLayout();
             this.tabChart.ResumeLayout(false);
             this.tabText.ResumeLayout(false);
+            this.splitContainer1.Panel1.ResumeLayout(false);
+            this.splitContainer1.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
+            this.splitContainer1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -653,6 +902,9 @@
         private AGaugeApp.AGauge aGauge2;
         private AGaugeApp.AGauge aGauge1;
         private AGaugeApp.AGauge aGauge4;
+        private System.Windows.Forms.SplitContainer splitContainer1;
+        private AGaugeApp.AGauge aGauge3;
+        private AGaugeApp.AGauge aGauge5;
     }
 }
 

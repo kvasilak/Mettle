@@ -195,13 +195,13 @@ namespace Charter
             {
                 list.Add(li, e.Value);
 
-                aGauge1.Value = e.Value;
+                aGauge3.Value = e.Value-50;
             }
             else if (e.Name == "Right")
             {
                 list1.Add(ri, e.Value);
 
-                aGauge4.Value = e.Value-50;
+                aGauge5.Value = e.Value-50;
             }
 
             li++;
@@ -238,8 +238,10 @@ namespace Charter
         private void SetSize()
         {
             zedGraphControl1.Location = new Point(10, 10);
+
             // Leave a small margin around the outside of the control
-            zedGraphControl1.Size = new Size(ClientRectangle.Width - 40, ClientRectangle.Height - 40);
+            zedGraphControl1.Size = new Size(splitContainer1.Panel2.Width-10, (splitContainer1.Panel2.Height - splitContainer1.SplitterDistance)+40);
+            //zedGraphControl1.Size = new Size(ClientRectangle.Width - 40, ClientRectangle.Height - 40);
         }
 
         // Build the Chart
