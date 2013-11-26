@@ -94,10 +94,10 @@ namespace Charter
                     Properties.Settings.Default.BaudRate = UInt32.Parse(cboBaudRate.Text);
                     Properties.Settings.Default.Save();
 
-                    foreach (Control c in this.Controls)
-                    {
-                        c.Enabled = true; ;
-                    }
+                    //foreach (Control c in this.Controls)
+                    //{
+                    //    c.Enabled = true;
+                    //}
                 }
                 catch (Exception ex)
                 {
@@ -167,8 +167,8 @@ namespace Charter
                         //set the tag recieved event
                         EventTag t = new EventTag();
 
-                        t.Name = instr.Substring(start + 1, comma - (start + 1));
-                        t.Data = instr.Substring(comma + 1, end - (comma + 1));
+                        t.Name = instr.Substring(start + 1, comma - (start + 1)).Trim();
+                        t.Data = instr.Substring(comma + 1, end - (comma + 1)).Trim();
 
                         //textTags.AppendText(t.Name + "; " + t.Data + "\n");
 
@@ -202,6 +202,60 @@ namespace Charter
                 list1.Add(ri, e.Value);
 
                 aGauge5.Value = e.Value-50;
+            }
+            else if (e.Name == "This")
+            {
+                if (e.Data == "State1")
+                {
+                    rbState1.Checked = true;
+                }
+                else if (e.Data == "State2")
+                {
+                    rbState2.Checked = true;
+                }
+                else if (e.Data == "State3")
+                {
+                    rbState3.Checked = true;
+                }
+                else if (e.Data == "State4")
+                {
+                    rbState4.Checked = true;
+                }
+                else if (e.Data == "State5")
+                {
+                    rbState5.Checked = true;
+                }
+                else if (e.Data == "State6")
+                {
+                    rbState6.Checked = true;
+                }
+            }
+            else if (e.Name == "That")
+            {
+                if (e.Data == "State1")
+                {
+                    rbStateA.Checked = true;
+                }
+                else if (e.Data == "State2")
+                {
+                    rbStateB.Checked = true;
+                }
+                else if (e.Data == "State3")
+                {
+                    rbStateC.Checked = true;
+                }
+                else if (e.Data == "State4")
+                {
+                    rbStateD.Checked = true;
+                }
+                else if (e.Data == "State5")
+                {
+                    rbStateE.Checked = true;
+                }
+                else if (e.Data == "State6")
+                {
+                    rbStateF.Checked = true;
+                }
             }
 
             li++;
