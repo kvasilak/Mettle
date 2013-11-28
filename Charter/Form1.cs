@@ -70,6 +70,12 @@ namespace Charter
             // Size the control to fill the form with a margin
             SetSize();
 
+            TagEvent += new TagHandeler(stateButton1.Update);
+            TagEvent += new TagHandeler(stateButton2.Update);
+            TagEvent += new TagHandeler(stateButton3.Update);
+            TagEvent += new TagHandeler(stateButton4.Update);
+
+
         }
 
         private void btnOK_Click(object sender, EventArgs e)
@@ -203,60 +209,6 @@ namespace Charter
 
                 aGauge5.Value = e.Value-50;
             }
-            else if (e.Name == "This")
-            {
-                if (e.Data == "State1")
-                {
-                    rbState1.Checked = true;
-                }
-                else if (e.Data == "State2")
-                {
-                    rbState2.Checked = true;
-                }
-                else if (e.Data == "State3")
-                {
-                    rbState3.Checked = true;
-                }
-                else if (e.Data == "State4")
-                {
-                    rbState4.Checked = true;
-                }
-                else if (e.Data == "State5")
-                {
-                    rbState5.Checked = true;
-                }
-                else if (e.Data == "State6")
-                {
-                    rbState6.Checked = true;
-                }
-            }
-            else if (e.Name == "That")
-            {
-                if (e.Data == "State1")
-                {
-                    rbStateA.Checked = true;
-                }
-                else if (e.Data == "State2")
-                {
-                    rbStateB.Checked = true;
-                }
-                else if (e.Data == "State3")
-                {
-                    rbStateC.Checked = true;
-                }
-                else if (e.Data == "State4")
-                {
-                    rbStateD.Checked = true;
-                }
-                else if (e.Data == "State5")
-                {
-                    rbStateE.Checked = true;
-                }
-                else if (e.Data == "State6")
-                {
-                    rbStateF.Checked = true;
-                }
-            }
 
             li++;
             ri++;
@@ -331,6 +283,7 @@ namespace Charter
             zgc.AxisChange();
 
             TagEvent += new TagHandeler(UpdateGraph);
+            
         }
 
         //TODO, close the serial port in a seperate thread to prevent
@@ -354,5 +307,6 @@ namespace Charter
         {
             MessageBox.Show("Serial port error; " + e.ToString());
         }
+
     }
 }

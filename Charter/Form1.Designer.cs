@@ -48,6 +48,7 @@
             this.cboComPort = new System.Windows.Forms.ComboBox();
             this.tabChart = new System.Windows.Forms.TabPage();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.aGauge5 = new AGaugeApp.AGauge();
             this.aGauge3 = new AGaugeApp.AGauge();
             this.zedGraphControl1 = new ZedGraph.ZedGraphControl();
@@ -56,18 +57,10 @@
             this.aGauge2 = new AGaugeApp.AGauge();
             this.aGauge1 = new AGaugeApp.AGauge();
             this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
-            this.rbState1 = new System.Windows.Forms.RadioButton();
-            this.rbState2 = new System.Windows.Forms.RadioButton();
-            this.rbStateA = new System.Windows.Forms.RadioButton();
-            this.rbState3 = new System.Windows.Forms.RadioButton();
-            this.rbState4 = new System.Windows.Forms.RadioButton();
-            this.rbState5 = new System.Windows.Forms.RadioButton();
-            this.rbState6 = new System.Windows.Forms.RadioButton();
-            this.rbStateB = new System.Windows.Forms.RadioButton();
-            this.rbStateC = new System.Windows.Forms.RadioButton();
-            this.rbStateD = new System.Windows.Forms.RadioButton();
-            this.rbStateE = new System.Windows.Forms.RadioButton();
-            this.rbStateF = new System.Windows.Forms.RadioButton();
+            this.stateButton2 = new Charter.StateButton();
+            this.stateButton4 = new Charter.StateButton();
+            this.stateButton1 = new Charter.StateButton();
+            this.stateButton3 = new Charter.StateButton();
             this.tabMain.SuspendLayout();
             this.tabSetup.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -76,6 +69,7 @@
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.tabText.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -287,18 +281,7 @@
             // splitContainer1.Panel1
             // 
             this.splitContainer1.Panel1.BackColor = System.Drawing.SystemColors.Control;
-            this.splitContainer1.Panel1.Controls.Add(this.rbStateF);
-            this.splitContainer1.Panel1.Controls.Add(this.rbStateE);
-            this.splitContainer1.Panel1.Controls.Add(this.rbStateD);
-            this.splitContainer1.Panel1.Controls.Add(this.rbStateC);
-            this.splitContainer1.Panel1.Controls.Add(this.rbStateB);
-            this.splitContainer1.Panel1.Controls.Add(this.rbState6);
-            this.splitContainer1.Panel1.Controls.Add(this.rbState5);
-            this.splitContainer1.Panel1.Controls.Add(this.rbState4);
-            this.splitContainer1.Panel1.Controls.Add(this.rbState3);
-            this.splitContainer1.Panel1.Controls.Add(this.rbStateA);
-            this.splitContainer1.Panel1.Controls.Add(this.rbState2);
-            this.splitContainer1.Panel1.Controls.Add(this.rbState1);
+            this.splitContainer1.Panel1.Controls.Add(this.panel1);
             this.splitContainer1.Panel1.Controls.Add(this.aGauge5);
             this.splitContainer1.Panel1.Controls.Add(this.aGauge3);
             // 
@@ -308,6 +291,18 @@
             this.splitContainer1.Size = new System.Drawing.Size(876, 555);
             this.splitContainer1.SplitterDistance = 219;
             this.splitContainer1.TabIndex = 15;
+            // 
+            // panel1
+            // 
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.stateButton2);
+            this.panel1.Controls.Add(this.stateButton4);
+            this.panel1.Controls.Add(this.stateButton1);
+            this.panel1.Controls.Add(this.stateButton3);
+            this.panel1.Location = new System.Drawing.Point(150, 19);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(192, 113);
+            this.panel1.TabIndex = 43;
             // 
             // aGauge5
             // 
@@ -873,149 +868,41 @@
             this.serialPort1.ErrorReceived += new System.IO.Ports.SerialErrorReceivedEventHandler(this.serialPort1_ErrorReceived);
             this.serialPort1.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.serialPort1_DataReceived);
             // 
-            // rbState1
+            // stateButton2
             // 
-            this.rbState1.Appearance = System.Windows.Forms.Appearance.Button;
-            this.rbState1.AutoSize = true;
-            this.rbState1.Location = new System.Drawing.Point(140, 17);
-            this.rbState1.Name = "rbState1";
-            this.rbState1.Size = new System.Drawing.Size(51, 23);
-            this.rbState1.TabIndex = 27;
-            this.rbState1.TabStop = true;
-            this.rbState1.Text = "State 1";
-            this.rbState1.UseVisualStyleBackColor = true;
+            this.stateButton2.Checked = false;
+            this.stateButton2.Location = new System.Drawing.Point(3, 70);
+            this.stateButton2.Name = "stateButton2";
+            this.stateButton2.Size = new System.Drawing.Size(75, 23);
+            this.stateButton2.TabIndex = 40;
+            this.stateButton2.Text = "State2";
             // 
-            // rbState2
+            // stateButton4
             // 
-            this.rbState2.Appearance = System.Windows.Forms.Appearance.Button;
-            this.rbState2.AutoSize = true;
-            this.rbState2.Location = new System.Drawing.Point(140, 46);
-            this.rbState2.Name = "rbState2";
-            this.rbState2.Size = new System.Drawing.Size(51, 23);
-            this.rbState2.TabIndex = 28;
-            this.rbState2.TabStop = true;
-            this.rbState2.Text = "State 2";
-            this.rbState2.UseVisualStyleBackColor = true;
+            this.stateButton4.Checked = false;
+            this.stateButton4.Location = new System.Drawing.Point(99, 70);
+            this.stateButton4.Name = "stateButton4";
+            this.stateButton4.Size = new System.Drawing.Size(75, 23);
+            this.stateButton4.TabIndex = 42;
+            this.stateButton4.Text = "State4";
             // 
-            // rbStateA
+            // stateButton1
             // 
-            this.rbStateA.Appearance = System.Windows.Forms.Appearance.Button;
-            this.rbStateA.AutoSize = true;
-            this.rbStateA.Location = new System.Drawing.Point(682, 17);
-            this.rbStateA.Name = "rbStateA";
-            this.rbStateA.Size = new System.Drawing.Size(52, 23);
-            this.rbStateA.TabIndex = 29;
-            this.rbStateA.TabStop = true;
-            this.rbStateA.Text = "State A";
-            this.rbStateA.UseVisualStyleBackColor = true;
+            this.stateButton1.Checked = false;
+            this.stateButton1.Location = new System.Drawing.Point(22, 12);
+            this.stateButton1.Name = "stateButton1";
+            this.stateButton1.Size = new System.Drawing.Size(75, 23);
+            this.stateButton1.TabIndex = 39;
+            this.stateButton1.Text = "State1";
             // 
-            // rbState3
+            // stateButton3
             // 
-            this.rbState3.Appearance = System.Windows.Forms.Appearance.Button;
-            this.rbState3.AutoSize = true;
-            this.rbState3.Location = new System.Drawing.Point(140, 75);
-            this.rbState3.Name = "rbState3";
-            this.rbState3.Size = new System.Drawing.Size(51, 23);
-            this.rbState3.TabIndex = 30;
-            this.rbState3.TabStop = true;
-            this.rbState3.Text = "State 3";
-            this.rbState3.UseVisualStyleBackColor = true;
-            // 
-            // rbState4
-            // 
-            this.rbState4.Appearance = System.Windows.Forms.Appearance.Button;
-            this.rbState4.AutoSize = true;
-            this.rbState4.Location = new System.Drawing.Point(140, 104);
-            this.rbState4.Name = "rbState4";
-            this.rbState4.Size = new System.Drawing.Size(51, 23);
-            this.rbState4.TabIndex = 31;
-            this.rbState4.TabStop = true;
-            this.rbState4.Text = "State 4";
-            this.rbState4.UseVisualStyleBackColor = true;
-            // 
-            // rbState5
-            // 
-            this.rbState5.Appearance = System.Windows.Forms.Appearance.Button;
-            this.rbState5.AutoSize = true;
-            this.rbState5.Location = new System.Drawing.Point(140, 133);
-            this.rbState5.Name = "rbState5";
-            this.rbState5.Size = new System.Drawing.Size(51, 23);
-            this.rbState5.TabIndex = 32;
-            this.rbState5.TabStop = true;
-            this.rbState5.Text = "State 5";
-            this.rbState5.UseVisualStyleBackColor = true;
-            // 
-            // rbState6
-            // 
-            this.rbState6.Appearance = System.Windows.Forms.Appearance.Button;
-            this.rbState6.AutoSize = true;
-            this.rbState6.Location = new System.Drawing.Point(140, 162);
-            this.rbState6.Name = "rbState6";
-            this.rbState6.Size = new System.Drawing.Size(51, 23);
-            this.rbState6.TabIndex = 33;
-            this.rbState6.TabStop = true;
-            this.rbState6.Text = "State 6";
-            this.rbState6.UseVisualStyleBackColor = true;
-            // 
-            // rbStateB
-            // 
-            this.rbStateB.Appearance = System.Windows.Forms.Appearance.Button;
-            this.rbStateB.AutoSize = true;
-            this.rbStateB.Location = new System.Drawing.Point(682, 46);
-            this.rbStateB.Name = "rbStateB";
-            this.rbStateB.Size = new System.Drawing.Size(52, 23);
-            this.rbStateB.TabIndex = 34;
-            this.rbStateB.TabStop = true;
-            this.rbStateB.Text = "State B";
-            this.rbStateB.UseVisualStyleBackColor = true;
-            // 
-            // rbStateC
-            // 
-            this.rbStateC.Appearance = System.Windows.Forms.Appearance.Button;
-            this.rbStateC.AutoSize = true;
-            this.rbStateC.Location = new System.Drawing.Point(682, 75);
-            this.rbStateC.Name = "rbStateC";
-            this.rbStateC.Size = new System.Drawing.Size(52, 23);
-            this.rbStateC.TabIndex = 35;
-            this.rbStateC.TabStop = true;
-            this.rbStateC.Text = "State C";
-            this.rbStateC.UseVisualStyleBackColor = true;
-            // 
-            // rbStateD
-            // 
-            this.rbStateD.Appearance = System.Windows.Forms.Appearance.Button;
-            this.rbStateD.AutoSize = true;
-            this.rbStateD.Location = new System.Drawing.Point(682, 104);
-            this.rbStateD.Name = "rbStateD";
-            this.rbStateD.Size = new System.Drawing.Size(53, 23);
-            this.rbStateD.TabIndex = 36;
-            this.rbStateD.TabStop = true;
-            this.rbStateD.Text = "State D";
-            this.rbStateD.UseVisualStyleBackColor = true;
-            // 
-            // rbStateE
-            // 
-            this.rbStateE.Appearance = System.Windows.Forms.Appearance.Button;
-            this.rbStateE.AutoSize = true;
-            this.rbStateE.Location = new System.Drawing.Point(682, 133);
-            this.rbStateE.Name = "rbStateE";
-            this.rbStateE.Size = new System.Drawing.Size(52, 23);
-            this.rbStateE.TabIndex = 37;
-            this.rbStateE.TabStop = true;
-            this.rbStateE.Text = "State E";
-            this.rbStateE.UseVisualStyleBackColor = true;
-            // 
-            // rbStateF
-            // 
-            this.rbStateF.Appearance = System.Windows.Forms.Appearance.Button;
-            this.rbStateF.AutoSize = true;
-            this.rbStateF.Location = new System.Drawing.Point(682, 162);
-            this.rbStateF.Name = "rbStateF";
-            this.rbStateF.Size = new System.Drawing.Size(51, 23);
-            this.rbStateF.TabIndex = 38;
-            this.rbStateF.TabStop = true;
-            this.rbStateF.Text = "State F";
-            this.rbStateF.UseVisualStyleBackColor = true;
+            this.stateButton3.Checked = false;
+            this.stateButton3.Location = new System.Drawing.Point(55, 41);
+            this.stateButton3.Name = "stateButton3";
+            this.stateButton3.Size = new System.Drawing.Size(75, 23);
+            this.stateButton3.TabIndex = 41;
+            this.stateButton3.Text = "State3";
             // 
             // Form1
             // 
@@ -1036,10 +923,10 @@
             this.groupBox1.PerformLayout();
             this.tabChart.ResumeLayout(false);
             this.splitContainer1.Panel1.ResumeLayout(false);
-            this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
             this.tabText.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -1074,18 +961,11 @@
         private System.Windows.Forms.SplitContainer splitContainer1;
         private AGaugeApp.AGauge aGauge3;
         private AGaugeApp.AGauge aGauge5;
-        private System.Windows.Forms.RadioButton rbStateF;
-        private System.Windows.Forms.RadioButton rbStateE;
-        private System.Windows.Forms.RadioButton rbStateD;
-        private System.Windows.Forms.RadioButton rbStateC;
-        private System.Windows.Forms.RadioButton rbStateB;
-        private System.Windows.Forms.RadioButton rbState6;
-        private System.Windows.Forms.RadioButton rbState5;
-        private System.Windows.Forms.RadioButton rbState4;
-        private System.Windows.Forms.RadioButton rbState3;
-        private System.Windows.Forms.RadioButton rbStateA;
-        private System.Windows.Forms.RadioButton rbState2;
-        private System.Windows.Forms.RadioButton rbState1;
+        private StateButton stateButton1;
+        private System.Windows.Forms.Panel panel1;
+        private StateButton stateButton2;
+        private StateButton stateButton4;
+        private StateButton stateButton3;
     }
 }
 

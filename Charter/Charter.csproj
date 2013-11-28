@@ -74,6 +74,12 @@
     <Compile Include="Serial.Designer.cs">
       <DependentUpon>Serial.cs</DependentUpon>
     </Compile>
+    <Compile Include="StateButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="StateButton.Designer.cs">
+      <DependentUpon>StateButton.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -88,6 +94,9 @@
     </Compile>
     <EmbeddedResource Include="Serial.resx">
       <DependentUpon>Serial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StateButton.resx">
+      <DependentUpon>StateButton.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config" />
     <None Include="Properties\Settings.settings">
