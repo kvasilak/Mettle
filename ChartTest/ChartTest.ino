@@ -5,12 +5,27 @@ int c=66;
 uint32_t thistime;
 int Statethis;
 
+uint32_t LED1time;
+uint32_t LED2time;
+uint32_t LED3time;
+
+int LED1;
+int LED2;
+int LED3;
+
 void setup() {
   Serial.begin(9600);
 
   Serial.println("*******Chart test V1.0*********");
 
   thistime = millis();
+  LED1time = millis();
+  LED2time = millis();
+  LED3time = millis();
+  
+  LED1 = 1;
+  LED2 = 2;
+  LED3 = 3;
   
   Statethis = 1;
 }
@@ -105,5 +120,36 @@ void loop()
       thistime = millis();
     }
     break;
+  }
+  
+  
+  if(IsTimedOut(1000, LED1time))
+  {
+    Serial.print(">LED1,");
+    Serial.print(LED1);
+    Serial.println("<");
+    LED1time = millis();
+    
+    LED1 = LED1?0:1;
+  }
+  
+    if(IsTimedOut(1000, LED2time))
+  {
+    Serial.print(">LED2,");
+    Serial.print(LED2);
+    Serial.println("<");
+    LED2time = millis();
+    
+    LED2 = LED2?0:1;
+  }
+  
+    if(IsTimedOut(1000, LED3time))
+  {
+    Serial.print(">LED3,");
+    Serial.print(LED3);
+    Serial.println("<");
+    LED3time = millis();
+    
+    LED3 = LED3?0:1;
   }
 }

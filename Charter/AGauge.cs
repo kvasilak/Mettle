@@ -27,7 +27,7 @@ using System.Drawing.Drawing2D;
 using System.Diagnostics;
 
 
-namespace AGaugeApp
+namespace Charter
 {
     [ToolboxBitmapAttribute(typeof(AGauge), "AGauge.bmp"), 
     DefaultEvent("ValueInRangeChanged"), 
@@ -122,6 +122,9 @@ namespace AGaugeApp
         public delegate void ValueInRangeChangedDelegate(Object sender, ValueInRangeChangedEventArgs e);
         [Description("This event is raised if the value falls into a defined range.")]
         public event ValueInRangeChangedDelegate ValueInRangeChanged;
+
+
+
 #endregion
 
 #region hidden , overridden inherited properties
@@ -205,6 +208,20 @@ namespace AGaugeApp
                 base.BackgroundImageLayout = value;
                 drawGaugeBackground = true;
                 Refresh();
+            }
+        }
+
+        /// <summary>
+        /// This event gets called when a tag has been recieved
+        /// if the name of the tag is the same as the components tag, set the value
+        /// </summary>
+        /// <param name="f"></param>
+        /// <param name="e"></param>
+        public void UpdateEvent(EventTag e)
+        {
+            if (e.Name == base.Tag.ToString())
+            {
+                Value = e.Value;
             }
         }
         #endregion

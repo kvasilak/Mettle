@@ -9,9 +9,9 @@ using System.Windows.Forms;
 
 namespace Charter
 {
-    public partial class StateButton : Control
+    public partial class IOState : Control
     {
-        public StateButton()
+        public IOState()
         {
             InitializeComponent();
         }
@@ -20,16 +20,11 @@ namespace Charter
         {
             if (e.Name == base.Tag.ToString())
             {
-                if (e.Data == base.Text)
+                if (e.Value == 1)
                     Checked = true;
                 else
                     Checked = false;
             }
-
-        }
-
-        private void StateButton_Load(object sender, EventArgs e)
-        {
 
         }
 
@@ -64,17 +59,6 @@ namespace Charter
             }
         }
 
-        protected override void OnMouseDown(MouseEventArgs e)
-        {
-            if(e.Button == MouseButtons.Left)
-                Checked = true;
-        }
-
-        protected override void OnMouseUp(MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left)
-                Checked = false;
-        }
 
         protected override void OnPaint(PaintEventArgs e)
         {
@@ -88,20 +72,20 @@ namespace Charter
 
             Color fill;
             if (Checked)
-                fill = Color.Blue;
+                fill = base.ForeColor; //Color.Blue;
             else
-                fill = Color.LightGray;
+                fill = base.BackColor; // Color.LightGray;
 
             gfx.FillEllipse(new SolidBrush(fill), rc);
 
             gfx.DrawEllipse(new Pen(Color.Blue, 1.0f), rc);
 
-            Font fnt = new Font("Verdana", (float)rc.Height * 0.5f, FontStyle.Bold, GraphicsUnit.Pixel);
+            Font fnt = new Font("Verdana", (float)rc.Height * 0.4f, FontStyle.Bold, GraphicsUnit.Pixel);
 
-            StringFormat sf = new StringFormat();
-            sf.Alignment = StringAlignment.Center;
-            sf.LineAlignment = StringAlignment.Center;
-            gfx.DrawString(Text, fnt, new SolidBrush(Color.Black), new RectangleF((float)rc.Left, (float)rc.Top, (float)rc.Width, (float)rc.Height), sf);
+            //StringFormat sf = new StringFormat();
+            //sf.Alignment = StringAlignment.Center;
+            //sf.LineAlignment = StringAlignment.Center;
+            //gfx.DrawString(Text, fnt, new SolidBrush(Color.Black), new RectangleF((float)rc.Left, (float)rc.Top, (float)rc.Width, (float)rc.Height), sf);
 
         }
 
@@ -109,5 +93,6 @@ namespace Charter
         {
             base.OnPaintBackground(pevent);
         }
+
     }
 }

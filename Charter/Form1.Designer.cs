@@ -47,28 +47,24 @@
             this.cboBaudRate = new System.Windows.Forms.ComboBox();
             this.cboComPort = new System.Windows.Forms.ComboBox();
             this.tabChart = new System.Windows.Forms.TabPage();
-            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.ioState3 = new Charter.IOState();
+            this.ioState2 = new Charter.IOState();
+            this.aGauge3 = new Charter.AGauge();
+            this.ioState1 = new Charter.IOState();
+            this.aGauge5 = new Charter.AGauge();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.aGauge5 = new AGaugeApp.AGauge();
-            this.aGauge3 = new AGaugeApp.AGauge();
-            this.zedGraphControl1 = new ZedGraph.ZedGraphControl();
-            this.tabText = new System.Windows.Forms.TabPage();
-            this.aGauge4 = new AGaugeApp.AGauge();
-            this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
             this.stateButton2 = new Charter.StateButton();
             this.stateButton4 = new Charter.StateButton();
             this.stateButton1 = new Charter.StateButton();
             this.stateButton3 = new Charter.StateButton();
+            this.tabText = new System.Windows.Forms.TabPage();
+            this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
+            this.aGauge4 = new Charter.AGauge();
             this.tabMain.SuspendLayout();
             this.tabSetup.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tabChart.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
-            this.splitContainer1.Panel1.SuspendLayout();
-            this.splitContainer1.Panel2.SuspendLayout();
-            this.splitContainer1.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.tabText.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabMain
@@ -82,7 +78,7 @@
             this.tabMain.Location = new System.Drawing.Point(0, -1);
             this.tabMain.Name = "tabMain";
             this.tabMain.SelectedIndex = 0;
-            this.tabMain.Size = new System.Drawing.Size(892, 418);
+            this.tabMain.Size = new System.Drawing.Size(990, 552);
             this.tabMain.TabIndex = 0;
             // 
             // tabSetup
@@ -97,7 +93,7 @@
             this.tabSetup.Controls.Add(this.cboComPort);
             this.tabSetup.Location = new System.Drawing.Point(4, 22);
             this.tabSetup.Name = "tabSetup";
-            this.tabSetup.Size = new System.Drawing.Size(884, 392);
+            this.tabSetup.Size = new System.Drawing.Size(982, 526);
             this.tabSetup.TabIndex = 2;
             this.tabSetup.Text = "Setup";
             this.tabSetup.UseVisualStyleBackColor = true;
@@ -255,52 +251,155 @@
             // 
             // tabChart
             // 
-            this.tabChart.Controls.Add(this.splitContainer1);
+            this.tabChart.BackColor = System.Drawing.SystemColors.Control;
+            this.tabChart.Controls.Add(this.ioState3);
+            this.tabChart.Controls.Add(this.ioState2);
+            this.tabChart.Controls.Add(this.aGauge3);
+            this.tabChart.Controls.Add(this.ioState1);
+            this.tabChart.Controls.Add(this.aGauge5);
+            this.tabChart.Controls.Add(this.panel1);
             this.tabChart.Location = new System.Drawing.Point(4, 22);
             this.tabChart.Name = "tabChart";
             this.tabChart.Padding = new System.Windows.Forms.Padding(3);
-            this.tabChart.Size = new System.Drawing.Size(884, 392);
+            this.tabChart.Size = new System.Drawing.Size(982, 526);
             this.tabChart.TabIndex = 1;
             this.tabChart.Text = "Chart";
-            this.tabChart.UseVisualStyleBackColor = true;
-            this.tabChart.Click += new System.EventHandler(this.tabPage2_Click);
             // 
-            // splitContainer1
+            // ioState3
             // 
-            this.splitContainer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.splitContainer1.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
-            this.splitContainer1.Location = new System.Drawing.Point(0, 6);
-            this.splitContainer1.MinimumSize = new System.Drawing.Size(868, 500);
-            this.splitContainer1.Name = "splitContainer1";
-            this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            this.ioState3.Checked = false;
+            this.ioState3.ForeColor = System.Drawing.Color.Yellow;
+            this.ioState3.Location = new System.Drawing.Point(552, 16);
+            this.ioState3.Name = "ioState3";
+            this.ioState3.Size = new System.Drawing.Size(38, 24);
+            this.ioState3.TabIndex = 46;
+            this.ioState3.Tag = "LED3";
             // 
-            // splitContainer1.Panel1
+            // ioState2
             // 
-            this.splitContainer1.Panel1.BackColor = System.Drawing.SystemColors.Control;
-            this.splitContainer1.Panel1.Controls.Add(this.panel1);
-            this.splitContainer1.Panel1.Controls.Add(this.aGauge5);
-            this.splitContainer1.Panel1.Controls.Add(this.aGauge3);
+            this.ioState2.Checked = false;
+            this.ioState2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.ioState2.Location = new System.Drawing.Point(509, 16);
+            this.ioState2.Name = "ioState2";
+            this.ioState2.Size = new System.Drawing.Size(37, 24);
+            this.ioState2.TabIndex = 45;
+            this.ioState2.Tag = "LED2";
             // 
-            // splitContainer1.Panel2
+            // aGauge3
             // 
-            this.splitContainer1.Panel2.Controls.Add(this.zedGraphControl1);
-            this.splitContainer1.Size = new System.Drawing.Size(876, 555);
-            this.splitContainer1.SplitterDistance = 219;
-            this.splitContainer1.TabIndex = 15;
+            this.aGauge3.BaseArcColor = System.Drawing.Color.Gray;
+            this.aGauge3.BaseArcRadius = 150;
+            this.aGauge3.BaseArcStart = 145;
+            this.aGauge3.BaseArcSweep = 70;
+            this.aGauge3.BaseArcWidth = 2;
+            this.aGauge3.Cap_Idx = ((byte)(1));
+            this.aGauge3.CapColors = new System.Drawing.Color[] {
+        System.Drawing.Color.Black,
+        System.Drawing.Color.Black,
+        System.Drawing.Color.Black,
+        System.Drawing.Color.Black,
+        System.Drawing.Color.Black};
+            this.aGauge3.CapPosition = new System.Drawing.Point(10, 10);
+            this.aGauge3.CapsPosition = new System.Drawing.Point[] {
+        new System.Drawing.Point(10, 10),
+        new System.Drawing.Point(10, 10),
+        new System.Drawing.Point(10, 10),
+        new System.Drawing.Point(10, 10),
+        new System.Drawing.Point(10, 10)};
+            this.aGauge3.CapsText = new string[] {
+        "",
+        "",
+        "",
+        "",
+        ""};
+            this.aGauge3.CapText = "";
+            this.aGauge3.Center = new System.Drawing.Point(175, 100);
+            this.aGauge3.Location = new System.Drawing.Point(8, 6);
+            this.aGauge3.MaxValue = 100F;
+            this.aGauge3.MinValue = 0F;
+            this.aGauge3.Name = "aGauge3";
+            this.aGauge3.NeedleColor1 = Charter.AGauge.NeedleColorEnum.Red;
+            this.aGauge3.NeedleColor2 = System.Drawing.Color.DimGray;
+            this.aGauge3.NeedleRadius = 160;
+            this.aGauge3.NeedleType = 0;
+            this.aGauge3.NeedleWidth = 2;
+            this.aGauge3.Range_Idx = ((byte)(1));
+            this.aGauge3.RangeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.aGauge3.RangeEnabled = true;
+            this.aGauge3.RangeEndValue = 55F;
+            this.aGauge3.RangeInnerRadius = 140;
+            this.aGauge3.RangeOuterRadius = 150;
+            this.aGauge3.RangesColor = new System.Drawing.Color[] {
+        System.Drawing.Color.LightGreen,
+        System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128))))),
+        System.Drawing.SystemColors.Control,
+        System.Drawing.SystemColors.Control,
+        System.Drawing.SystemColors.Control};
+            this.aGauge3.RangesEnabled = new bool[] {
+        false,
+        true,
+        false,
+        false,
+        false};
+            this.aGauge3.RangesEndValue = new float[] {
+        300F,
+        55F,
+        0F,
+        0F,
+        0F};
+            this.aGauge3.RangesInnerRadius = new int[] {
+        70,
+        140,
+        70,
+        70,
+        70};
+            this.aGauge3.RangesOuterRadius = new int[] {
+        80,
+        150,
+        80,
+        80,
+        80};
+            this.aGauge3.RangesStartValue = new float[] {
+        -100F,
+        45F,
+        0F,
+        0F,
+        0F};
+            this.aGauge3.RangeStartValue = 45F;
+            this.aGauge3.ScaleLinesInterColor = System.Drawing.Color.Red;
+            this.aGauge3.ScaleLinesInterInnerRadius = 145;
+            this.aGauge3.ScaleLinesInterOuterRadius = 150;
+            this.aGauge3.ScaleLinesInterWidth = 2;
+            this.aGauge3.ScaleLinesMajorColor = System.Drawing.Color.Black;
+            this.aGauge3.ScaleLinesMajorInnerRadius = 140;
+            this.aGauge3.ScaleLinesMajorOuterRadius = 150;
+            this.aGauge3.ScaleLinesMajorStepValue = 10F;
+            this.aGauge3.ScaleLinesMajorWidth = 2;
+            this.aGauge3.ScaleLinesMinorColor = System.Drawing.Color.Gray;
+            this.aGauge3.ScaleLinesMinorInnerRadius = 145;
+            this.aGauge3.ScaleLinesMinorNumOf = 9;
+            this.aGauge3.ScaleLinesMinorOuterRadius = 150;
+            this.aGauge3.ScaleLinesMinorWidth = 1;
+            this.aGauge3.ScaleNumbersColor = System.Drawing.Color.Black;
+            this.aGauge3.ScaleNumbersFormat = null;
+            this.aGauge3.ScaleNumbersRadius = 162;
+            this.aGauge3.ScaleNumbersRotation = 90;
+            this.aGauge3.ScaleNumbersStartScaleLine = 1;
+            this.aGauge3.ScaleNumbersStepScaleLines = 2;
+            this.aGauge3.Size = new System.Drawing.Size(94, 200);
+            this.aGauge3.TabIndex = 13;
+            this.aGauge3.Tag = "Left";
+            this.aGauge3.Value = 0F;
             // 
-            // panel1
+            // ioState1
             // 
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel1.Controls.Add(this.stateButton2);
-            this.panel1.Controls.Add(this.stateButton4);
-            this.panel1.Controls.Add(this.stateButton1);
-            this.panel1.Controls.Add(this.stateButton3);
-            this.panel1.Location = new System.Drawing.Point(150, 19);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(192, 113);
-            this.panel1.TabIndex = 43;
+            this.ioState1.Checked = false;
+            this.ioState1.ForeColor = System.Drawing.Color.Red;
+            this.ioState1.Location = new System.Drawing.Point(469, 16);
+            this.ioState1.Name = "ioState1";
+            this.ioState1.Size = new System.Drawing.Size(34, 24);
+            this.ioState1.TabIndex = 44;
+            this.ioState1.Tag = "LED1";
             // 
             // aGauge5
             // 
@@ -332,11 +431,11 @@
         ""};
             this.aGauge5.CapText = "";
             this.aGauge5.Center = new System.Drawing.Point(-80, 100);
-            this.aGauge5.Location = new System.Drawing.Point(777, 4);
-            this.aGauge5.MaxValue = 55F;
-            this.aGauge5.MinValue = -55F;
+            this.aGauge5.Location = new System.Drawing.Point(880, 6);
+            this.aGauge5.MaxValue = 100F;
+            this.aGauge5.MinValue = 0F;
             this.aGauge5.Name = "aGauge5";
-            this.aGauge5.NeedleColor1 = AGaugeApp.AGauge.NeedleColorEnum.Blue;
+            this.aGauge5.NeedleColor1 = Charter.AGauge.NeedleColorEnum.Blue;
             this.aGauge5.NeedleColor2 = System.Drawing.Color.DimGray;
             this.aGauge5.NeedleRadius = 160;
             this.aGauge5.NeedleType = 0;
@@ -344,7 +443,7 @@
             this.aGauge5.Range_Idx = ((byte)(1));
             this.aGauge5.RangeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.aGauge5.RangeEnabled = true;
-            this.aGauge5.RangeEndValue = 15F;
+            this.aGauge5.RangeEndValue = 55F;
             this.aGauge5.RangeInnerRadius = 140;
             this.aGauge5.RangeOuterRadius = 150;
             this.aGauge5.RangesColor = new System.Drawing.Color[] {
@@ -361,7 +460,7 @@
         false};
             this.aGauge5.RangesEndValue = new float[] {
         300F,
-        15F,
+        55F,
         0F,
         0F,
         0F};
@@ -379,11 +478,11 @@
         80};
             this.aGauge5.RangesStartValue = new float[] {
         -100F,
-        -15F,
+        45F,
         0F,
         0F,
         0F};
-            this.aGauge5.RangeStartValue = -15F;
+            this.aGauge5.RangeStartValue = 45F;
             this.aGauge5.ScaleLinesInterColor = System.Drawing.Color.Red;
             this.aGauge5.ScaleLinesInterInnerRadius = 145;
             this.aGauge5.ScaleLinesInterOuterRadius = 150;
@@ -406,138 +505,75 @@
             this.aGauge5.ScaleNumbersStepScaleLines = 2;
             this.aGauge5.Size = new System.Drawing.Size(96, 200);
             this.aGauge5.TabIndex = 14;
-            this.aGauge5.Text = "aGauge5";
+            this.aGauge5.Tag = "Right";
             this.aGauge5.Value = 0F;
             // 
-            // aGauge3
+            // panel1
             // 
-            this.aGauge3.BaseArcColor = System.Drawing.Color.Gray;
-            this.aGauge3.BaseArcRadius = 150;
-            this.aGauge3.BaseArcStart = 145;
-            this.aGauge3.BaseArcSweep = 70;
-            this.aGauge3.BaseArcWidth = 2;
-            this.aGauge3.Cap_Idx = ((byte)(1));
-            this.aGauge3.CapColors = new System.Drawing.Color[] {
-        System.Drawing.Color.Black,
-        System.Drawing.Color.Black,
-        System.Drawing.Color.Black,
-        System.Drawing.Color.Black,
-        System.Drawing.Color.Black};
-            this.aGauge3.CapPosition = new System.Drawing.Point(10, 10);
-            this.aGauge3.CapsPosition = new System.Drawing.Point[] {
-        new System.Drawing.Point(10, 10),
-        new System.Drawing.Point(10, 10),
-        new System.Drawing.Point(10, 10),
-        new System.Drawing.Point(10, 10),
-        new System.Drawing.Point(10, 10)};
-            this.aGauge3.CapsText = new string[] {
-        "",
-        "",
-        "",
-        "",
-        ""};
-            this.aGauge3.CapText = "";
-            this.aGauge3.Center = new System.Drawing.Point(175, 100);
-            this.aGauge3.Location = new System.Drawing.Point(3, 3);
-            this.aGauge3.MaxValue = 55F;
-            this.aGauge3.MinValue = -55F;
-            this.aGauge3.Name = "aGauge3";
-            this.aGauge3.NeedleColor1 = AGaugeApp.AGauge.NeedleColorEnum.Red;
-            this.aGauge3.NeedleColor2 = System.Drawing.Color.DimGray;
-            this.aGauge3.NeedleRadius = 160;
-            this.aGauge3.NeedleType = 0;
-            this.aGauge3.NeedleWidth = 2;
-            this.aGauge3.Range_Idx = ((byte)(1));
-            this.aGauge3.RangeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.aGauge3.RangeEnabled = true;
-            this.aGauge3.RangeEndValue = 15F;
-            this.aGauge3.RangeInnerRadius = 140;
-            this.aGauge3.RangeOuterRadius = 150;
-            this.aGauge3.RangesColor = new System.Drawing.Color[] {
-        System.Drawing.Color.LightGreen,
-        System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128))))),
-        System.Drawing.SystemColors.Control,
-        System.Drawing.SystemColors.Control,
-        System.Drawing.SystemColors.Control};
-            this.aGauge3.RangesEnabled = new bool[] {
-        false,
-        true,
-        false,
-        false,
-        false};
-            this.aGauge3.RangesEndValue = new float[] {
-        300F,
-        15F,
-        0F,
-        0F,
-        0F};
-            this.aGauge3.RangesInnerRadius = new int[] {
-        70,
-        140,
-        70,
-        70,
-        70};
-            this.aGauge3.RangesOuterRadius = new int[] {
-        80,
-        150,
-        80,
-        80,
-        80};
-            this.aGauge3.RangesStartValue = new float[] {
-        -100F,
-        -15F,
-        0F,
-        0F,
-        0F};
-            this.aGauge3.RangeStartValue = -15F;
-            this.aGauge3.ScaleLinesInterColor = System.Drawing.Color.Red;
-            this.aGauge3.ScaleLinesInterInnerRadius = 145;
-            this.aGauge3.ScaleLinesInterOuterRadius = 150;
-            this.aGauge3.ScaleLinesInterWidth = 2;
-            this.aGauge3.ScaleLinesMajorColor = System.Drawing.Color.Black;
-            this.aGauge3.ScaleLinesMajorInnerRadius = 140;
-            this.aGauge3.ScaleLinesMajorOuterRadius = 150;
-            this.aGauge3.ScaleLinesMajorStepValue = 10F;
-            this.aGauge3.ScaleLinesMajorWidth = 2;
-            this.aGauge3.ScaleLinesMinorColor = System.Drawing.Color.Gray;
-            this.aGauge3.ScaleLinesMinorInnerRadius = 145;
-            this.aGauge3.ScaleLinesMinorNumOf = 9;
-            this.aGauge3.ScaleLinesMinorOuterRadius = 150;
-            this.aGauge3.ScaleLinesMinorWidth = 1;
-            this.aGauge3.ScaleNumbersColor = System.Drawing.Color.Black;
-            this.aGauge3.ScaleNumbersFormat = null;
-            this.aGauge3.ScaleNumbersRadius = 162;
-            this.aGauge3.ScaleNumbersRotation = 90;
-            this.aGauge3.ScaleNumbersStartScaleLine = 1;
-            this.aGauge3.ScaleNumbersStepScaleLines = 2;
-            this.aGauge3.Size = new System.Drawing.Size(94, 200);
-            this.aGauge3.TabIndex = 13;
-            this.aGauge3.Text = "aGauge3";
-            this.aGauge3.Value = 0F;
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.stateButton2);
+            this.panel1.Controls.Add(this.stateButton4);
+            this.panel1.Controls.Add(this.stateButton1);
+            this.panel1.Controls.Add(this.stateButton3);
+            this.panel1.Location = new System.Drawing.Point(149, 16);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(192, 113);
+            this.panel1.TabIndex = 43;
             // 
-            // zedGraphControl1
+            // stateButton2
             // 
-            this.zedGraphControl1.Location = new System.Drawing.Point(3, 3);
-            this.zedGraphControl1.Name = "zedGraphControl1";
-            this.zedGraphControl1.ScrollGrace = 0D;
-            this.zedGraphControl1.ScrollMaxX = 0D;
-            this.zedGraphControl1.ScrollMaxY = 0D;
-            this.zedGraphControl1.ScrollMaxY2 = 0D;
-            this.zedGraphControl1.ScrollMinX = 0D;
-            this.zedGraphControl1.ScrollMinY = 0D;
-            this.zedGraphControl1.ScrollMinY2 = 0D;
-            this.zedGraphControl1.Size = new System.Drawing.Size(870, 151);
-            this.zedGraphControl1.TabIndex = 12;
+            this.stateButton2.Checked = false;
+            this.stateButton2.Location = new System.Drawing.Point(3, 70);
+            this.stateButton2.Name = "stateButton2";
+            this.stateButton2.Size = new System.Drawing.Size(75, 23);
+            this.stateButton2.TabIndex = 40;
+            this.stateButton2.Tag = "This";
+            this.stateButton2.Text = "State2";
+            // 
+            // stateButton4
+            // 
+            this.stateButton4.Checked = false;
+            this.stateButton4.Location = new System.Drawing.Point(99, 70);
+            this.stateButton4.Name = "stateButton4";
+            this.stateButton4.Size = new System.Drawing.Size(72, 23);
+            this.stateButton4.TabIndex = 42;
+            this.stateButton4.Tag = "This";
+            this.stateButton4.Text = "State4";
+            // 
+            // stateButton1
+            // 
+            this.stateButton1.Checked = false;
+            this.stateButton1.Location = new System.Drawing.Point(22, 12);
+            this.stateButton1.Name = "stateButton1";
+            this.stateButton1.Size = new System.Drawing.Size(75, 23);
+            this.stateButton1.TabIndex = 39;
+            this.stateButton1.Tag = "This";
+            this.stateButton1.Text = "State1";
+            // 
+            // stateButton3
+            // 
+            this.stateButton3.Checked = false;
+            this.stateButton3.Location = new System.Drawing.Point(60, 41);
+            this.stateButton3.Name = "stateButton3";
+            this.stateButton3.Size = new System.Drawing.Size(75, 23);
+            this.stateButton3.TabIndex = 41;
+            this.stateButton3.Tag = "This";
+            this.stateButton3.Text = "State3";
             // 
             // tabText
             // 
             this.tabText.Location = new System.Drawing.Point(4, 22);
             this.tabText.Name = "tabText";
             this.tabText.Padding = new System.Windows.Forms.Padding(3);
-            this.tabText.Size = new System.Drawing.Size(884, 392);
+            this.tabText.Size = new System.Drawing.Size(982, 526);
             this.tabText.TabIndex = 0;
             this.tabText.Text = "Text";
             this.tabText.UseVisualStyleBackColor = true;
+            // 
+            // serialPort1
+            // 
+            this.serialPort1.ErrorReceived += new System.IO.Ports.SerialErrorReceivedEventHandler(this.serialPort1_ErrorReceived);
+            this.serialPort1.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.serialPort1_DataReceived);
             // 
             // aGauge4
             // 
@@ -572,7 +608,7 @@
             this.aGauge4.MaxValue = 55F;
             this.aGauge4.MinValue = -55F;
             this.aGauge4.Name = "aGauge4";
-            this.aGauge4.NeedleColor1 = AGaugeApp.AGauge.NeedleColorEnum.Blue;
+            this.aGauge4.NeedleColor1 = Charter.AGauge.NeedleColorEnum.Blue;
             this.aGauge4.NeedleColor2 = System.Drawing.Color.DimGray;
             this.aGauge4.NeedleRadius = 160;
             this.aGauge4.NeedleType = 0;
@@ -645,71 +681,24 @@
             this.aGauge4.Text = "aGauge4";
             this.aGauge4.Value = 0F;
             // 
-            // serialPort1
-            // 
-            this.serialPort1.ErrorReceived += new System.IO.Ports.SerialErrorReceivedEventHandler(this.serialPort1_ErrorReceived);
-            this.serialPort1.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.serialPort1_DataReceived);
-            // 
-            // stateButton2
-            // 
-            this.stateButton2.Checked = false;
-            this.stateButton2.Location = new System.Drawing.Point(3, 70);
-            this.stateButton2.Name = "stateButton2";
-            this.stateButton2.Size = new System.Drawing.Size(75, 23);
-            this.stateButton2.TabIndex = 40;
-            this.stateButton2.Text = "State2";
-            // 
-            // stateButton4
-            // 
-            this.stateButton4.Checked = false;
-            this.stateButton4.Location = new System.Drawing.Point(99, 70);
-            this.stateButton4.Name = "stateButton4";
-            this.stateButton4.Size = new System.Drawing.Size(75, 23);
-            this.stateButton4.TabIndex = 42;
-            this.stateButton4.Text = "State4";
-            // 
-            // stateButton1
-            // 
-            this.stateButton1.Checked = false;
-            this.stateButton1.Location = new System.Drawing.Point(22, 12);
-            this.stateButton1.Name = "stateButton1";
-            this.stateButton1.Size = new System.Drawing.Size(75, 23);
-            this.stateButton1.TabIndex = 39;
-            this.stateButton1.Text = "State1";
-            // 
-            // stateButton3
-            // 
-            this.stateButton3.Checked = false;
-            this.stateButton3.Location = new System.Drawing.Point(55, 41);
-            this.stateButton3.Name = "stateButton3";
-            this.stateButton3.Size = new System.Drawing.Size(75, 23);
-            this.stateButton3.TabIndex = 41;
-            this.stateButton3.Text = "State3";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(892, 416);
+            this.ClientSize = new System.Drawing.Size(990, 550);
             this.Controls.Add(this.tabMain);
             this.MinimumSize = new System.Drawing.Size(908, 455);
             this.Name = "Form1";
             this.Text = "Arduino Charting Tool";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.Resize += new System.EventHandler(this.Form1_Resize);
             this.tabMain.ResumeLayout(false);
             this.tabSetup.ResumeLayout(false);
             this.tabSetup.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.tabChart.ResumeLayout(false);
-            this.splitContainer1.Panel1.ResumeLayout(false);
-            this.splitContainer1.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
-            this.splitContainer1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
-            this.tabText.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -728,7 +717,6 @@
         private System.Windows.Forms.ComboBox cboComPort;
         private System.IO.Ports.SerialPort serialPort1;
         private System.Windows.Forms.TextBox txtData;
-        private ZedGraph.ZedGraphControl zedGraphControl1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
@@ -737,14 +725,16 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox textBox4;
-        private AGaugeApp.AGauge aGauge4;
-        private System.Windows.Forms.SplitContainer splitContainer1;
-        private AGaugeApp.AGauge aGauge3;
-        private AGaugeApp.AGauge aGauge5;
-        private StateButton stateButton1;
+        private AGauge aGauge4;
+        private IOState ioState3;
+        private IOState ioState2;
+        private AGauge aGauge3;
+        private IOState ioState1;
+        private AGauge aGauge5;
         private System.Windows.Forms.Panel panel1;
         private StateButton stateButton2;
         private StateButton stateButton4;
+        private StateButton stateButton1;
         private StateButton stateButton3;
     }
 }
