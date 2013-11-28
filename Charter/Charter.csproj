@@ -34,8 +34,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AGaugeApp">
-      <HintPath>..\..\..\AGauge\obj\Debug\AGaugeApp.exe</HintPath>
+    <Reference Include="AGaugeApp, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <ExecutableExtension>.exe</ExecutableExtension>
+      <HintPath>bin\Debug\AGaugeApp.exe</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
