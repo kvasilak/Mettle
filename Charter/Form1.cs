@@ -53,6 +53,10 @@ namespace Charter
             TagEvent += new TagHandeler(ioState1.UpdateEvent);
             TagEvent += new TagHandeler(ioState2.UpdateEvent);
             TagEvent += new TagHandeler(ioState3.UpdateEvent);
+            TagEvent += new TagHandeler(tagText1.UpdateEvent);
+            TagEvent += new TagHandeler(tagText2.UpdateEvent);
+            TagEvent += new TagHandeler(tagText3.UpdateEvent);
+            TagEvent += new TagHandeler(tagText4.UpdateEvent);
 
         }
 

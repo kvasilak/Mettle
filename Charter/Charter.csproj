@@ -80,6 +80,12 @@
     <Compile Include="StateButton.Designer.cs">
       <DependentUpon>StateButton.cs</DependentUpon>
     </Compile>
+    <Compile Include="TagText.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="TagText.Designer.cs">
+      <DependentUpon>TagText.cs</DependentUpon>
+    </Compile>
     <Compile Include="ZedGraph\ArrowObj.cs" />
     <Compile Include="ZedGraph\Axis.cs" />
     <Compile Include="ZedGraph\AxisLabel.cs" />

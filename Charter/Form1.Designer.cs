@@ -47,6 +47,9 @@
             this.cboBaudRate = new System.Windows.Forms.ComboBox();
             this.cboComPort = new System.Windows.Forms.ComboBox();
             this.tabChart = new System.Windows.Forms.TabPage();
+            this.tagText3 = new Charter.TagText();
+            this.tagText2 = new Charter.TagText();
+            this.tagText1 = new Charter.TagText();
             this.ioState3 = new Charter.IOState();
             this.ioState2 = new Charter.IOState();
             this.aGauge3 = new Charter.AGauge();
@@ -60,6 +63,7 @@
             this.tabText = new System.Windows.Forms.TabPage();
             this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
             this.aGauge4 = new Charter.AGauge();
+            this.tagText4 = new Charter.TagText();
             this.tabMain.SuspendLayout();
             this.tabSetup.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -252,6 +256,10 @@
             // tabChart
             // 
             this.tabChart.BackColor = System.Drawing.SystemColors.Control;
+            this.tabChart.Controls.Add(this.tagText4);
+            this.tabChart.Controls.Add(this.tagText3);
+            this.tabChart.Controls.Add(this.tagText2);
+            this.tabChart.Controls.Add(this.tagText1);
             this.tabChart.Controls.Add(this.ioState3);
             this.tabChart.Controls.Add(this.ioState2);
             this.tabChart.Controls.Add(this.aGauge3);
@@ -263,7 +271,44 @@
             this.tabChart.Padding = new System.Windows.Forms.Padding(3);
             this.tabChart.Size = new System.Drawing.Size(982, 526);
             this.tabChart.TabIndex = 1;
+            this.tabChart.Tag = "Right";
             this.tabChart.Text = "Chart";
+            // 
+            // tagText3
+            // 
+            this.tagText3.AcceptsReturn = true;
+            this.tagText3.AcceptsTab = true;
+            this.tagText3.Location = new System.Drawing.Point(152, 135);
+            this.tagText3.Multiline = true;
+            this.tagText3.Name = "tagText3";
+            this.tagText3.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.tagText3.Size = new System.Drawing.Size(189, 153);
+            this.tagText3.TabIndex = 49;
+            this.tagText3.Tag = "This";
+            // 
+            // tagText2
+            // 
+            this.tagText2.AcceptsReturn = true;
+            this.tagText2.AcceptsTab = true;
+            this.tagText2.Location = new System.Drawing.Point(878, 212);
+            this.tagText2.Multiline = true;
+            this.tagText2.Name = "tagText2";
+            this.tagText2.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.tagText2.Size = new System.Drawing.Size(96, 153);
+            this.tagText2.TabIndex = 48;
+            this.tagText2.Tag = "Right";
+            // 
+            // tagText1
+            // 
+            this.tagText1.AcceptsReturn = true;
+            this.tagText1.AcceptsTab = true;
+            this.tagText1.Location = new System.Drawing.Point(6, 212);
+            this.tagText1.Multiline = true;
+            this.tagText1.Name = "tagText1";
+            this.tagText1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.tagText1.Size = new System.Drawing.Size(96, 153);
+            this.tagText1.TabIndex = 47;
+            this.tagText1.Tag = "Left";
             // 
             // ioState3
             // 
@@ -681,6 +726,18 @@
             this.aGauge4.Text = "aGauge4";
             this.aGauge4.Value = 0F;
             // 
+            // tagText4
+            // 
+            this.tagText4.AcceptsReturn = true;
+            this.tagText4.AcceptsTab = true;
+            this.tagText4.Location = new System.Drawing.Point(469, 68);
+            this.tagText4.Multiline = true;
+            this.tagText4.Name = "tagText4";
+            this.tagText4.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.tagText4.Size = new System.Drawing.Size(189, 220);
+            this.tagText4.TabIndex = 50;
+            this.tagText4.Tag = "*";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -698,6 +755,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.tabChart.ResumeLayout(false);
+            this.tabChart.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -736,6 +794,10 @@
         private StateButton stateButton4;
         private StateButton stateButton1;
         private StateButton stateButton3;
+        private TagText tagText2;
+        private TagText tagText1;
+        private TagText tagText3;
+        private TagText tagText4;
     }
 }
 
