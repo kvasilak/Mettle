@@ -102,10 +102,11 @@ void loop()
  
  if(digitalRead(2) != pushbutton)
  {
+   //pressed is low
    pushbutton = digitalRead(2);
    
    Serial.print(">PushButton,");
-   Serial.print(pushbutton);
+   Serial.print(!pushbutton);
    Serial.println("<");
    
  }

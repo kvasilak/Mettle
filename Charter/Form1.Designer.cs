@@ -33,6 +33,7 @@
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.tabMain = new System.Windows.Forms.TabControl();
             this.tabSetup = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -291,7 +292,8 @@
             // 
             // tagChart1
             // 
-            this.tagChart1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
+            this.tagChart1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             chartArea1.AxisX.MajorGrid.Interval = 10D;
             chartArea1.AxisX.Maximum = 500D;
@@ -304,27 +306,38 @@
             legend1.Enabled = false;
             legend1.Name = "Legend1";
             this.tagChart1.Legends.Add(legend1);
-            this.tagChart1.Location = new System.Drawing.Point(108, 294);
+            this.tagChart1.Location = new System.Drawing.Point(0, 294);
             this.tagChart1.Name = "tagChart1";
+            this.tagChart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Bright;
             series1.ChartArea = "XAxis";
             series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
+            series1.CustomProperties = "index=0";
             series1.IsVisibleInLegend = false;
             series1.Legend = "Legend1";
-            series1.Name = "Series1";
+            series1.Name = "XAxis";
+            series1.ShadowColor = System.Drawing.Color.Black;
             series2.ChartArea = "XAxis";
             series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
+            series2.CustomProperties = "index=0";
             series2.Legend = "Legend1";
-            series2.Name = "Series2";
+            series2.Name = "YAxis";
+            series3.ChartArea = "XAxis";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
+            series3.CustomProperties = "index=0";
+            series3.Legend = "Legend1";
+            series3.Name = "ZAxis";
             this.tagChart1.Series.Add(series1);
             this.tagChart1.Series.Add(series2);
-            this.tagChart1.Size = new System.Drawing.Size(738, 248);
+            this.tagChart1.Series.Add(series3);
+            this.tagChart1.Size = new System.Drawing.Size(979, 248);
             this.tagChart1.TabIndex = 53;
-            this.tagChart1.Tag = "XAxis";
+            this.tagChart1.Tag = "";
             this.tagChart1.Text = "tagChart1";
+            this.tagChart1.TextAntiAliasingQuality = System.Windows.Forms.DataVisualization.Charting.TextAntiAliasingQuality.SystemDefault;
             // 
             // tagText5
             // 
-            this.tagText5.Location = new System.Drawing.Point(186, 135);
+            this.tagText5.Location = new System.Drawing.Point(241, 135);
             this.tagText5.Name = "tagText5";
             this.tagText5.Size = new System.Drawing.Size(100, 20);
             this.tagText5.TabIndex = 52;
@@ -334,7 +347,7 @@
             // 
             this.tagText4.AcceptsReturn = true;
             this.tagText4.AcceptsTab = true;
-            this.tagText4.Location = new System.Drawing.Point(469, 68);
+            this.tagText4.Location = new System.Drawing.Point(588, 59);
             this.tagText4.Multiline = true;
             this.tagText4.Name = "tagText4";
             this.tagText4.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -346,7 +359,7 @@
             // 
             this.tagText3.AcceptsReturn = true;
             this.tagText3.AcceptsTab = true;
-            this.tagText3.Location = new System.Drawing.Point(152, 161);
+            this.tagText3.Location = new System.Drawing.Point(207, 161);
             this.tagText3.Multiline = true;
             this.tagText3.Name = "tagText3";
             this.tagText3.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -358,11 +371,11 @@
             // 
             this.tagText2.AcceptsReturn = true;
             this.tagText2.AcceptsTab = true;
-            this.tagText2.Location = new System.Drawing.Point(878, 212);
+            this.tagText2.Location = new System.Drawing.Point(800, 30);
             this.tagText2.Multiline = true;
             this.tagText2.Name = "tagText2";
             this.tagText2.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.tagText2.Size = new System.Drawing.Size(96, 153);
+            this.tagText2.Size = new System.Drawing.Size(74, 153);
             this.tagText2.TabIndex = 48;
             this.tagText2.Tag = "Right";
             // 
@@ -370,11 +383,11 @@
             // 
             this.tagText1.AcceptsReturn = true;
             this.tagText1.AcceptsTab = true;
-            this.tagText1.Location = new System.Drawing.Point(6, 228);
+            this.tagText1.Location = new System.Drawing.Point(108, 30);
             this.tagText1.Multiline = true;
             this.tagText1.Name = "tagText1";
             this.tagText1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.tagText1.Size = new System.Drawing.Size(96, 153);
+            this.tagText1.Size = new System.Drawing.Size(72, 153);
             this.tagText1.TabIndex = 47;
             this.tagText1.Tag = "Left";
             // 
@@ -509,7 +522,7 @@
             // 
             this.ioState1.Checked = false;
             this.ioState1.ForeColor = System.Drawing.Color.Red;
-            this.ioState1.Location = new System.Drawing.Point(390, 16);
+            this.ioState1.Location = new System.Drawing.Point(469, 16);
             this.ioState1.Name = "ioState1";
             this.ioState1.Size = new System.Drawing.Size(34, 24);
             this.ioState1.TabIndex = 44;
@@ -629,7 +642,7 @@
             this.panel1.Controls.Add(this.stateButton4);
             this.panel1.Controls.Add(this.stateButton1);
             this.panel1.Controls.Add(this.stateButton3);
-            this.panel1.Location = new System.Drawing.Point(149, 16);
+            this.panel1.Location = new System.Drawing.Point(204, 16);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(192, 113);
             this.panel1.TabIndex = 43;
