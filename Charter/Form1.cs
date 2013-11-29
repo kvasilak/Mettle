@@ -9,20 +9,19 @@ using System.Windows.Forms;
 
 using System.IO.Ports;
 using System.Collections;
-using ZedGraph;
 using System.Diagnostics;
-
+using System.Threading;
 
 namespace Charter
 {
+    using GraphLib;
 
     public partial class Form1 : Form
     {
         string RxString;
- 
-        public event TagHandeler TagEvent;
-        public delegate void TagHandeler(/*Form1 f,*/ EventTag e);
 
+        public event TagHandeler TagEvent;
+        public delegate void TagHandeler(EventTag e);
  
         public Form1()
         {
@@ -44,6 +43,13 @@ namespace Charter
 
             cboBaudRate.SelectedIndex = 1;
 
+
+            //foreach (Control c in this.Controls)
+            //{
+            //    c.Enabled = true;
+           // }
+
+
             TagEvent += new TagHandeler(aGauge3.UpdateEvent);
             TagEvent += new TagHandeler(aGauge5.UpdateEvent);
             TagEvent += new TagHandeler(stateButton1.UpdateEvent);
@@ -57,8 +63,12 @@ namespace Charter
             TagEvent += new TagHandeler(tagText2.UpdateEvent);
             TagEvent += new TagHandeler(tagText3.UpdateEvent);
             TagEvent += new TagHandeler(tagText4.UpdateEvent);
+            TagEvent += new TagHandeler(tagText5.UpdateEvent);
+            TagEvent += new TagHandeler(tagChart1.UpdateEvent);
 
         }
+
+
 
         private void btnOK_Click(object sender, EventArgs e)
         {
@@ -82,10 +92,6 @@ namespace Charter
                     Properties.Settings.Default.BaudRate = UInt32.Parse(cboBaudRate.Text);
                     Properties.Settings.Default.Save();
 
-                    //foreach (Control c in this.Controls)
-                    //{
-                    //    c.Enabled = true;
-                    //}
                 }
                 catch (Exception ex)
                 {
@@ -114,8 +120,6 @@ namespace Charter
 
         private void HandleMesage(object sender, EventArgs e)
         {
-            //int a=0;
-            //int b = 0;
             int position = 0;
 
             do //may have multiple tags per line
@@ -124,11 +128,8 @@ namespace Charter
             }
             while ((position >0) && (position < RxString.Length));
 
-
             txtData.AppendText(RxString);
             txtData.AppendText("\n");
-
-
         }
         
         private int ParseTags(string instr, int offset)
@@ -143,7 +144,7 @@ namespace Charter
 
             if(start >= 0)//May be first character
             {
-                end = instr.IndexOf("<", offset + start + 1);
+                end = instr.IndexOf("<", /*offset +*/ start + 1);
 
                 if (end > 0)
                 {
@@ -176,6 +177,7 @@ namespace Charter
 
         private void btnClose_Click(object sender, EventArgs e)
         {
+            //this.Invoke(new MethodInvoker(SafeSerialClose));
             SafeSerialClose();
         }
 
@@ -184,22 +186,34 @@ namespace Charter
         //A GUI deadlock
         private void SafeSerialClose()
         {
-            if (serialPort1.IsOpen)
+            Thread myThread = new System.Threading.Thread(delegate()
             {
-                
-                serialPort1.Close();
+                //Your code here
 
-            }
+                if (serialPort1.IsOpen)
+                {
+                    serialPort1.Close();
+                }
+            });
+            myThread.Start();
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             SafeSerialClose();
+
+            //Wait for serialPort1 port To actually close
+            Thread.Sleep(200);
         }
 
         private void serialPort1_ErrorReceived(object sender, SerialErrorReceivedEventArgs e)
         {
             MessageBox.Show("Serial port error; " + e.ToString());
+        }
+
+        private void aGauge3_ValueInRangeChanged(object sender, AGauge.ValueInRangeChangedEventArgs e)
+        {
+
         }
 
     }

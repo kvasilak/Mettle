@@ -29,6 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.tabMain = new System.Windows.Forms.TabControl();
             this.tabSetup = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -47,6 +51,9 @@
             this.cboBaudRate = new System.Windows.Forms.ComboBox();
             this.cboComPort = new System.Windows.Forms.ComboBox();
             this.tabChart = new System.Windows.Forms.TabPage();
+            this.tagChart1 = new Charter.TagChart();
+            this.tagText5 = new Charter.TagText();
+            this.tagText4 = new Charter.TagText();
             this.tagText3 = new Charter.TagText();
             this.tagText2 = new Charter.TagText();
             this.tagText1 = new Charter.TagText();
@@ -61,14 +68,20 @@
             this.stateButton1 = new Charter.StateButton();
             this.stateButton3 = new Charter.StateButton();
             this.tabText = new System.Windows.Forms.TabPage();
+            this.plotterDisplayEx1 = new GraphLib.PlotterDisplayEx();
             this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
             this.aGauge4 = new Charter.AGauge();
-            this.tagText4 = new Charter.TagText();
+            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.chart2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.tabMain.SuspendLayout();
             this.tabSetup.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tabChart.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tagChart1)).BeginInit();
             this.panel1.SuspendLayout();
+            this.tabText.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart2)).BeginInit();
             this.SuspendLayout();
             // 
             // tabMain
@@ -82,7 +95,7 @@
             this.tabMain.Location = new System.Drawing.Point(0, -1);
             this.tabMain.Name = "tabMain";
             this.tabMain.SelectedIndex = 0;
-            this.tabMain.Size = new System.Drawing.Size(990, 552);
+            this.tabMain.Size = new System.Drawing.Size(990, 571);
             this.tabMain.TabIndex = 0;
             // 
             // tabSetup
@@ -97,7 +110,7 @@
             this.tabSetup.Controls.Add(this.cboComPort);
             this.tabSetup.Location = new System.Drawing.Point(4, 22);
             this.tabSetup.Name = "tabSetup";
-            this.tabSetup.Size = new System.Drawing.Size(982, 526);
+            this.tabSetup.Size = new System.Drawing.Size(982, 545);
             this.tabSetup.TabIndex = 2;
             this.tabSetup.Text = "Setup";
             this.tabSetup.UseVisualStyleBackColor = true;
@@ -256,6 +269,8 @@
             // tabChart
             // 
             this.tabChart.BackColor = System.Drawing.SystemColors.Control;
+            this.tabChart.Controls.Add(this.tagChart1);
+            this.tabChart.Controls.Add(this.tagText5);
             this.tabChart.Controls.Add(this.tagText4);
             this.tabChart.Controls.Add(this.tagText3);
             this.tabChart.Controls.Add(this.tagText2);
@@ -269,20 +284,73 @@
             this.tabChart.Location = new System.Drawing.Point(4, 22);
             this.tabChart.Name = "tabChart";
             this.tabChart.Padding = new System.Windows.Forms.Padding(3);
-            this.tabChart.Size = new System.Drawing.Size(982, 526);
+            this.tabChart.Size = new System.Drawing.Size(982, 545);
             this.tabChart.TabIndex = 1;
             this.tabChart.Tag = "Right";
             this.tabChart.Text = "Chart";
+            // 
+            // tagChart1
+            // 
+            this.tagChart1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            chartArea1.AxisX.MajorGrid.Interval = 10D;
+            chartArea1.AxisX.Maximum = 500D;
+            chartArea1.AxisX.Minimum = 0D;
+            chartArea1.AxisX.MinorGrid.Interval = 1D;
+            chartArea1.AxisY.Maximum = 1024D;
+            chartArea1.AxisY.Minimum = 0D;
+            chartArea1.Name = "XAxis";
+            this.tagChart1.ChartAreas.Add(chartArea1);
+            legend1.Enabled = false;
+            legend1.Name = "Legend1";
+            this.tagChart1.Legends.Add(legend1);
+            this.tagChart1.Location = new System.Drawing.Point(108, 294);
+            this.tagChart1.Name = "tagChart1";
+            series1.ChartArea = "XAxis";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
+            series1.IsVisibleInLegend = false;
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            series2.ChartArea = "XAxis";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
+            series2.Legend = "Legend1";
+            series2.Name = "Series2";
+            this.tagChart1.Series.Add(series1);
+            this.tagChart1.Series.Add(series2);
+            this.tagChart1.Size = new System.Drawing.Size(738, 248);
+            this.tagChart1.TabIndex = 53;
+            this.tagChart1.Tag = "XAxis";
+            this.tagChart1.Text = "tagChart1";
+            // 
+            // tagText5
+            // 
+            this.tagText5.Location = new System.Drawing.Point(186, 135);
+            this.tagText5.Name = "tagText5";
+            this.tagText5.Size = new System.Drawing.Size(100, 20);
+            this.tagText5.TabIndex = 52;
+            this.tagText5.Tag = "This";
+            // 
+            // tagText4
+            // 
+            this.tagText4.AcceptsReturn = true;
+            this.tagText4.AcceptsTab = true;
+            this.tagText4.Location = new System.Drawing.Point(469, 68);
+            this.tagText4.Multiline = true;
+            this.tagText4.Name = "tagText4";
+            this.tagText4.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.tagText4.Size = new System.Drawing.Size(189, 220);
+            this.tagText4.TabIndex = 50;
+            this.tagText4.Tag = "*";
             // 
             // tagText3
             // 
             this.tagText3.AcceptsReturn = true;
             this.tagText3.AcceptsTab = true;
-            this.tagText3.Location = new System.Drawing.Point(152, 135);
+            this.tagText3.Location = new System.Drawing.Point(152, 161);
             this.tagText3.Multiline = true;
             this.tagText3.Name = "tagText3";
             this.tagText3.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.tagText3.Size = new System.Drawing.Size(189, 153);
+            this.tagText3.Size = new System.Drawing.Size(189, 127);
             this.tagText3.TabIndex = 49;
             this.tagText3.Tag = "This";
             // 
@@ -302,7 +370,7 @@
             // 
             this.tagText1.AcceptsReturn = true;
             this.tagText1.AcceptsTab = true;
-            this.tagText1.Location = new System.Drawing.Point(6, 212);
+            this.tagText1.Location = new System.Drawing.Point(6, 228);
             this.tagText1.Multiline = true;
             this.tagText1.Name = "tagText1";
             this.tagText1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -358,9 +426,9 @@
         "",
         ""};
             this.aGauge3.CapText = "";
-            this.aGauge3.Center = new System.Drawing.Point(175, 100);
+            this.aGauge3.Center = new System.Drawing.Point(175, 110);
             this.aGauge3.Location = new System.Drawing.Point(8, 6);
-            this.aGauge3.MaxValue = 100F;
+            this.aGauge3.MaxValue = 1024F;
             this.aGauge3.MinValue = 0F;
             this.aGauge3.Name = "aGauge3";
             this.aGauge3.NeedleColor1 = Charter.AGauge.NeedleColorEnum.Red;
@@ -418,7 +486,7 @@
             this.aGauge3.ScaleLinesMajorColor = System.Drawing.Color.Black;
             this.aGauge3.ScaleLinesMajorInnerRadius = 140;
             this.aGauge3.ScaleLinesMajorOuterRadius = 150;
-            this.aGauge3.ScaleLinesMajorStepValue = 10F;
+            this.aGauge3.ScaleLinesMajorStepValue = 128F;
             this.aGauge3.ScaleLinesMajorWidth = 2;
             this.aGauge3.ScaleLinesMinorColor = System.Drawing.Color.Gray;
             this.aGauge3.ScaleLinesMinorInnerRadius = 145;
@@ -431,20 +499,21 @@
             this.aGauge3.ScaleNumbersRotation = 90;
             this.aGauge3.ScaleNumbersStartScaleLine = 1;
             this.aGauge3.ScaleNumbersStepScaleLines = 2;
-            this.aGauge3.Size = new System.Drawing.Size(94, 200);
+            this.aGauge3.Size = new System.Drawing.Size(94, 221);
             this.aGauge3.TabIndex = 13;
-            this.aGauge3.Tag = "Left";
+            this.aGauge3.Tag = "XAxis";
             this.aGauge3.Value = 0F;
+            this.aGauge3.ValueInRangeChanged += new Charter.AGauge.ValueInRangeChangedDelegate(this.aGauge3_ValueInRangeChanged);
             // 
             // ioState1
             // 
             this.ioState1.Checked = false;
             this.ioState1.ForeColor = System.Drawing.Color.Red;
-            this.ioState1.Location = new System.Drawing.Point(469, 16);
+            this.ioState1.Location = new System.Drawing.Point(390, 16);
             this.ioState1.Name = "ioState1";
             this.ioState1.Size = new System.Drawing.Size(34, 24);
             this.ioState1.TabIndex = 44;
-            this.ioState1.Tag = "LED1";
+            this.ioState1.Tag = "PushButton";
             // 
             // aGauge5
             // 
@@ -475,9 +544,9 @@
         "",
         ""};
             this.aGauge5.CapText = "";
-            this.aGauge5.Center = new System.Drawing.Point(-80, 100);
+            this.aGauge5.Center = new System.Drawing.Point(-80, 110);
             this.aGauge5.Location = new System.Drawing.Point(880, 6);
-            this.aGauge5.MaxValue = 100F;
+            this.aGauge5.MaxValue = 1024F;
             this.aGauge5.MinValue = 0F;
             this.aGauge5.Name = "aGauge5";
             this.aGauge5.NeedleColor1 = Charter.AGauge.NeedleColorEnum.Blue;
@@ -535,7 +604,7 @@
             this.aGauge5.ScaleLinesMajorColor = System.Drawing.Color.Black;
             this.aGauge5.ScaleLinesMajorInnerRadius = 140;
             this.aGauge5.ScaleLinesMajorOuterRadius = 150;
-            this.aGauge5.ScaleLinesMajorStepValue = 10F;
+            this.aGauge5.ScaleLinesMajorStepValue = 128F;
             this.aGauge5.ScaleLinesMajorWidth = 2;
             this.aGauge5.ScaleLinesMinorColor = System.Drawing.Color.Gray;
             this.aGauge5.ScaleLinesMinorInnerRadius = 145;
@@ -550,7 +619,7 @@
             this.aGauge5.ScaleNumbersStepScaleLines = 2;
             this.aGauge5.Size = new System.Drawing.Size(96, 200);
             this.aGauge5.TabIndex = 14;
-            this.aGauge5.Tag = "Right";
+            this.aGauge5.Tag = "YAxis";
             this.aGauge5.Value = 0F;
             // 
             // panel1
@@ -607,13 +676,30 @@
             // 
             // tabText
             // 
+            this.tabText.Controls.Add(this.plotterDisplayEx1);
             this.tabText.Location = new System.Drawing.Point(4, 22);
             this.tabText.Name = "tabText";
             this.tabText.Padding = new System.Windows.Forms.Padding(3);
-            this.tabText.Size = new System.Drawing.Size(982, 526);
+            this.tabText.Size = new System.Drawing.Size(982, 545);
             this.tabText.TabIndex = 0;
             this.tabText.Text = "Text";
             this.tabText.UseVisualStyleBackColor = true;
+            // 
+            // plotterDisplayEx1
+            // 
+            this.plotterDisplayEx1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.plotterDisplayEx1.BackColor = System.Drawing.Color.Transparent;
+            this.plotterDisplayEx1.BackgroundColorBot = System.Drawing.Color.White;
+            this.plotterDisplayEx1.BackgroundColorTop = System.Drawing.Color.White;
+            this.plotterDisplayEx1.DashedGridColor = System.Drawing.Color.DarkGray;
+            this.plotterDisplayEx1.DoubleBuffering = false;
+            this.plotterDisplayEx1.Location = new System.Drawing.Point(346, 156);
+            this.plotterDisplayEx1.Name = "plotterDisplayEx1";
+            this.plotterDisplayEx1.PlaySpeed = 0.5F;
+            this.plotterDisplayEx1.Size = new System.Drawing.Size(290, 232);
+            this.plotterDisplayEx1.SolidGridColor = System.Drawing.Color.DarkGray;
+            this.plotterDisplayEx1.TabIndex = 52;
             // 
             // serialPort1
             // 
@@ -726,23 +812,25 @@
             this.aGauge4.Text = "aGauge4";
             this.aGauge4.Value = 0F;
             // 
-            // tagText4
+            // chart1
             // 
-            this.tagText4.AcceptsReturn = true;
-            this.tagText4.AcceptsTab = true;
-            this.tagText4.Location = new System.Drawing.Point(469, 68);
-            this.tagText4.Multiline = true;
-            this.tagText4.Name = "tagText4";
-            this.tagText4.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.tagText4.Size = new System.Drawing.Size(189, 220);
-            this.tagText4.TabIndex = 50;
-            this.tagText4.Tag = "*";
+            this.chart1.Location = new System.Drawing.Point(0, 0);
+            this.chart1.Name = "chart1";
+            this.chart1.Size = new System.Drawing.Size(300, 300);
+            this.chart1.TabIndex = 0;
+            // 
+            // chart2
+            // 
+            this.chart2.Location = new System.Drawing.Point(0, 0);
+            this.chart2.Name = "chart2";
+            this.chart2.Size = new System.Drawing.Size(300, 300);
+            this.chart2.TabIndex = 0;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(990, 550);
+            this.ClientSize = new System.Drawing.Size(990, 569);
             this.Controls.Add(this.tabMain);
             this.MinimumSize = new System.Drawing.Size(908, 455);
             this.Name = "Form1";
@@ -756,7 +844,11 @@
             this.groupBox1.PerformLayout();
             this.tabChart.ResumeLayout(false);
             this.tabChart.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tagChart1)).EndInit();
             this.panel1.ResumeLayout(false);
+            this.tabText.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -798,6 +890,11 @@
         private TagText tagText1;
         private TagText tagText3;
         private TagText tagText4;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart2;
+        private TagText tagText5;
+        private TagChart tagChart1;
+        private GraphLib.PlotterDisplayEx plotterDisplayEx1;
     }
 }
 

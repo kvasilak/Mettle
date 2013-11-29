@@ -13,6 +13,8 @@ int LED1;
 int LED2;
 int LED3;
 
+bool pushbutton;
+
 void setup() {
   Serial.begin(9600);
 
@@ -28,6 +30,10 @@ void setup() {
   LED3 = 3;
   
   Statethis = 1;
+  
+  pinMode(2, INPUT_PULLUP);
+  //get the first read done
+  pushbutton = digitalRead(2);
 }
 
 //return true if it's been period ms since start
@@ -64,12 +70,16 @@ void loop()
  
  Serial.println("more lines n stuff");
  
- Serial.print(">LAvg,");
- Serial.print(c);
+ Serial.print(">XAxis,");
+ Serial.print(analogRead(0));
  Serial.print("< ");
  
- Serial.print(">RAvg,");
- Serial.print("state_bob");
+ Serial.print(">YAxis,");
+ Serial.print(analogRead(1));
+ Serial.print("< ");
+ 
+ Serial.print(">ZAxis,");
+ Serial.print(analogRead(2));
  Serial.println("<");
  
  Serial.println("Last Line dontcha know");
@@ -89,6 +99,16 @@ void loop()
  Serial.print(">Tag4.6,");
  Serial.print("state_off");
  Serial.println("<");
+ 
+ if(digitalRead(2) != pushbutton)
+ {
+   pushbutton = digitalRead(2);
+   
+   Serial.print(">PushButton,");
+   Serial.print(pushbutton);
+   Serial.println("<");
+   
+ }
   
   switch(Statethis)
   {
@@ -133,7 +153,7 @@ void loop()
     LED1 = LED1?0:1;
   }
   
-    if(IsTimedOut(1000, LED2time))
+    if(IsTimedOut(2000, LED2time))
   {
     Serial.print(">LED2,");
     Serial.print(LED2);
@@ -143,7 +163,7 @@ void loop()
     LED2 = LED2?0:1;
   }
   
-    if(IsTimedOut(1000, LED3time))
+    if(IsTimedOut(1500, LED3time))
   {
     Serial.print(">LED3,");
     Serial.print(LED3);

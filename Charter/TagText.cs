@@ -20,16 +20,30 @@ namespace Charter
         {
             if (e.Name == base.Tag.ToString())
             {
-                AppendText( e.Data + "\r\n");
+                if (base.Multiline)
+                {
+                    AppendText(e.Data + "\r\n");
 
-                ScrollToCaret();
+                    ScrollToCaret();
+                }
+                else
+                {
+                    base.Text = e.Data;
+                }
             }
 
             if (base.Tag.ToString() == "*")
             {
-                AppendText(e.Name + "\t\t" + e.Data + "\r\n");
+                if (base.Multiline)
+                {
+                    AppendText(e.Name + "\t\t" + e.Data + "\r\n");
 
-                ScrollToCaret();
+                    ScrollToCaret();
+                }
+                else
+                {
+                    Text = e.Name + "\t\t" + e.Data + "\r\n";
+                }
             }
         }
     }
