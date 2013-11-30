@@ -76,7 +76,7 @@ void loop()
  
  Serial.print(">YAxis,");
  Serial.print(analogRead(1));
- Serial.print("< ");
+ Serial.print("<");
  
  Serial.print(">ZAxis,");
  Serial.print(analogRead(2));

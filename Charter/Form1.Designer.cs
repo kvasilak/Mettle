@@ -29,21 +29,23 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.tabMain = new System.Windows.Forms.TabControl();
-            this.tabSetup = new System.Windows.Forms.TabPage();
-            this.txtData = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.btnClose = new System.Windows.Forms.Button();
-            this.btnOpen = new System.Windows.Forms.Button();
-            this.cboBaudRate = new System.Windows.Forms.ComboBox();
-            this.cboComPort = new System.Windows.Forms.ComboBox();
             this.tabChart = new System.Windows.Forms.TabPage();
+            this.tabText = new System.Windows.Forms.TabPage();
+            this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
+            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.chart2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.btnPlay = new System.Windows.Forms.ToolStripButton();
+            this.btnStop = new System.Windows.Forms.ToolStripButton();
+            this.btnTools = new System.Windows.Forms.ToolStripButton();
+            this.txtAllText = new System.Windows.Forms.TextBox();
             this.stateButton2 = new Charter.StateButton();
             this.tagChart1 = new Charter.TagChart();
             this.stateButton4 = new Charter.StateButton();
@@ -59,129 +61,26 @@
             this.aGauge3 = new Charter.AGauge();
             this.ioState1 = new Charter.IOState();
             this.aGauge5 = new Charter.AGauge();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.tabText = new System.Windows.Forms.TabPage();
-            this.plotterDisplayEx1 = new GraphLib.PlotterDisplayEx();
-            this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
-            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.chart2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.aGauge4 = new Charter.AGauge();
             this.tabMain.SuspendLayout();
-            this.tabSetup.SuspendLayout();
             this.tabChart.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tagChart1)).BeginInit();
             this.tabText.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart2)).BeginInit();
+            this.toolStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tagChart1)).BeginInit();
             this.SuspendLayout();
             // 
             // tabMain
             // 
-            this.tabMain.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.tabMain.Controls.Add(this.tabSetup);
+            this.tabMain.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tabMain.Controls.Add(this.tabChart);
             this.tabMain.Controls.Add(this.tabText);
-            this.tabMain.Location = new System.Drawing.Point(0, -1);
+            this.tabMain.Location = new System.Drawing.Point(0, 28);
             this.tabMain.Name = "tabMain";
             this.tabMain.SelectedIndex = 0;
-            this.tabMain.Size = new System.Drawing.Size(990, 571);
+            this.tabMain.Size = new System.Drawing.Size(990, 542);
             this.tabMain.TabIndex = 0;
-            // 
-            // tabSetup
-            // 
-            this.tabSetup.Controls.Add(this.txtData);
-            this.tabSetup.Controls.Add(this.label2);
-            this.tabSetup.Controls.Add(this.label1);
-            this.tabSetup.Controls.Add(this.btnClose);
-            this.tabSetup.Controls.Add(this.btnOpen);
-            this.tabSetup.Controls.Add(this.cboBaudRate);
-            this.tabSetup.Controls.Add(this.cboComPort);
-            this.tabSetup.Location = new System.Drawing.Point(4, 22);
-            this.tabSetup.Name = "tabSetup";
-            this.tabSetup.Size = new System.Drawing.Size(982, 545);
-            this.tabSetup.TabIndex = 2;
-            this.tabSetup.Text = "Setup";
-            this.tabSetup.UseVisualStyleBackColor = true;
-            // 
-            // txtData
-            // 
-            this.txtData.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtData.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtData.Location = new System.Drawing.Point(519, 2);
-            this.txtData.Multiline = true;
-            this.txtData.Name = "txtData";
-            this.txtData.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtData.Size = new System.Drawing.Size(334, 421);
-            this.txtData.TabIndex = 10;
-            this.txtData.WordWrap = false;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(193, 29);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(86, 13);
-            this.label2.TabIndex = 9;
-            this.label2.Text = "Select Baud rate";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(40, 29);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(85, 13);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "Select COM port";
-            // 
-            // btnClose
-            // 
-            this.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnClose.Location = new System.Drawing.Point(192, 99);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(75, 23);
-            this.btnClose.TabIndex = 7;
-            this.btnClose.Text = "Close";
-            this.btnClose.UseVisualStyleBackColor = true;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-            // 
-            // btnOpen
-            // 
-            this.btnOpen.Location = new System.Drawing.Point(43, 99);
-            this.btnOpen.Name = "btnOpen";
-            this.btnOpen.Size = new System.Drawing.Size(75, 23);
-            this.btnOpen.TabIndex = 6;
-            this.btnOpen.Text = "Open";
-            this.btnOpen.UseVisualStyleBackColor = true;
-            this.btnOpen.Click += new System.EventHandler(this.btnOK_Click);
-            // 
-            // cboBaudRate
-            // 
-            this.cboBaudRate.FormattingEnabled = true;
-            this.cboBaudRate.Items.AddRange(new object[] {
-            "2400",
-            "9600",
-            "14400",
-            "28800",
-            "56000",
-            "115200",
-            "128000",
-            "256000"});
-            this.cboBaudRate.Location = new System.Drawing.Point(174, 45);
-            this.cboBaudRate.Name = "cboBaudRate";
-            this.cboBaudRate.Size = new System.Drawing.Size(121, 21);
-            this.cboBaudRate.TabIndex = 5;
-            // 
-            // cboComPort
-            // 
-            this.cboComPort.FormattingEnabled = true;
-            this.cboComPort.Location = new System.Drawing.Point(23, 45);
-            this.cboComPort.Name = "cboComPort";
-            this.cboComPort.Size = new System.Drawing.Size(121, 21);
-            this.cboComPort.TabIndex = 4;
             // 
             // tabChart
             // 
@@ -201,14 +100,97 @@
             this.tabChart.Controls.Add(this.aGauge3);
             this.tabChart.Controls.Add(this.ioState1);
             this.tabChart.Controls.Add(this.aGauge5);
-            this.tabChart.Controls.Add(this.panel1);
             this.tabChart.Location = new System.Drawing.Point(4, 22);
             this.tabChart.Name = "tabChart";
             this.tabChart.Padding = new System.Windows.Forms.Padding(3);
-            this.tabChart.Size = new System.Drawing.Size(982, 545);
+            this.tabChart.Size = new System.Drawing.Size(982, 516);
             this.tabChart.TabIndex = 1;
             this.tabChart.Tag = "Right";
             this.tabChart.Text = "Chart";
+            // 
+            // tabText
+            // 
+            this.tabText.Controls.Add(this.txtAllText);
+            this.tabText.Location = new System.Drawing.Point(4, 22);
+            this.tabText.Name = "tabText";
+            this.tabText.Padding = new System.Windows.Forms.Padding(3);
+            this.tabText.Size = new System.Drawing.Size(982, 516);
+            this.tabText.TabIndex = 0;
+            this.tabText.Text = "Text";
+            this.tabText.UseVisualStyleBackColor = true;
+            // 
+            // serialPort1
+            // 
+            this.serialPort1.ErrorReceived += new System.IO.Ports.SerialErrorReceivedEventHandler(this.serialPort1_ErrorReceived);
+            this.serialPort1.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.serialPort1_DataReceived);
+            // 
+            // chart1
+            // 
+            this.chart1.Location = new System.Drawing.Point(0, 0);
+            this.chart1.Name = "chart1";
+            this.chart1.Size = new System.Drawing.Size(300, 300);
+            this.chart1.TabIndex = 0;
+            // 
+            // chart2
+            // 
+            this.chart2.Location = new System.Drawing.Point(0, 0);
+            this.chart2.Name = "chart2";
+            this.chart2.Size = new System.Drawing.Size(300, 300);
+            this.chart2.TabIndex = 0;
+            // 
+            // toolStrip1
+            // 
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btnPlay,
+            this.btnStop,
+            this.btnTools});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(990, 25);
+            this.toolStrip1.TabIndex = 1;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // btnPlay
+            // 
+            this.btnPlay.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnPlay.Image = ((System.Drawing.Image)(resources.GetObject("btnPlay.Image")));
+            this.btnPlay.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnPlay.Name = "btnPlay";
+            this.btnPlay.Size = new System.Drawing.Size(23, 22);
+            this.btnPlay.Text = "toolStripButton1";
+            this.btnPlay.ToolTipText = "Start !";
+            this.btnPlay.Click += new System.EventHandler(this.btnPlay_Click);
+            // 
+            // btnStop
+            // 
+            this.btnStop.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnStop.Image = ((System.Drawing.Image)(resources.GetObject("btnStop.Image")));
+            this.btnStop.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnStop.Name = "btnStop";
+            this.btnStop.Size = new System.Drawing.Size(23, 22);
+            this.btnStop.Text = "toolStripButton2";
+            this.btnStop.ToolTipText = "Stop!";
+            this.btnStop.Click += new System.EventHandler(this.btnStop_Click);
+            // 
+            // btnTools
+            // 
+            this.btnTools.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnTools.Image = ((System.Drawing.Image)(resources.GetObject("btnTools.Image")));
+            this.btnTools.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnTools.Name = "btnTools";
+            this.btnTools.Size = new System.Drawing.Size(23, 22);
+            this.btnTools.ToolTipText = "Setup";
+            this.btnTools.Click += new System.EventHandler(this.btnTools_Click);
+            // 
+            // txtAllText
+            // 
+            this.txtAllText.AcceptsReturn = true;
+            this.txtAllText.Location = new System.Drawing.Point(8, 6);
+            this.txtAllText.Multiline = true;
+            this.txtAllText.Name = "txtAllText";
+            this.txtAllText.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtAllText.Size = new System.Drawing.Size(322, 423);
+            this.txtAllText.TabIndex = 0;
             // 
             // stateButton2
             // 
@@ -260,7 +242,7 @@
             this.tagChart1.Series.Add(series1);
             this.tagChart1.Series.Add(series2);
             this.tagChart1.Series.Add(series3);
-            this.tagChart1.Size = new System.Drawing.Size(979, 274);
+            this.tagChart1.Size = new System.Drawing.Size(979, 245);
             this.tagChart1.TabIndex = 53;
             this.tagChart1.Tag = "";
             this.tagChart1.Text = "tagChart1";
@@ -288,7 +270,7 @@
             // 
             // tagText5
             // 
-            this.tagText5.Location = new System.Drawing.Point(402, 62);
+            this.tagText5.Location = new System.Drawing.Point(233, 6);
             this.tagText5.Name = "tagText5";
             this.tagText5.Size = new System.Drawing.Size(100, 20);
             this.tagText5.TabIndex = 52;
@@ -595,60 +577,6 @@
             this.aGauge5.Tag = "YAxis";
             this.aGauge5.Value = 0F;
             // 
-            // panel1
-            // 
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel1.Location = new System.Drawing.Point(402, 16);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(37, 27);
-            this.panel1.TabIndex = 43;
-            // 
-            // tabText
-            // 
-            this.tabText.Controls.Add(this.plotterDisplayEx1);
-            this.tabText.Location = new System.Drawing.Point(4, 22);
-            this.tabText.Name = "tabText";
-            this.tabText.Padding = new System.Windows.Forms.Padding(3);
-            this.tabText.Size = new System.Drawing.Size(982, 545);
-            this.tabText.TabIndex = 0;
-            this.tabText.Text = "Text";
-            this.tabText.UseVisualStyleBackColor = true;
-            // 
-            // plotterDisplayEx1
-            // 
-            this.plotterDisplayEx1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.plotterDisplayEx1.BackColor = System.Drawing.Color.Transparent;
-            this.plotterDisplayEx1.BackgroundColorBot = System.Drawing.Color.White;
-            this.plotterDisplayEx1.BackgroundColorTop = System.Drawing.Color.White;
-            this.plotterDisplayEx1.DashedGridColor = System.Drawing.Color.DarkGray;
-            this.plotterDisplayEx1.DoubleBuffering = false;
-            this.plotterDisplayEx1.Location = new System.Drawing.Point(346, 156);
-            this.plotterDisplayEx1.Name = "plotterDisplayEx1";
-            this.plotterDisplayEx1.PlaySpeed = 0.5F;
-            this.plotterDisplayEx1.Size = new System.Drawing.Size(290, 232);
-            this.plotterDisplayEx1.SolidGridColor = System.Drawing.Color.DarkGray;
-            this.plotterDisplayEx1.TabIndex = 52;
-            // 
-            // serialPort1
-            // 
-            this.serialPort1.ErrorReceived += new System.IO.Ports.SerialErrorReceivedEventHandler(this.serialPort1_ErrorReceived);
-            this.serialPort1.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.serialPort1_DataReceived);
-            // 
-            // chart1
-            // 
-            this.chart1.Location = new System.Drawing.Point(0, 0);
-            this.chart1.Name = "chart1";
-            this.chart1.Size = new System.Drawing.Size(300, 300);
-            this.chart1.TabIndex = 0;
-            // 
-            // chart2
-            // 
-            this.chart2.Location = new System.Drawing.Point(0, 0);
-            this.chart2.Name = "chart2";
-            this.chart2.Size = new System.Drawing.Size(300, 300);
-            this.chart2.TabIndex = 0;
-            // 
             // aGauge4
             // 
             this.aGauge4.BaseArcColor = System.Drawing.Color.Gray;
@@ -760,6 +688,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(990, 569);
+            this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.tabMain);
             this.MinimumSize = new System.Drawing.Size(908, 455);
             this.Name = "Form1";
@@ -767,15 +696,17 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.tabMain.ResumeLayout(false);
-            this.tabSetup.ResumeLayout(false);
-            this.tabSetup.PerformLayout();
             this.tabChart.ResumeLayout(false);
             this.tabChart.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tagChart1)).EndInit();
             this.tabText.ResumeLayout(false);
+            this.tabText.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart2)).EndInit();
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tagChart1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -784,22 +715,13 @@
         private System.Windows.Forms.TabControl tabMain;
         private System.Windows.Forms.TabPage tabText;
         private System.Windows.Forms.TabPage tabChart;
-        private System.Windows.Forms.TabPage tabSetup;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btnClose;
-        private System.Windows.Forms.Button btnOpen;
-        private System.Windows.Forms.ComboBox cboBaudRate;
-        private System.Windows.Forms.ComboBox cboComPort;
         private System.IO.Ports.SerialPort serialPort1;
-        private System.Windows.Forms.TextBox txtData;
         private AGauge aGauge4;
         private IOState ioState3;
         private IOState ioState2;
         private AGauge aGauge3;
         private IOState ioState1;
         private AGauge aGauge5;
-        private System.Windows.Forms.Panel panel1;
         private StateButton stateButton2;
         private StateButton stateButton4;
         private StateButton stateButton1;
@@ -812,7 +734,11 @@
         private System.Windows.Forms.DataVisualization.Charting.Chart chart2;
         private TagText tagText5;
         private TagChart tagChart1;
-        private GraphLib.PlotterDisplayEx plotterDisplayEx1;
+        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStripButton btnPlay;
+        private System.Windows.Forms.ToolStripButton btnStop;
+        private System.Windows.Forms.ToolStripButton btnTools;
+        private System.Windows.Forms.TextBox txtAllText;
     }
 }
 

@@ -14,8 +14,6 @@ using System.Threading;
 
 namespace Charter
 {
-    using GraphLib;
-
     public partial class Form1 : Form
     {
         string RxString;
@@ -32,24 +30,14 @@ namespace Charter
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            cboComPort.Items.Clear();
-
-            ArrayList items = new ArrayList();
-            items.AddRange(System.IO.Ports.SerialPort.GetPortNames());
-            items.Sort();
-            cboComPort.Items.AddRange(items.ToArray());
-
-            cboComPort.SelectedText = Properties.Settings.Default.COMport;
-
-            cboBaudRate.SelectedIndex = 1;
-
-
             foreach (Control c in tabMain.Controls)
             {
                 if (c.Name != "tabSetup")
                 {
                     foreach (Control d in c.Controls)
                     {
+                        //todo check for containers
+                        //we might be in one
                         if (d.GetType() == typeof(TagText))
                         {
                             TagEvent += new TagHandeler( ((TagText)d).UpdateEvent);
@@ -60,7 +48,7 @@ namespace Charter
                             TagEvent += new TagHandeler(((AGauge)d).UpdateEvent);
                         }
 
-                        if (d.GetType() == typeof(StateButton))
+                        if (d.GetType() == typeof(StateButton ))
                         {
                             TagEvent += new TagHandeler(((StateButton)d).UpdateEvent);
                         }
@@ -87,14 +75,18 @@ namespace Charter
 
         private void btnOK_Click(object sender, EventArgs e)
         {
+            OpenSerialPort();
+        }
+        private void OpenSerialPort()
+        {
             if (!serialPort1.IsOpen)
             {
                 try
                 {
                     //SerialPortFixer.Execute(cboComPort.Text);
-                    
-                    serialPort1.PortName = cboComPort.Text;
-                    serialPort1.BaudRate = int.Parse(cboBaudRate.Text);
+
+                    serialPort1.PortName = Properties.Settings.Default.COMport;
+                    serialPort1.BaudRate = int.Parse(Properties.Settings.Default.BaudRate.ToString());
                     serialPort1.DataBits = 8;
                     serialPort1.Parity = System.IO.Ports.Parity.None;
                     serialPort1.StopBits = System.IO.Ports.StopBits.One;
@@ -102,10 +94,6 @@ namespace Charter
                     serialPort1.Encoding = Encoding.GetEncoding(28591); //So I can read all 8 bits from the stupid serial port
                     serialPort1.Open();
                     serialPort1.DiscardInBuffer();
-
-                    Properties.Settings.Default.COMport = cboComPort.Text;
-                    Properties.Settings.Default.BaudRate = UInt32.Parse(cboBaudRate.Text);
-                    Properties.Settings.Default.Save();
 
                 }
                 catch (Exception ex)
@@ -137,14 +125,15 @@ namespace Charter
         {
             int position = 0;
 
+            txtAllText.AppendText(RxString);
+            txtAllText.AppendText("\n");
+
+
             do //may have multiple tags per line
             {
                 position = ParseTags(RxString, position);
             }
             while ((position >0) && (position < RxString.Length));
-
-            txtData.AppendText(RxString);
-            txtData.AppendText("\n");
         }
         
         private int ParseTags(string instr, int offset)
@@ -221,6 +210,26 @@ namespace Charter
         private void serialPort1_ErrorReceived(object sender, SerialErrorReceivedEventArgs e)
         {
             MessageBox.Show("Serial port error; " + e.ToString());
+        }
+
+        private void btnPlay_Click(object sender, EventArgs e)
+        {
+            OpenSerialPort();
+        }
+
+        private void btnStop_Click(object sender, EventArgs e)
+        {
+            SafeSerialClose();
+        }
+
+        private void btnTools_Click(object sender, EventArgs e)
+        {
+            dlgSerial SetupDialog = new dlgSerial();
+
+            SetupDialog.StartPosition = FormStartPosition.CenterParent;
+
+            SetupDialog.ShowDialog(this);
+
         }
 
     }
