@@ -158,7 +158,7 @@ namespace Charter
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Serial handeler; " + ex.Message, "Error!");
+                    //MessageBox.Show("Serial handeler; " + ex.Message, "Error!");
                     return;
                 }
             }
