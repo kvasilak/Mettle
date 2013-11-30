@@ -16,6 +16,10 @@
 //     misrepresented as being the original software.
 //  3. This notice may not be removed or altered from any source distribution.
 
+//This code has been renamed from AGauge to TagGauge to provide consistancy in the main program
+//Also an event handeler has been added to hook it into the Charter framework
+////Copyright (C) 2013  Keith Vasilakes
+
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
