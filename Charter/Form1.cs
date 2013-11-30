@@ -44,27 +44,42 @@ namespace Charter
             cboBaudRate.SelectedIndex = 1;
 
 
-            //foreach (Control c in this.Controls)
-            //{
-            //    c.Enabled = true;
-           // }
+            foreach (Control c in tabMain.Controls)
+            {
+                if (c.Name != "tabSetup")
+                {
+                    foreach (Control d in c.Controls)
+                    {
+                        if (d.GetType() == typeof(TagText))
+                        {
+                            TagEvent += new TagHandeler( ((TagText)d).UpdateEvent);
+                        }
+
+                        if (d.GetType() == typeof(AGauge))
+                        {
+                            TagEvent += new TagHandeler(((AGauge)d).UpdateEvent);
+                        }
+
+                        if (d.GetType() == typeof(StateButton))
+                        {
+                            TagEvent += new TagHandeler(((StateButton)d).UpdateEvent);
+                        }
 
 
-            TagEvent += new TagHandeler(aGauge3.UpdateEvent);
-            TagEvent += new TagHandeler(aGauge5.UpdateEvent);
-            TagEvent += new TagHandeler(stateButton1.UpdateEvent);
-            TagEvent += new TagHandeler(stateButton2.UpdateEvent);
-            TagEvent += new TagHandeler(stateButton3.UpdateEvent);
-            TagEvent += new TagHandeler(stateButton4.UpdateEvent);
-            TagEvent += new TagHandeler(ioState1.UpdateEvent);
-            TagEvent += new TagHandeler(ioState2.UpdateEvent);
-            TagEvent += new TagHandeler(ioState3.UpdateEvent);
-            TagEvent += new TagHandeler(tagText1.UpdateEvent);
-            TagEvent += new TagHandeler(tagText2.UpdateEvent);
-            TagEvent += new TagHandeler(tagText3.UpdateEvent);
-            TagEvent += new TagHandeler(tagText4.UpdateEvent);
-            TagEvent += new TagHandeler(tagText5.UpdateEvent);
-            TagEvent += new TagHandeler(tagChart1.UpdateEvent);
+                        if (d.GetType() == typeof(IOState))
+                        {
+                            TagEvent += new TagHandeler(((IOState)d).UpdateEvent);
+                        }
+
+
+                        if (d.GetType() == typeof(TagChart))
+                        {
+                            TagEvent += new TagHandeler(((TagChart)d).UpdateEvent);
+                        }
+                    }
+                }
+                
+            }
 
         }
 
@@ -177,19 +192,16 @@ namespace Charter
 
         private void btnClose_Click(object sender, EventArgs e)
         {
-            //this.Invoke(new MethodInvoker(SafeSerialClose));
             SafeSerialClose();
         }
 
 
-        //TODO, close the serial port in a seperate thread to prevent
+        // close the serial port in a seperate thread to prevent
         //A GUI deadlock
         private void SafeSerialClose()
         {
             Thread myThread = new System.Threading.Thread(delegate()
             {
-                //Your code here
-
                 if (serialPort1.IsOpen)
                 {
                     serialPort1.Close();
@@ -209,11 +221,6 @@ namespace Charter
         private void serialPort1_ErrorReceived(object sender, SerialErrorReceivedEventArgs e)
         {
             MessageBox.Show("Serial port error; " + e.ToString());
-        }
-
-        private void aGauge3_ValueInRangeChanged(object sender, AGauge.ValueInRangeChangedEventArgs e)
-        {
-
         }
 
     }

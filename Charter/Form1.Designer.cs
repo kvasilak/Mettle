@@ -36,14 +36,6 @@
             System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.tabMain = new System.Windows.Forms.TabControl();
             this.tabSetup = new System.Windows.Forms.TabPage();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.txtData = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -52,8 +44,12 @@
             this.cboBaudRate = new System.Windows.Forms.ComboBox();
             this.cboComPort = new System.Windows.Forms.ComboBox();
             this.tabChart = new System.Windows.Forms.TabPage();
+            this.stateButton2 = new Charter.StateButton();
             this.tagChart1 = new Charter.TagChart();
+            this.stateButton4 = new Charter.StateButton();
+            this.stateButton1 = new Charter.StateButton();
             this.tagText5 = new Charter.TagText();
+            this.stateButton3 = new Charter.StateButton();
             this.tagText4 = new Charter.TagText();
             this.tagText3 = new Charter.TagText();
             this.tagText2 = new Charter.TagText();
@@ -64,22 +60,16 @@
             this.ioState1 = new Charter.IOState();
             this.aGauge5 = new Charter.AGauge();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.stateButton2 = new Charter.StateButton();
-            this.stateButton4 = new Charter.StateButton();
-            this.stateButton1 = new Charter.StateButton();
-            this.stateButton3 = new Charter.StateButton();
             this.tabText = new System.Windows.Forms.TabPage();
             this.plotterDisplayEx1 = new GraphLib.PlotterDisplayEx();
             this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
-            this.aGauge4 = new Charter.AGauge();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.chart2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.aGauge4 = new Charter.AGauge();
             this.tabMain.SuspendLayout();
             this.tabSetup.SuspendLayout();
-            this.groupBox1.SuspendLayout();
             this.tabChart.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tagChart1)).BeginInit();
-            this.panel1.SuspendLayout();
             this.tabText.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart2)).BeginInit();
@@ -101,7 +91,6 @@
             // 
             // tabSetup
             // 
-            this.tabSetup.Controls.Add(this.groupBox1);
             this.tabSetup.Controls.Add(this.txtData);
             this.tabSetup.Controls.Add(this.label2);
             this.tabSetup.Controls.Add(this.label1);
@@ -115,79 +104,6 @@
             this.tabSetup.TabIndex = 2;
             this.tabSetup.Text = "Setup";
             this.tabSetup.UseVisualStyleBackColor = true;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.textBox4);
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.textBox3);
-            this.groupBox1.Controls.Add(this.textBox2);
-            this.groupBox1.Controls.Add(this.textBox1);
-            this.groupBox1.Location = new System.Drawing.Point(10, 138);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(284, 204);
-            this.groupBox1.TabIndex = 17;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Chart";
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(62, 36);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(49, 20);
-            this.textBox4.TabIndex = 17;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(15, 20);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(92, 13);
-            this.label5.TabIndex = 16;
-            this.label5.Text = "Y axis; Min / MAX";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(23, 67);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(41, 13);
-            this.label4.TabIndex = 15;
-            this.label4.Text = "Tag list";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(172, 20);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(85, 13);
-            this.label3.TabIndex = 14;
-            this.label3.Text = "Select COM port";
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(162, 36);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 13;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(13, 83);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox2.Size = new System.Drawing.Size(100, 76);
-            this.textBox2.TabIndex = 12;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(13, 36);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(49, 20);
-            this.textBox1.TabIndex = 11;
             // 
             // txtData
             // 
@@ -270,8 +186,12 @@
             // tabChart
             // 
             this.tabChart.BackColor = System.Drawing.SystemColors.Control;
+            this.tabChart.Controls.Add(this.stateButton2);
             this.tabChart.Controls.Add(this.tagChart1);
+            this.tabChart.Controls.Add(this.stateButton4);
+            this.tabChart.Controls.Add(this.stateButton1);
             this.tabChart.Controls.Add(this.tagText5);
+            this.tabChart.Controls.Add(this.stateButton3);
             this.tabChart.Controls.Add(this.tagText4);
             this.tabChart.Controls.Add(this.tagText3);
             this.tabChart.Controls.Add(this.tagText2);
@@ -290,6 +210,16 @@
             this.tabChart.Tag = "Right";
             this.tabChart.Text = "Chart";
             // 
+            // stateButton2
+            // 
+            this.stateButton2.Checked = false;
+            this.stateButton2.Location = new System.Drawing.Point(223, 88);
+            this.stateButton2.Name = "stateButton2";
+            this.stateButton2.Size = new System.Drawing.Size(75, 23);
+            this.stateButton2.TabIndex = 40;
+            this.stateButton2.Tag = "This";
+            this.stateButton2.Text = "State2";
+            // 
             // tagChart1
             // 
             this.tagChart1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
@@ -299,29 +229,30 @@
             chartArea1.AxisX.Maximum = 500D;
             chartArea1.AxisX.Minimum = 0D;
             chartArea1.AxisX.MinorGrid.Interval = 1D;
-            chartArea1.AxisY.Maximum = 1024D;
-            chartArea1.AxisY.Minimum = 0D;
-            chartArea1.Name = "XAxis";
+            chartArea1.AxisY.IsStartedFromZero = false;
+            chartArea1.AxisY.Maximum = 896D;
+            chartArea1.AxisY.Minimum = 128D;
+            chartArea1.Name = "main";
             this.tagChart1.ChartAreas.Add(chartArea1);
             legend1.Enabled = false;
             legend1.Name = "Legend1";
             this.tagChart1.Legends.Add(legend1);
-            this.tagChart1.Location = new System.Drawing.Point(0, 294);
+            this.tagChart1.Location = new System.Drawing.Point(0, 268);
             this.tagChart1.Name = "tagChart1";
             this.tagChart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Bright;
-            series1.ChartArea = "XAxis";
+            series1.ChartArea = "main";
             series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
             series1.CustomProperties = "index=0";
             series1.IsVisibleInLegend = false;
             series1.Legend = "Legend1";
             series1.Name = "XAxis";
             series1.ShadowColor = System.Drawing.Color.Black;
-            series2.ChartArea = "XAxis";
+            series2.ChartArea = "main";
             series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
             series2.CustomProperties = "index=0";
             series2.Legend = "Legend1";
             series2.Name = "YAxis";
-            series3.ChartArea = "XAxis";
+            series3.ChartArea = "main";
             series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
             series3.CustomProperties = "index=0";
             series3.Legend = "Legend1";
@@ -329,19 +260,49 @@
             this.tagChart1.Series.Add(series1);
             this.tagChart1.Series.Add(series2);
             this.tagChart1.Series.Add(series3);
-            this.tagChart1.Size = new System.Drawing.Size(979, 248);
+            this.tagChart1.Size = new System.Drawing.Size(979, 274);
             this.tagChart1.TabIndex = 53;
             this.tagChart1.Tag = "";
             this.tagChart1.Text = "tagChart1";
             this.tagChart1.TextAntiAliasingQuality = System.Windows.Forms.DataVisualization.Charting.TextAntiAliasingQuality.SystemDefault;
             // 
+            // stateButton4
+            // 
+            this.stateButton4.Checked = false;
+            this.stateButton4.Location = new System.Drawing.Point(319, 88);
+            this.stateButton4.Name = "stateButton4";
+            this.stateButton4.Size = new System.Drawing.Size(72, 23);
+            this.stateButton4.TabIndex = 42;
+            this.stateButton4.Tag = "This";
+            this.stateButton4.Text = "State4";
+            // 
+            // stateButton1
+            // 
+            this.stateButton1.Checked = false;
+            this.stateButton1.Location = new System.Drawing.Point(242, 30);
+            this.stateButton1.Name = "stateButton1";
+            this.stateButton1.Size = new System.Drawing.Size(75, 23);
+            this.stateButton1.TabIndex = 39;
+            this.stateButton1.Tag = "This";
+            this.stateButton1.Text = "State1";
+            // 
             // tagText5
             // 
-            this.tagText5.Location = new System.Drawing.Point(241, 135);
+            this.tagText5.Location = new System.Drawing.Point(402, 62);
             this.tagText5.Name = "tagText5";
             this.tagText5.Size = new System.Drawing.Size(100, 20);
             this.tagText5.TabIndex = 52;
             this.tagText5.Tag = "This";
+            // 
+            // stateButton3
+            // 
+            this.stateButton3.Checked = false;
+            this.stateButton3.Location = new System.Drawing.Point(280, 59);
+            this.stateButton3.Name = "stateButton3";
+            this.stateButton3.Size = new System.Drawing.Size(75, 23);
+            this.stateButton3.TabIndex = 41;
+            this.stateButton3.Tag = "This";
+            this.stateButton3.Text = "State3";
             // 
             // tagText4
             // 
@@ -351,7 +312,7 @@
             this.tagText4.Multiline = true;
             this.tagText4.Name = "tagText4";
             this.tagText4.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.tagText4.Size = new System.Drawing.Size(189, 220);
+            this.tagText4.Size = new System.Drawing.Size(189, 168);
             this.tagText4.TabIndex = 50;
             this.tagText4.Tag = "*";
             // 
@@ -359,7 +320,7 @@
             // 
             this.tagText3.AcceptsReturn = true;
             this.tagText3.AcceptsTab = true;
-            this.tagText3.Location = new System.Drawing.Point(207, 161);
+            this.tagText3.Location = new System.Drawing.Point(209, 135);
             this.tagText3.Multiline = true;
             this.tagText3.Name = "tagText3";
             this.tagText3.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -516,7 +477,6 @@
             this.aGauge3.TabIndex = 13;
             this.aGauge3.Tag = "XAxis";
             this.aGauge3.Value = 0F;
-            this.aGauge3.ValueInRangeChanged += new Charter.AGauge.ValueInRangeChangedDelegate(this.aGauge3_ValueInRangeChanged);
             // 
             // ioState1
             // 
@@ -638,54 +598,10 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel1.Controls.Add(this.stateButton2);
-            this.panel1.Controls.Add(this.stateButton4);
-            this.panel1.Controls.Add(this.stateButton1);
-            this.panel1.Controls.Add(this.stateButton3);
-            this.panel1.Location = new System.Drawing.Point(204, 16);
+            this.panel1.Location = new System.Drawing.Point(402, 16);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(192, 113);
+            this.panel1.Size = new System.Drawing.Size(37, 27);
             this.panel1.TabIndex = 43;
-            // 
-            // stateButton2
-            // 
-            this.stateButton2.Checked = false;
-            this.stateButton2.Location = new System.Drawing.Point(3, 70);
-            this.stateButton2.Name = "stateButton2";
-            this.stateButton2.Size = new System.Drawing.Size(75, 23);
-            this.stateButton2.TabIndex = 40;
-            this.stateButton2.Tag = "This";
-            this.stateButton2.Text = "State2";
-            // 
-            // stateButton4
-            // 
-            this.stateButton4.Checked = false;
-            this.stateButton4.Location = new System.Drawing.Point(99, 70);
-            this.stateButton4.Name = "stateButton4";
-            this.stateButton4.Size = new System.Drawing.Size(72, 23);
-            this.stateButton4.TabIndex = 42;
-            this.stateButton4.Tag = "This";
-            this.stateButton4.Text = "State4";
-            // 
-            // stateButton1
-            // 
-            this.stateButton1.Checked = false;
-            this.stateButton1.Location = new System.Drawing.Point(22, 12);
-            this.stateButton1.Name = "stateButton1";
-            this.stateButton1.Size = new System.Drawing.Size(75, 23);
-            this.stateButton1.TabIndex = 39;
-            this.stateButton1.Tag = "This";
-            this.stateButton1.Text = "State1";
-            // 
-            // stateButton3
-            // 
-            this.stateButton3.Checked = false;
-            this.stateButton3.Location = new System.Drawing.Point(60, 41);
-            this.stateButton3.Name = "stateButton3";
-            this.stateButton3.Size = new System.Drawing.Size(75, 23);
-            this.stateButton3.TabIndex = 41;
-            this.stateButton3.Tag = "This";
-            this.stateButton3.Text = "State3";
             // 
             // tabText
             // 
@@ -718,6 +634,20 @@
             // 
             this.serialPort1.ErrorReceived += new System.IO.Ports.SerialErrorReceivedEventHandler(this.serialPort1_ErrorReceived);
             this.serialPort1.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.serialPort1_DataReceived);
+            // 
+            // chart1
+            // 
+            this.chart1.Location = new System.Drawing.Point(0, 0);
+            this.chart1.Name = "chart1";
+            this.chart1.Size = new System.Drawing.Size(300, 300);
+            this.chart1.TabIndex = 0;
+            // 
+            // chart2
+            // 
+            this.chart2.Location = new System.Drawing.Point(0, 0);
+            this.chart2.Name = "chart2";
+            this.chart2.Size = new System.Drawing.Size(300, 300);
+            this.chart2.TabIndex = 0;
             // 
             // aGauge4
             // 
@@ -825,20 +755,6 @@
             this.aGauge4.Text = "aGauge4";
             this.aGauge4.Value = 0F;
             // 
-            // chart1
-            // 
-            this.chart1.Location = new System.Drawing.Point(0, 0);
-            this.chart1.Name = "chart1";
-            this.chart1.Size = new System.Drawing.Size(300, 300);
-            this.chart1.TabIndex = 0;
-            // 
-            // chart2
-            // 
-            this.chart2.Location = new System.Drawing.Point(0, 0);
-            this.chart2.Name = "chart2";
-            this.chart2.Size = new System.Drawing.Size(300, 300);
-            this.chart2.TabIndex = 0;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -853,12 +769,9 @@
             this.tabMain.ResumeLayout(false);
             this.tabSetup.ResumeLayout(false);
             this.tabSetup.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.tabChart.ResumeLayout(false);
             this.tabChart.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tagChart1)).EndInit();
-            this.panel1.ResumeLayout(false);
             this.tabText.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart2)).EndInit();
@@ -880,14 +793,6 @@
         private System.Windows.Forms.ComboBox cboComPort;
         private System.IO.Ports.SerialPort serialPort1;
         private System.Windows.Forms.TextBox txtData;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox textBox4;
         private AGauge aGauge4;
         private IOState ioState3;
         private IOState ioState2;
