@@ -16,7 +16,7 @@ namespace Charter
             InitializeComponent();
         }
 
-        public void UpdateEvent(EventTag e)
+        public void UpdateEvent(TagEvent e)
         {
             if (e.Name == base.Tag.ToString())
             {

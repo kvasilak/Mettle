@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Charter
 {
-    public class EventTag : EventArgs
+    public class TagEvent : EventArgs
     {
         /// <summary>
         /// The name of the tag recieved

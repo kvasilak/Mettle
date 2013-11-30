@@ -1,6 +1,6 @@
 ﻿namespace Charter
 {
-    partial class StateButton
+    partial class TagIO
     {
         /// <summary> 
         /// Required designer variable.
@@ -30,13 +30,10 @@
         {
             this.SuspendLayout();
             // 
-            // StateButton
+            // IOState
             // 
-            //this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            //this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Name = "StateButton";
-            //this.Size = new System.Drawing.Size(126, 67);
-            //this.Load += new System.EventHandler(this.StateButton_Load);
+            this.Name = "IOState";
+            //this.Size = new System.Drawing.Size(97, 73);
             this.ResumeLayout(false);
 
         }

@@ -46,22 +46,22 @@
             this.btnStop = new System.Windows.Forms.ToolStripButton();
             this.btnTools = new System.Windows.Forms.ToolStripButton();
             this.txtAllText = new System.Windows.Forms.TextBox();
-            this.stateButton2 = new Charter.StateButton();
+            this.stateButton2 = new Charter.TagState();
             this.tagChart1 = new Charter.TagChart();
-            this.stateButton4 = new Charter.StateButton();
-            this.stateButton1 = new Charter.StateButton();
+            this.stateButton4 = new Charter.TagState();
+            this.stateButton1 = new Charter.TagState();
             this.tagText5 = new Charter.TagText();
-            this.stateButton3 = new Charter.StateButton();
+            this.stateButton3 = new Charter.TagState();
             this.tagText4 = new Charter.TagText();
             this.tagText3 = new Charter.TagText();
             this.tagText2 = new Charter.TagText();
             this.tagText1 = new Charter.TagText();
-            this.ioState3 = new Charter.IOState();
-            this.ioState2 = new Charter.IOState();
-            this.aGauge3 = new Charter.AGauge();
-            this.ioState1 = new Charter.IOState();
-            this.aGauge5 = new Charter.AGauge();
-            this.aGauge4 = new Charter.AGauge();
+            this.ioState3 = new Charter.TagIO();
+            this.ioState2 = new Charter.TagIO();
+            this.aGauge3 = new Charter.TagGauge();
+            this.ioState1 = new Charter.TagIO();
+            this.aGauge5 = new Charter.TagGauge();
+            this.aGauge4 = new Charter.TagGauge();
             this.tabMain.SuspendLayout();
             this.tabChart.SuspendLayout();
             this.tabText.SuspendLayout();
@@ -73,7 +73,9 @@
             // 
             // tabMain
             // 
-            this.tabMain.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tabMain.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.tabMain.Controls.Add(this.tabChart);
             this.tabMain.Controls.Add(this.tabText);
             this.tabMain.Location = new System.Drawing.Point(0, 28);
@@ -387,7 +389,7 @@
             this.aGauge3.MaxValue = 1024F;
             this.aGauge3.MinValue = 0F;
             this.aGauge3.Name = "aGauge3";
-            this.aGauge3.NeedleColor1 = Charter.AGauge.NeedleColorEnum.Red;
+            this.aGauge3.NeedleColor1 = Charter.TagGauge.NeedleColorEnum.Red;
             this.aGauge3.NeedleColor2 = System.Drawing.Color.DimGray;
             this.aGauge3.NeedleRadius = 160;
             this.aGauge3.NeedleType = 0;
@@ -504,7 +506,7 @@
             this.aGauge5.MaxValue = 1024F;
             this.aGauge5.MinValue = 0F;
             this.aGauge5.Name = "aGauge5";
-            this.aGauge5.NeedleColor1 = Charter.AGauge.NeedleColorEnum.Blue;
+            this.aGauge5.NeedleColor1 = Charter.TagGauge.NeedleColorEnum.Blue;
             this.aGauge5.NeedleColor2 = System.Drawing.Color.DimGray;
             this.aGauge5.NeedleRadius = 160;
             this.aGauge5.NeedleType = 0;
@@ -610,7 +612,7 @@
             this.aGauge4.MaxValue = 55F;
             this.aGauge4.MinValue = -55F;
             this.aGauge4.Name = "aGauge4";
-            this.aGauge4.NeedleColor1 = Charter.AGauge.NeedleColorEnum.Blue;
+            this.aGauge4.NeedleColor1 = Charter.TagGauge.NeedleColorEnum.Blue;
             this.aGauge4.NeedleColor2 = System.Drawing.Color.DimGray;
             this.aGauge4.NeedleRadius = 160;
             this.aGauge4.NeedleType = 0;
@@ -716,16 +718,16 @@
         private System.Windows.Forms.TabPage tabText;
         private System.Windows.Forms.TabPage tabChart;
         private System.IO.Ports.SerialPort serialPort1;
-        private AGauge aGauge4;
-        private IOState ioState3;
-        private IOState ioState2;
-        private AGauge aGauge3;
-        private IOState ioState1;
-        private AGauge aGauge5;
-        private StateButton stateButton2;
-        private StateButton stateButton4;
-        private StateButton stateButton1;
-        private StateButton stateButton3;
+        private TagGauge aGauge4;
+        private TagIO ioState3;
+        private TagIO ioState2;
+        private TagGauge aGauge3;
+        private TagIO ioState1;
+        private TagGauge aGauge5;
+        private TagState stateButton2;
+        private TagState stateButton4;
+        private TagState stateButton1;
+        private TagState stateButton3;
         private TagText tagText2;
         private TagText tagText1;
         private TagText tagText3;

@@ -9,14 +9,14 @@ using System.Windows.Forms;
 
 namespace Charter
 {
-    public partial class IOState : Control
+    public partial class TagIO : Control
     {
-        public IOState()
+        public TagIO()
         {
             InitializeComponent();
         }
 
-        public void UpdateEvent(EventTag e)
+        public void UpdateEvent(TagEvent e)
         {
             if (e.Name == base.Tag.ToString())
             {

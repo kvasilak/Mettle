@@ -12,6 +12,17 @@ using System.Collections;
 using System.Diagnostics;
 using System.Threading;
 
+//
+// This program is designed to recieve tagged data from an embedded device over a serial connection. RS232 or USB
+// a tag consists of a name and data. When a tag is recieved, it is ent to all the custom controls on all the tabs
+// Each controll then looks at the tag name to decide if they are interested in it. If they are they can get the data and display it
+// If a tag contains a valid integer, the integer is available as well as the string representation.
+//A tag can use the name and the data or just the name or anything it wants to do with the data when it recieves the event.
+//
+//To use this program, just drag one of the custom controls onto a tab, set the tag property to what you want it to respond to and 
+//set the name for controls like tagstate. All other properties are available for use as a normal program.
+//Then run the program and watch the magic!
+//
 namespace Charter
 {
     public partial class Form1 : Form
@@ -19,7 +30,7 @@ namespace Charter
         string RxString;
 
         public event TagHandeler TagEvent;
-        public delegate void TagHandeler(EventTag e);
+        public delegate void TagHandeler(TagEvent e);
  
         public Form1()
         {
@@ -27,9 +38,10 @@ namespace Charter
 
         }
 
-
         private void Form1_Load(object sender, EventArgs e)
         {
+            //Walk through each tab and find all our custom controls
+            //then register them for the tag recieved event
             foreach (Control c in tabMain.Controls)
             {
                 if (c.Name != "tabSetup")
@@ -38,25 +50,31 @@ namespace Charter
                     {
                         //todo check for containers
                         //we might be in one
+
+                        //Todo, is there a more generic way to determine if a control
+                        //supoorts the tag event?
+
+                        //determine if the control is one of our custom ones,
+                        //if it is add it to the tag event list
                         if (d.GetType() == typeof(TagText))
                         {
                             TagEvent += new TagHandeler( ((TagText)d).UpdateEvent);
                         }
 
-                        if (d.GetType() == typeof(AGauge))
+                        if (d.GetType() == typeof(TagGauge))
                         {
-                            TagEvent += new TagHandeler(((AGauge)d).UpdateEvent);
+                            TagEvent += new TagHandeler(((TagGauge)d).UpdateEvent);
                         }
 
-                        if (d.GetType() == typeof(StateButton ))
+                        if (d.GetType() == typeof(TagState ))
                         {
-                            TagEvent += new TagHandeler(((StateButton)d).UpdateEvent);
+                            TagEvent += new TagHandeler(((TagState)d).UpdateEvent);
                         }
 
 
-                        if (d.GetType() == typeof(IOState))
+                        if (d.GetType() == typeof(TagIO))
                         {
-                            TagEvent += new TagHandeler(((IOState)d).UpdateEvent);
+                            TagEvent += new TagHandeler(((TagIO)d).UpdateEvent);
                         }
 
 
@@ -72,19 +90,17 @@ namespace Charter
         }
 
 
-
         private void btnOK_Click(object sender, EventArgs e)
         {
             OpenSerialPort();
         }
+
         private void OpenSerialPort()
         {
             if (!serialPort1.IsOpen)
             {
                 try
                 {
-                    //SerialPortFixer.Execute(cboComPort.Text);
-
                     serialPort1.PortName = Properties.Settings.Default.COMport;
                     serialPort1.BaudRate = int.Parse(Properties.Settings.Default.BaudRate.ToString());
                     serialPort1.DataBits = 8;
@@ -103,6 +119,7 @@ namespace Charter
             }
         }
 
+        //we have recieved serial data, get a line of it and send it to the parser
         private void serialPort1_DataReceived(object sender, SerialDataReceivedEventArgs e)
         {
             if (serialPort1.IsOpen)
@@ -112,15 +129,18 @@ namespace Charter
                     String tmpstr = serialPort1.ReadLine();
 
                     RxString = tmpstr;
+
                     this.Invoke(new EventHandler(HandleMesage));
                 }
                 catch (Exception ex)
                 {
+                    MessageBox.Show("Serial handeler; " + ex.Message, "Error!");
                     return;
                 }
             }
         }
 
+        //Update the serial output box and call the parser
         private void HandleMesage(object sender, EventArgs e)
         {
             int position = 0;
@@ -136,6 +156,7 @@ namespace Charter
             while ((position >0) && (position < RxString.Length));
         }
         
+        //find the next tag and data, set an event to all listeners
         private int ParseTags(string instr, int offset)
         {
             int start;
@@ -148,7 +169,7 @@ namespace Charter
 
             if(start >= 0)//May be first character
             {
-                end = instr.IndexOf("<", /*offset +*/ start + 1);
+                end = instr.IndexOf("<", start + 1);
 
                 if (end > 0)
                 {
@@ -158,11 +179,13 @@ namespace Charter
                     if (comma > 0)
                     {
                         //set the tag recieved event
-                        EventTag t = new EventTag();
+                        TagEvent t = new TagEvent();
 
+                        //split the tag and cleanup any whitespace
                         t.Name = instr.Substring(start + 1, comma - (start + 1)).Trim();
                         t.Data = instr.Substring(comma + 1, end - (comma + 1)).Trim();
 
+                        //see if there is a number in the data
                         if (int.TryParse(t.Data, out d))
                         {
                             t.Value = d;

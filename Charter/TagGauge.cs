@@ -29,10 +29,10 @@ using System.Diagnostics;
 
 namespace Charter
 {
-    [ToolboxBitmapAttribute(typeof(AGauge), "AGauge.bmp"), 
+    [ToolboxBitmapAttribute(typeof(TagGauge), "AGauge.bmp"), 
     DefaultEvent("ValueInRangeChanged"), 
     Description("Displays a value on an analog gauge. Raises an event if the value enters one of the definable ranges.")]
-    public partial class AGauge : Control
+    public partial class TagGauge : Control
     {
 #region enum, var, delegate, event
         public enum NeedleColorEnum
@@ -217,7 +217,7 @@ namespace Charter
         /// </summary>
         /// <param name="f"></param>
         /// <param name="e"></param>
-        public void UpdateEvent(EventTag e)
+        public void UpdateEvent(TagEvent e)
         {
             if (e.Name == base.Tag.ToString())
             {
@@ -226,7 +226,7 @@ namespace Charter
         }
         #endregion
 
-        public AGauge()
+        public TagGauge()
         {
             InitializeComponent();
 

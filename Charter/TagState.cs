@@ -9,14 +9,14 @@ using System.Windows.Forms;
 
 namespace Charter
 {
-    public partial class StateButton : Control
+    public partial class TagState : Control
     {
-        public StateButton()
+        public TagState()
         {
             InitializeComponent();
         }
 
-        public void UpdateEvent(EventTag e)
+        public void UpdateEvent(TagEvent e)
         {
             if (e.Name == base.Tag.ToString())
             {
