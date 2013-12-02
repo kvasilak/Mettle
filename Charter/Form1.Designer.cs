@@ -38,6 +38,12 @@
             this.tabMain = new System.Windows.Forms.TabControl();
             this.tabChart = new System.Windows.Forms.TabPage();
             this.tabText = new System.Windows.Forms.TabPage();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtTagData = new System.Windows.Forms.TextBox();
+            this.textUniques = new System.Windows.Forms.TextBox();
+            this.txtAllText = new System.Windows.Forms.TextBox();
             this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.chart2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
@@ -45,7 +51,6 @@
             this.btnPlay = new System.Windows.Forms.ToolStripButton();
             this.btnStop = new System.Windows.Forms.ToolStripButton();
             this.btnTools = new System.Windows.Forms.ToolStripButton();
-            this.txtAllText = new System.Windows.Forms.TextBox();
             this.stateButton2 = new Charter.TagState();
             this.tagChart1 = new Charter.TagChart();
             this.stateButton4 = new Charter.TagState();
@@ -112,6 +117,11 @@
             // 
             // tabText
             // 
+            this.tabText.Controls.Add(this.label3);
+            this.tabText.Controls.Add(this.label2);
+            this.tabText.Controls.Add(this.label1);
+            this.tabText.Controls.Add(this.txtTagData);
+            this.tabText.Controls.Add(this.textUniques);
             this.tabText.Controls.Add(this.txtAllText);
             this.tabText.Location = new System.Drawing.Point(4, 22);
             this.tabText.Name = "tabText";
@@ -120,6 +130,65 @@
             this.tabText.TabIndex = 0;
             this.tabText.Text = "Text";
             this.tabText.UseVisualStyleBackColor = true;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(554, 25);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(52, 13);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "Tag Data";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(358, 25);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(68, 13);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Unique Tags";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(31, 25);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(69, 13);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "All serial data";
+            // 
+            // txtTagData
+            // 
+            this.txtTagData.AcceptsReturn = true;
+            this.txtTagData.AcceptsTab = true;
+            this.txtTagData.Location = new System.Drawing.Point(557, 41);
+            this.txtTagData.Multiline = true;
+            this.txtTagData.Name = "txtTagData";
+            this.txtTagData.Size = new System.Drawing.Size(172, 388);
+            this.txtTagData.TabIndex = 2;
+            // 
+            // textUniques
+            // 
+            this.textUniques.AcceptsReturn = true;
+            this.textUniques.AcceptsTab = true;
+            this.textUniques.Location = new System.Drawing.Point(361, 41);
+            this.textUniques.Multiline = true;
+            this.textUniques.Name = "textUniques";
+            this.textUniques.Size = new System.Drawing.Size(172, 388);
+            this.textUniques.TabIndex = 1;
+            this.textUniques.MouseClick += new System.Windows.Forms.MouseEventHandler(this.textUniques_MouseClick);
+            this.textUniques.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.textUniques_MouseDoubleClick);
+            // 
+            // txtAllText
+            // 
+            this.txtAllText.AcceptsReturn = true;
+            this.txtAllText.Location = new System.Drawing.Point(8, 41);
+            this.txtAllText.Multiline = true;
+            this.txtAllText.Name = "txtAllText";
+            this.txtAllText.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtAllText.Size = new System.Drawing.Size(322, 388);
+            this.txtAllText.TabIndex = 0;
             // 
             // serialPort1
             // 
@@ -183,16 +252,6 @@
             this.btnTools.Size = new System.Drawing.Size(23, 22);
             this.btnTools.ToolTipText = "Setup";
             this.btnTools.Click += new System.EventHandler(this.btnTools_Click);
-            // 
-            // txtAllText
-            // 
-            this.txtAllText.AcceptsReturn = true;
-            this.txtAllText.Location = new System.Drawing.Point(8, 6);
-            this.txtAllText.Multiline = true;
-            this.txtAllText.Name = "txtAllText";
-            this.txtAllText.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtAllText.Size = new System.Drawing.Size(322, 423);
-            this.txtAllText.TabIndex = 0;
             // 
             // stateButton2
             // 
@@ -685,7 +744,7 @@
             this.aGauge4.Text = "aGauge4";
             this.aGauge4.Value = 0F;
             // 
-            // Form1
+            // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -693,7 +752,7 @@
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.tabMain);
             this.MinimumSize = new System.Drawing.Size(908, 455);
-            this.Name = "Form1";
+            this.Name = "FormMain";
             this.Text = "Arduino Charting Tool";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -741,6 +800,11 @@
         private System.Windows.Forms.ToolStripButton btnStop;
         private System.Windows.Forms.ToolStripButton btnTools;
         private System.Windows.Forms.TextBox txtAllText;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtTagData;
+        private System.Windows.Forms.TextBox textUniques;
     }
 }
 

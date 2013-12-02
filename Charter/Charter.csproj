@@ -74,6 +74,7 @@
     <Compile Include="Serial.Designer.cs">
       <DependentUpon>Serial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Tags.cs" />
     <Compile Include="TagState.cs">
       <SubType>Component</SubType>
     </Compile>

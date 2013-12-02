@@ -47,6 +47,7 @@ namespace Charter
 
         public event TagHandeler TagEvent;
         public delegate void TagHandeler(TagEvent e);
+        private List<Tags>TagList = new List<Tags>();
  
         public FormMain()
         {
@@ -215,10 +216,68 @@ namespace Charter
                         //make sure someone is listening
                         if(null != TagEvent)
                             TagEvent(t);
+
+                        Uniques(t);
+                        
                     }
                 }
             }
             return end;
+        }
+
+        private void Uniques(TagEvent e)
+        {
+            bool NameFound = false;
+            bool DataFound = false;
+
+            //Search to see if tag exists
+            foreach (Tags tg in TagList)
+            {
+                if (tg.Name == e.Name)
+                {
+                    //found, now check data and values
+                    NameFound = true;
+
+                    if (e.ValueValid)
+                    {
+                        //Update the min / max of the tag
+                        tg.Value(e.Value);
+                    }
+                    else
+                    {
+
+                        foreach (string s in tg.Data)
+                        {
+                            if (s == e.Data)
+                            {
+                                DataFound = true;
+                            }
+                        }
+
+                        //Add data string if not found
+                        if (false == DataFound)
+                        {
+                            tg.Data.Add(e.Data);
+                        }
+                    }
+                }
+            }
+
+            //add tag to list of unique tags
+            if (false == NameFound)
+            {
+                TagList.Add(new Tags(e));
+
+
+                //if we have a new tag, redisplay them
+                textUniques.Clear();
+
+                foreach (Tags tg in TagList)
+                {
+                    textUniques.AppendText(tg.Name + "\n");
+                }
+            }
+
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -272,6 +331,74 @@ namespace Charter
 
             SetupDialog.ShowDialog(this);
 
+        }
+
+
+
+        //Show the data for the tag the user selected
+        //need to find a better way to select the whole line on double click
+        private void textUniques_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            txtTagData.Clear();
+
+            int line =  textUniques.GetLineFromCharIndex(textUniques.SelectionStart);
+            string sx = textUniques.Lines[line];
+
+            foreach (Tags tg in TagList)
+            {
+                //string sx = textUniques.SelectedText.Trim();
+
+                if (tg.Name == sx)
+                {
+
+                    if (tg.ValueValid)
+                    {
+                        txtTagData.AppendText("Max; " + tg.max + "\n");
+                        txtTagData.AppendText("Min; " + tg.min + "\n");
+                    }
+                    else
+                    {
+                        //Display all data from tag
+                        foreach (string s in tg.Data)
+                        {
+                            txtTagData.AppendText(s + "\n");
+                        }
+                    }
+                }
+            }
+        }
+
+        private void textUniques_MouseClick(object sender, MouseEventArgs e)
+        {
+            txtTagData.Clear();
+
+            int charindex = textUniques.GetCharIndexFromPosition(e.Location);
+            int line = textUniques.GetLineFromCharIndex(charindex);
+
+            string sx = textUniques.Lines[line];
+
+            foreach (Tags tg in TagList)
+            {
+                //string sx = textUniques.SelectedText.Trim();
+
+                if (tg.Name == sx)
+                {
+
+                    if (tg.ValueValid)
+                    {
+                        txtTagData.AppendText("Max; " + tg.max + "\n");
+                        txtTagData.AppendText("Min; " + tg.min + "\n");
+                    }
+                    else
+                    {
+                        //Display all data from tag
+                        foreach (string s in tg.Data)
+                        {
+                            txtTagData.AppendText(s + "\n");
+                        }
+                    }
+                }
+            }
         }
 
     }

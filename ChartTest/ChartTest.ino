@@ -100,6 +100,10 @@ void loop()
  Serial.print("state_off");
  Serial.println("<");
  
+ Serial.print(">with a space,");
+   Serial.print("Space Here");
+   Serial.println("<");
+ 
  if(digitalRead(2) != pushbutton)
  {
    //pressed is low
