@@ -362,7 +362,7 @@ namespace Charter
 
         private void btnAbout_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Embedded Monitoring Tool\nCopyright 2013 Keith Vasilakes\n\nLicensed under GPL\nhttp://www.gnu.org/licenses", "Embedded Monitor");
+            MessageBox.Show("Embedded Monitoring Tool; V1.0\nCopyright 2013 Keith Vasilakes\n\nLicensed under GPL\nhttp://www.gnu.org/licenses", "Embedded Monitor");
         }
 
     }
