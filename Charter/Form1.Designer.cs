@@ -51,6 +51,7 @@
             this.btnPlay = new System.Windows.Forms.ToolStripButton();
             this.btnStop = new System.Windows.Forms.ToolStripButton();
             this.btnTools = new System.Windows.Forms.ToolStripButton();
+            this.label4 = new System.Windows.Forms.Label();
             this.stateButton2 = new Charter.TagState();
             this.tagChart1 = new Charter.TagChart();
             this.stateButton4 = new Charter.TagState();
@@ -92,6 +93,7 @@
             // tabChart
             // 
             this.tabChart.BackColor = System.Drawing.SystemColors.Control;
+            this.tabChart.Controls.Add(this.label4);
             this.tabChart.Controls.Add(this.stateButton2);
             this.tabChart.Controls.Add(this.tagChart1);
             this.tabChart.Controls.Add(this.stateButton4);
@@ -253,6 +255,15 @@
             this.btnTools.ToolTipText = "Setup";
             this.btnTools.Click += new System.EventHandler(this.btnTools_Click);
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(482, 3);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(89, 13);
+            this.label4.TabIndex = 55;
+            this.label4.Text = "Some LEDS Kool";
+            // 
             // stateButton2
             // 
             this.stateButton2.Checked = false;
@@ -351,11 +362,11 @@
             // 
             this.tagText4.AcceptsReturn = true;
             this.tagText4.AcceptsTab = true;
-            this.tagText4.Location = new System.Drawing.Point(588, 59);
+            this.tagText4.Location = new System.Drawing.Point(646, 53);
             this.tagText4.Multiline = true;
             this.tagText4.Name = "tagText4";
             this.tagText4.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.tagText4.Size = new System.Drawing.Size(189, 168);
+            this.tagText4.Size = new System.Drawing.Size(134, 168);
             this.tagText4.TabIndex = 50;
             this.tagText4.Tag = "*";
             // 
@@ -375,7 +386,7 @@
             // 
             this.tagText2.AcceptsReturn = true;
             this.tagText2.AcceptsTab = true;
-            this.tagText2.Location = new System.Drawing.Point(800, 30);
+            this.tagText2.Location = new System.Drawing.Point(800, 53);
             this.tagText2.Multiline = true;
             this.tagText2.Name = "tagText2";
             this.tagText2.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -753,7 +764,7 @@
             this.Controls.Add(this.tabMain);
             this.MinimumSize = new System.Drawing.Size(908, 455);
             this.Name = "FormMain";
-            this.Text = "Arduino Charting Tool";
+            this.Text = "Embedded Monitoring Tool";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.tabMain.ResumeLayout(false);
@@ -805,6 +816,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtTagData;
         private System.Windows.Forms.TextBox textUniques;
+        private System.Windows.Forms.Label label4;
     }
 }
 

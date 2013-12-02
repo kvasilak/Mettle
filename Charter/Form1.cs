@@ -154,6 +154,9 @@ namespace Charter
                 }
                 catch (Exception ex)
                 {
+                    Type ep = ex.GetType();
+
+
                     //MessageBox.Show("Serial handeler; " + ex.Message, "Error!");
                     return;
                 }
@@ -268,8 +271,9 @@ namespace Charter
             {
                 TagList.Add(new Tags(e));
 
+                TagList.Sort();
 
-                //if we have a new tag, redisplay them
+                //we have a new tag, redisplay them all
                 textUniques.Clear();
 
                 foreach (Tags tg in TagList)
