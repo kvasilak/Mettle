@@ -101,9 +101,7 @@ namespace Charter
                         }
                     }
                 }
-                
             }
-
         }
 
 
@@ -143,21 +141,15 @@ namespace Charter
             {
                 try
                 {
-                    //if (Form1 != null && !this.IsDisposed)
-                    //{
-                        String tmpstr = serialPort1.ReadLine();
+                    String tmpstr = serialPort1.ReadLine();
 
-                        RxString = tmpstr;
+                    RxString = tmpstr;
 
-                        this.Invoke(new EventHandler(HandleMesage));
-                   // }
+                    this.Invoke(new EventHandler(HandleMesage));
                 }
                 catch (Exception ex)
                 {
                     Type ep = ex.GetType();
-
-
-                    //MessageBox.Show("Serial handeler; " + ex.Message, "Error!");
                     return;
                 }
             }
@@ -337,21 +329,17 @@ namespace Charter
 
         }
 
-
-
-        //Show the data for the tag the user selected
-        //need to find a better way to select the whole line on double click
-        private void textUniques_MouseDoubleClick(object sender, MouseEventArgs e)
+        private void textUniques_MouseClick(object sender, MouseEventArgs e)
         {
             txtTagData.Clear();
 
-            int line =  textUniques.GetLineFromCharIndex(textUniques.SelectionStart);
+            int charindex = textUniques.GetCharIndexFromPosition(e.Location);
+            int line = textUniques.GetLineFromCharIndex(charindex);
+
             string sx = textUniques.Lines[line];
 
             foreach (Tags tg in TagList)
             {
-                //string sx = textUniques.SelectedText.Trim();
-
                 if (tg.Name == sx)
                 {
 
@@ -372,37 +360,9 @@ namespace Charter
             }
         }
 
-        private void textUniques_MouseClick(object sender, MouseEventArgs e)
+        private void btnAbout_Click(object sender, EventArgs e)
         {
-            txtTagData.Clear();
-
-            int charindex = textUniques.GetCharIndexFromPosition(e.Location);
-            int line = textUniques.GetLineFromCharIndex(charindex);
-
-            string sx = textUniques.Lines[line];
-
-            foreach (Tags tg in TagList)
-            {
-                //string sx = textUniques.SelectedText.Trim();
-
-                if (tg.Name == sx)
-                {
-
-                    if (tg.ValueValid)
-                    {
-                        txtTagData.AppendText("Max; " + tg.max + "\n");
-                        txtTagData.AppendText("Min; " + tg.min + "\n");
-                    }
-                    else
-                    {
-                        //Display all data from tag
-                        foreach (string s in tg.Data)
-                        {
-                            txtTagData.AppendText(s + "\n");
-                        }
-                    }
-                }
-            }
+            MessageBox.Show("Embedded Monitoring Tool\nCopyright 2013 Keith Vasilakes\n\nLicensed under GPL\nhttp://www.gnu.org/licenses", "Embedded Monitor");
         }
 
     }

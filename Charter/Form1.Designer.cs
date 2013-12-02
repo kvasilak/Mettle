@@ -52,6 +52,7 @@
             this.btnStop = new System.Windows.Forms.ToolStripButton();
             this.btnTools = new System.Windows.Forms.ToolStripButton();
             this.label4 = new System.Windows.Forms.Label();
+            this.btnAbout = new System.Windows.Forms.ToolStripButton();
             this.stateButton2 = new Charter.TagState();
             this.tagChart1 = new Charter.TagChart();
             this.stateButton4 = new Charter.TagState();
@@ -180,7 +181,6 @@
             this.textUniques.Size = new System.Drawing.Size(172, 388);
             this.textUniques.TabIndex = 1;
             this.textUniques.MouseClick += new System.Windows.Forms.MouseEventHandler(this.textUniques_MouseClick);
-            this.textUniques.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.textUniques_MouseDoubleClick);
             // 
             // txtAllText
             // 
@@ -216,7 +216,8 @@
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btnPlay,
             this.btnStop,
-            this.btnTools});
+            this.btnTools,
+            this.btnAbout});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(990, 25);
@@ -263,6 +264,16 @@
             this.label4.Size = new System.Drawing.Size(89, 13);
             this.label4.TabIndex = 55;
             this.label4.Text = "Some LEDS Kool";
+            // 
+            // btnAbout
+            // 
+            this.btnAbout.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.btnAbout.Image = ((System.Drawing.Image)(resources.GetObject("btnAbout.Image")));
+            this.btnAbout.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnAbout.Name = "btnAbout";
+            this.btnAbout.Size = new System.Drawing.Size(44, 22);
+            this.btnAbout.Text = "About";
+            this.btnAbout.Click += new System.EventHandler(this.btnAbout_Click);
             // 
             // stateButton2
             // 
@@ -817,6 +828,7 @@
         private System.Windows.Forms.TextBox txtTagData;
         private System.Windows.Forms.TextBox textUniques;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ToolStripButton btnAbout;
     }
 }
 
