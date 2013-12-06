@@ -1,7 +1,7 @@
-Charter
+Mettle
 =======
 
-This is a tool that will show the inner workings of your Arduino or any other micro controller project.
+This is a firmware debug tool that will show the inner workings of your Arduino or any other micro controller project.
 There are tools to display analog values, Digital state, State machine operation with real time updates and a way to display modele specific messages.
 
 No longer are your debug messages just dumped to a terminal with no organization or structure.
