@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual C# Express 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Charter", "Charter\Charter.csproj", "{9FC76317-8528-4067-8C2A-CA11F8A3F1C5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mettle", "Charter\Mettle.csproj", "{9FC76317-8528-4067-8C2A-CA11F8A3F1C5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
