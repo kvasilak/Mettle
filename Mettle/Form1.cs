@@ -121,7 +121,7 @@ namespace Mettle
                     serialPort1.DataBits = 8;
                     serialPort1.Parity = System.IO.Ports.Parity.None;
                     serialPort1.StopBits = System.IO.Ports.StopBits.One;
-                    serialPort1.RtsEnable = true;
+                    //serialPort1.RtsEnable = true;
                     serialPort1.Encoding = Encoding.GetEncoding(28591); //So I can read all 8 bits from the stupid serial port
                     serialPort1.Open();
                     serialPort1.DiscardInBuffer();
@@ -177,6 +177,7 @@ namespace Mettle
             int start;
             int end = instr.Length;
             int comma;
+            int comma2;
             int d;
 
             //Tag format is >string, string<
@@ -193,12 +194,16 @@ namespace Mettle
 
                     if (comma > 0)
                     {
+                        //find the second comma
+                        comma2 = instr.IndexOf(",", comma + 1);
+
                         //set the tag recieved event
                         TagEvent t = new TagEvent();
 
                         //split the tag and cleanup any whitespace
-                        t.Name = instr.Substring(start + 1, comma - (start + 1)).Trim();
-                        t.Data = instr.Substring(comma + 1, end - (comma + 1)).Trim();
+                        t.Module = instr.Substring(start + 1, comma - (start + 1)).Trim(); //module name
+                        t.Name = instr.Substring(comma + 1, comma2 - (comma + 1)).Trim(); //tag name
+                        t.Data = instr.Substring(comma2 + 1, end - (comma2 + 1)).Trim(); //data
 
                         //see if there is a number in the data
                         if (int.TryParse(t.Data, out d))
@@ -306,7 +311,7 @@ namespace Mettle
 
         private void serialPort1_ErrorReceived(object sender, SerialErrorReceivedEventArgs e)
         {
-            MessageBox.Show("Serial port error; " + e.ToString());
+            //MessageBox.Show("Serial port error; " + e.EventType.ToString());
         }
 
         private void btnPlay_Click(object sender, EventArgs e)
@@ -364,6 +369,7 @@ namespace Mettle
         {
             MessageBox.Show("Embedded Monitoring Tool; V1.0\nCopyright 2013 Keith Vasilakes\n\nLicensed under GPL\nhttp://www.gnu.org/licenses", "Embedded Monitor");
         }
+
 
     }
 }

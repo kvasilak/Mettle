@@ -25,6 +25,7 @@ namespace Mettle
 
     class Tags : IComparable<Tags>
     {
+        public string Module;
         public string Name;
         public List<string> Data = new List<string>();
         public bool ValueValid = false;
@@ -34,6 +35,7 @@ namespace Mettle
 
         public Tags(TagEvent e)
         {
+            Module = e.Module;
             Name = e.Name;
 
             if (e.ValueValid)
@@ -61,7 +63,14 @@ namespace Mettle
         public int CompareTo(Tags other)
         {
             // Alphabetic sort 
-            return this.Name.CompareTo(other.Name);
+            int equal = this.Module.CompareTo(other.Module);
+
+            if (0 == equal)
+            {
+                equal = this.Name.CompareTo(other.Name);
+            }
+
+            return equal;
         }
 
         public override string ToString()

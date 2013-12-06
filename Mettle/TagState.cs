@@ -27,6 +27,8 @@ namespace Mettle
 {
     public partial class TagState : Control
     {
+        private string m_ModuleName;
+
         public TagState()
         {
             InitializeComponent();
@@ -34,14 +36,16 @@ namespace Mettle
 
         public void UpdateEvent(TagEvent e)
         {
-            if (e.Name == base.Tag.ToString())
+            if ((Module.Length == 0) || (Module == e.Module))
             {
-                if (e.Data == base.Text)
-                    Checked = true;
-                else
-                    Checked = false;
+                if (e.Name == base.Tag.ToString())
+                {
+                    if (e.Data == base.Text)
+                        Checked = true;
+                    else
+                        Checked = false;
+                }
             }
-
         }
 
         private void StateButton_Load(object sender, EventArgs e)
@@ -104,7 +108,7 @@ namespace Mettle
 
             Color fill;
             if (Checked)
-                fill = Color.Blue;
+                fill = Color.SteelBlue;
             else
                 fill = Color.LightGray;
 
@@ -124,6 +128,21 @@ namespace Mettle
         protected override void OnPaintBackground(PaintEventArgs pevent)
         {
             base.OnPaintBackground(pevent);
+        }
+
+        [System.ComponentModel.Browsable(true),
+        System.ComponentModel.Category("Mettle"),
+        System.ComponentModel.Description("The module name filter. Leave blank to see all module")]
+        public string Module
+        {
+            get
+            {
+                return m_ModuleName;
+            }
+            set
+            {
+                m_ModuleName = value;
+            }
         }
     }
 }

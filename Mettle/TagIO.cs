@@ -28,6 +28,8 @@ namespace Mettle
 {
     public partial class TagIO : Control
     {
+        private string m_ModuleName;
+
         public TagIO()
         {
             InitializeComponent();
@@ -35,14 +37,16 @@ namespace Mettle
 
         public void UpdateEvent(TagEvent e)
         {
-            if (e.Name == base.Tag.ToString())
+            if ((Module.Length == 0) || (Module == e.Module))
             {
-                if (e.Value == 1)
-                    Checked = true;
-                else
-                    Checked = false;
+                if (e.Name == base.Tag.ToString())
+                {
+                    if (e.Value == 1)
+                        Checked = true;
+                    else
+                        Checked = false;
+                }
             }
-
         }
 
         public new string Text
@@ -99,10 +103,10 @@ namespace Mettle
 
             Font fnt = new Font("Verdana", (float)rc.Height * 0.4f, FontStyle.Bold, GraphicsUnit.Pixel);
 
-            //StringFormat sf = new StringFormat();
-            //sf.Alignment = StringAlignment.Center;
-            //sf.LineAlignment = StringAlignment.Center;
-            //gfx.DrawString(Text, fnt, new SolidBrush(Color.Black), new RectangleF((float)rc.Left, (float)rc.Top, (float)rc.Width, (float)rc.Height), sf);
+            StringFormat sf = new StringFormat();
+            sf.Alignment = StringAlignment.Center;
+            sf.LineAlignment = StringAlignment.Center;
+            gfx.DrawString(Text, fnt, new SolidBrush(Color.Black), new RectangleF((float)rc.Left, (float)rc.Top, (float)rc.Width, (float)rc.Height), sf);
 
         }
 
@@ -111,5 +115,20 @@ namespace Mettle
             base.OnPaintBackground(pevent);
         }
 
+
+        [System.ComponentModel.Browsable(true),
+        System.ComponentModel.Category("Mettle"),
+        System.ComponentModel.Description("The module name filter. Leave blank to see all module")]
+        public string Module
+        {
+            get
+            {
+                return m_ModuleName;
+            }
+            set
+            {
+                m_ModuleName = value;
+            }
+        }
     }
 }

@@ -27,6 +27,8 @@ namespace Mettle
 {
     public partial class TagText : TextBox
     {
+        private string m_ModuleName;
+
         public TagText()
         {
             InitializeComponent();
@@ -60,6 +62,21 @@ namespace Mettle
                 {
                     Text = e.Name + "\t\t" + e.Data + "\r\n";
                 }
+            }
+        }
+
+        [System.ComponentModel.Browsable(true),
+        System.ComponentModel.Category("Mettle"),
+        System.ComponentModel.Description("The module name filter. Leave blank to see all module")]
+        public string Module
+        {
+            get
+            {
+                return m_ModuleName;
+            }
+            set
+            {
+                m_ModuleName = value;
             }
         }
     }

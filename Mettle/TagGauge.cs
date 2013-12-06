@@ -112,6 +112,7 @@ namespace Mettle
         private NeedleColorEnum m_NeedleColor1 = NeedleColorEnum.Gray;
         private Color m_NeedleColor2 = Color.DimGray;
         private Int32 m_NeedleWidth = 2;
+        private string m_ModuleName;
 
         public class ValueInRangeChangedEventArgs : EventArgs
         {
@@ -221,6 +222,7 @@ namespace Mettle
         /// </summary>
         /// <param name="f"></param>
         /// <param name="e"></param>
+        
         public void UpdateEvent(TagEvent e)
         {
             if (e.Name == base.Tag.ToString())
@@ -238,6 +240,22 @@ namespace Mettle
         }
 
 #region properties
+        [System.ComponentModel.Browsable(true),
+        System.ComponentModel.Category("Mettle"),
+        System.ComponentModel.Description("The module name filter. Leave blank to see all module")]
+        public string Module
+        {
+            get
+            {
+                return m_ModuleName;
+            }
+            set
+            {
+                m_ModuleName = value;
+            }
+        }
+
+        
         [System.ComponentModel.Browsable(true),
         System.ComponentModel.Category("AGauge"),
         System.ComponentModel.Description("The value.")]

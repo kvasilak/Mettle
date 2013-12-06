@@ -23,6 +23,8 @@ namespace Mettle
 {
     public class TagEvent : EventArgs
     {
+        private string ModuleName;
+
         /// <summary>
         /// The name of the tag recieved
         /// </summary>
@@ -42,6 +44,18 @@ namespace Mettle
         /// true is value is a valid integer
         /// </summary>
         public bool ValueValid = false;
+
+        public string Module
+        {
+            set
+            {
+                ModuleName = value;
+            }
+            get
+            {
+                return this.ModuleName;
+            }
+        }
 
         public string Name
         {
