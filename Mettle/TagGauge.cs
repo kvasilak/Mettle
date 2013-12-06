@@ -31,7 +31,7 @@ using System.Drawing.Drawing2D;
 using System.Diagnostics;
 
 
-namespace Charter
+namespace Mettle
 {
     [ToolboxBitmapAttribute(typeof(TagGauge), "AGauge.bmp"), 
     DefaultEvent("ValueInRangeChanged"), 

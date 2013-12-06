@@ -24,7 +24,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Collections;
 
-namespace Charter
+namespace Mettle
 {
     public partial class dlgSerial : Form
     {

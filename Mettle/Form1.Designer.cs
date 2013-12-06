@@ -1,4 +1,4 @@
-﻿namespace Charter
+﻿namespace Mettle
 {
     partial class FormMain
     {
@@ -53,22 +53,22 @@
             this.btnTools = new System.Windows.Forms.ToolStripButton();
             this.label4 = new System.Windows.Forms.Label();
             this.btnAbout = new System.Windows.Forms.ToolStripButton();
-            this.stateButton2 = new Charter.TagState();
-            this.tagChart1 = new Charter.TagChart();
-            this.stateButton4 = new Charter.TagState();
-            this.stateButton1 = new Charter.TagState();
-            this.tagText5 = new Charter.TagText();
-            this.stateButton3 = new Charter.TagState();
-            this.tagText4 = new Charter.TagText();
-            this.tagText3 = new Charter.TagText();
-            this.tagText2 = new Charter.TagText();
-            this.tagText1 = new Charter.TagText();
-            this.ioState3 = new Charter.TagIO();
-            this.ioState2 = new Charter.TagIO();
-            this.aGauge3 = new Charter.TagGauge();
-            this.ioState1 = new Charter.TagIO();
-            this.aGauge5 = new Charter.TagGauge();
-            this.aGauge4 = new Charter.TagGauge();
+            this.stateButton2 = new Mettle.TagState();
+            this.tagChart1 = new Mettle.TagChart();
+            this.stateButton4 = new Mettle.TagState();
+            this.stateButton1 = new Mettle.TagState();
+            this.tagText5 = new Mettle.TagText();
+            this.stateButton3 = new Mettle.TagState();
+            this.tagText4 = new Mettle.TagText();
+            this.tagText3 = new Mettle.TagText();
+            this.tagText2 = new Mettle.TagText();
+            this.tagText1 = new Mettle.TagText();
+            this.ioState3 = new Mettle.TagIO();
+            this.ioState2 = new Mettle.TagIO();
+            this.aGauge3 = new Mettle.TagGauge();
+            this.ioState1 = new Mettle.TagIO();
+            this.aGauge5 = new Mettle.TagGauge();
+            this.aGauge4 = new Mettle.TagGauge();
             this.tabMain.SuspendLayout();
             this.tabChart.SuspendLayout();
             this.tabText.SuspendLayout();
@@ -470,7 +470,7 @@
             this.aGauge3.MaxValue = 1024F;
             this.aGauge3.MinValue = 0F;
             this.aGauge3.Name = "aGauge3";
-            this.aGauge3.NeedleColor1 = Charter.TagGauge.NeedleColorEnum.Red;
+            this.aGauge3.NeedleColor1 = Mettle.TagGauge.NeedleColorEnum.Red;
             this.aGauge3.NeedleColor2 = System.Drawing.Color.DimGray;
             this.aGauge3.NeedleRadius = 160;
             this.aGauge3.NeedleType = 0;
@@ -587,7 +587,7 @@
             this.aGauge5.MaxValue = 1024F;
             this.aGauge5.MinValue = 0F;
             this.aGauge5.Name = "aGauge5";
-            this.aGauge5.NeedleColor1 = Charter.TagGauge.NeedleColorEnum.Blue;
+            this.aGauge5.NeedleColor1 = Mettle.TagGauge.NeedleColorEnum.Blue;
             this.aGauge5.NeedleColor2 = System.Drawing.Color.DimGray;
             this.aGauge5.NeedleRadius = 160;
             this.aGauge5.NeedleType = 0;
@@ -693,7 +693,7 @@
             this.aGauge4.MaxValue = 55F;
             this.aGauge4.MinValue = -55F;
             this.aGauge4.Name = "aGauge4";
-            this.aGauge4.NeedleColor1 = Charter.TagGauge.NeedleColorEnum.Blue;
+            this.aGauge4.NeedleColor1 = Mettle.TagGauge.NeedleColorEnum.Blue;
             this.aGauge4.NeedleColor2 = System.Drawing.Color.DimGray;
             this.aGauge4.NeedleRadius = 160;
             this.aGauge4.NeedleType = 0;

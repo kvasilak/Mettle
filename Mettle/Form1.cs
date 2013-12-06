@@ -39,7 +39,7 @@ using System.Threading;
 //set the name for controls like tagstate. All other properties are available for use as a normal program.
 //Then run the program and watch the magic!
 //
-namespace Charter
+namespace Mettle
 {
     public partial class FormMain : Form
     {

@@ -8,7 +8,7 @@
     <ProjectGuid>{9FC76317-8528-4067-8C2A-CA11F8A3F1C5}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Charter</RootNamespace>
+    <RootNamespace>Mettle</RootNamespace>
     <AssemblyName>Charter</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>Client</TargetFrameworkProfile>
@@ -107,6 +107,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Serial.resx">
       <DependentUpon>Serial.cs</DependentUpon>

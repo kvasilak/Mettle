@@ -1,4 +1,4 @@
-﻿namespace Charter
+﻿namespace Mettle
 {
     partial class TagChart
     {

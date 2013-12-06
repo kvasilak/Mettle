@@ -24,7 +24,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 
-namespace Charter
+namespace Mettle
 {
     public partial class TagChart : Chart
     {
