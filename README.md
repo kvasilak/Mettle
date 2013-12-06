@@ -9,10 +9,10 @@ The firmware still sends debug messages in plain human readable text. It can sen
 A tag consists of a beginning character, '>' A module name, a comma, a tag name, another comma, data, then an ending character, '<'. 
 
 An example is; 
->Modulename,Tagname,TagData<
+ >Modulename,Tagname,TagData<
 
 or better; 
->Main System, BodyTemp,986< 
+ >Main System, BodyTemp,986< 
 
 Note that all numbers are integers
 
