@@ -1,4 +1,4 @@
-﻿//Charter, an embedded software analysis tool
+﻿//Mettle, an embedded software analysis tool
 //Copyright (C) 2013  Keith Vasilakes
 //
 //This program is free software: you can redistribute it and/or modify
@@ -37,7 +37,7 @@ namespace Mettle
 
         public void UpdateEvent(TagEvent e)
         {
-            if ((Module.Length == 0) || (Module == e.Module))
+            if ((Module ==null) || (Module == e.Module) )
             {
                 if (e.Name == base.Tag.ToString())
                 {

@@ -39,11 +39,13 @@
             this.tabChart = new System.Windows.Forms.TabPage();
             this.label4 = new System.Windows.Forms.Label();
             this.tabText = new System.Windows.Forms.TabPage();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtModules = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtTagData = new System.Windows.Forms.TextBox();
-            this.textUniques = new System.Windows.Forms.TextBox();
+            this.txtUniques = new System.Windows.Forms.TextBox();
             this.txtAllText = new System.Windows.Forms.TextBox();
             this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
@@ -129,11 +131,13 @@
             // 
             // tabText
             // 
+            this.tabText.Controls.Add(this.label5);
+            this.tabText.Controls.Add(this.txtModules);
             this.tabText.Controls.Add(this.label3);
             this.tabText.Controls.Add(this.label2);
             this.tabText.Controls.Add(this.label1);
             this.tabText.Controls.Add(this.txtTagData);
-            this.tabText.Controls.Add(this.textUniques);
+            this.tabText.Controls.Add(this.txtUniques);
             this.tabText.Controls.Add(this.txtAllText);
             this.tabText.Location = new System.Drawing.Point(4, 22);
             this.tabText.Name = "tabText";
@@ -143,10 +147,30 @@
             this.tabText.Text = "Text";
             this.tabText.UseVisualStyleBackColor = true;
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(391, 25);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(47, 13);
+            this.label5.TabIndex = 7;
+            this.label5.Text = "Modules";
+            // 
+            // txtModules
+            // 
+            this.txtModules.AcceptsReturn = true;
+            this.txtModules.AcceptsTab = true;
+            this.txtModules.Location = new System.Drawing.Point(394, 41);
+            this.txtModules.Multiline = true;
+            this.txtModules.Name = "txtModules";
+            this.txtModules.Size = new System.Drawing.Size(172, 388);
+            this.txtModules.TabIndex = 6;
+            this.txtModules.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtModules_MouseClick);
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(554, 25);
+            this.label3.Location = new System.Drawing.Point(780, 25);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(52, 13);
             this.label3.TabIndex = 5;
@@ -155,11 +179,11 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(358, 25);
+            this.label2.Location = new System.Drawing.Point(587, 25);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(68, 13);
+            this.label2.Size = new System.Drawing.Size(31, 13);
             this.label2.TabIndex = 4;
-            this.label2.Text = "Unique Tags";
+            this.label2.Text = "Tags";
             // 
             // label1
             // 
@@ -174,22 +198,22 @@
             // 
             this.txtTagData.AcceptsReturn = true;
             this.txtTagData.AcceptsTab = true;
-            this.txtTagData.Location = new System.Drawing.Point(557, 41);
+            this.txtTagData.Location = new System.Drawing.Point(783, 41);
             this.txtTagData.Multiline = true;
             this.txtTagData.Name = "txtTagData";
             this.txtTagData.Size = new System.Drawing.Size(172, 388);
             this.txtTagData.TabIndex = 2;
             // 
-            // textUniques
+            // txtUniques
             // 
-            this.textUniques.AcceptsReturn = true;
-            this.textUniques.AcceptsTab = true;
-            this.textUniques.Location = new System.Drawing.Point(361, 41);
-            this.textUniques.Multiline = true;
-            this.textUniques.Name = "textUniques";
-            this.textUniques.Size = new System.Drawing.Size(172, 388);
-            this.textUniques.TabIndex = 1;
-            this.textUniques.MouseClick += new System.Windows.Forms.MouseEventHandler(this.textUniques_MouseClick);
+            this.txtUniques.AcceptsReturn = true;
+            this.txtUniques.AcceptsTab = true;
+            this.txtUniques.Location = new System.Drawing.Point(590, 41);
+            this.txtUniques.Multiline = true;
+            this.txtUniques.Name = "txtUniques";
+            this.txtUniques.Size = new System.Drawing.Size(172, 388);
+            this.txtUniques.TabIndex = 1;
+            this.txtUniques.MouseClick += new System.Windows.Forms.MouseEventHandler(this.textUniques_MouseClick);
             // 
             // txtAllText
             // 
@@ -279,7 +303,7 @@
             // 
             this.stateButton2.Checked = false;
             this.stateButton2.Location = new System.Drawing.Point(223, 88);
-            this.stateButton2.Module = null;
+            this.stateButton2.Module = "regb";
             this.stateButton2.Name = "stateButton2";
             this.stateButton2.Size = new System.Drawing.Size(75, 23);
             this.stateButton2.TabIndex = 40;
@@ -336,7 +360,7 @@
             // 
             this.stateButton4.Checked = false;
             this.stateButton4.Location = new System.Drawing.Point(319, 88);
-            this.stateButton4.Module = null;
+            this.stateButton4.Module = "fgfg";
             this.stateButton4.Name = "stateButton4";
             this.stateButton4.Size = new System.Drawing.Size(72, 23);
             this.stateButton4.TabIndex = 42;
@@ -347,7 +371,7 @@
             // 
             this.stateButton1.Checked = false;
             this.stateButton1.Location = new System.Drawing.Point(242, 30);
-            this.stateButton1.Module = null;
+            this.stateButton1.Module = "More";
             this.stateButton1.Name = "stateButton1";
             this.stateButton1.Size = new System.Drawing.Size(75, 23);
             this.stateButton1.TabIndex = 39;
@@ -367,7 +391,7 @@
             // 
             this.stateButton3.Checked = false;
             this.stateButton3.Location = new System.Drawing.Point(280, 59);
-            this.stateButton3.Module = null;
+            this.stateButton3.Module = "dfgadfg";
             this.stateButton3.Name = "stateButton3";
             this.stateButton3.Size = new System.Drawing.Size(75, 23);
             this.stateButton3.TabIndex = 41;
@@ -842,9 +866,11 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtTagData;
-        private System.Windows.Forms.TextBox textUniques;
+        private System.Windows.Forms.TextBox txtUniques;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ToolStripButton btnAbout;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox txtModules;
     }
 }
 

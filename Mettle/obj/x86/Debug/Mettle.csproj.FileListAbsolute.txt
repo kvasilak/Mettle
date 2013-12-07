@@ -31,3 +31,4 @@ C:\Users\Keith\Documents\CSharp\Mettle\Mettle\obj\x86\Debug\Mettle.TagState.reso
 C:\Users\Keith\Documents\CSharp\Mettle\Mettle\obj\x86\Debug\Mettle.csproj.GenerateResource.Cache
 C:\Users\Keith\Documents\CSharp\Mettle\Mettle\obj\x86\Debug\Mettle.exe
 C:\Users\Keith\Documents\CSharp\Mettle\Mettle\obj\x86\Debug\Mettle.pdb
+C:\Users\Keith\Documents\CSharp\Mettle\Mettle\obj\x86\Debug\Mettle.csprojResolveAssemblyReference.cache

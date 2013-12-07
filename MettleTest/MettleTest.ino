@@ -45,7 +45,7 @@ bool IsTimedOut(uint32_t period, uint32_t start)
 
 void SetThisState(int state)
 {
-  Serial.print(">This, State");
+  Serial.print(">Module1,This, State");
   Serial.print(state);
   Serial.println("<");
   
@@ -60,47 +60,47 @@ void loop()
  if(c++> 100) c=0;
  Serial.println("Line one");
  
- Serial.print(">Left,");
+ Serial.print(">Module2,Left,");
  Serial.print(a);
  Serial.println("<");
  
- Serial.print(">Right,");
+ Serial.print(">Module2,Right,");
  Serial.print(b);
  Serial.println("<");
  
  Serial.println("more lines n stuff");
  
- Serial.print(">XAxis,");
+ Serial.print(">Module2,XAxis,");
  Serial.print(analogRead(0));
  Serial.print("< ");
  
- Serial.print(">YAxis,");
+ Serial.print(">Module2,YAxis,");
  Serial.print(analogRead(1));
  Serial.print("<");
  
- Serial.print(">ZAxis,");
+ Serial.print(">Module2,ZAxis,");
  Serial.print(analogRead(2));
  Serial.println("<");
  
  Serial.println("Last Line dontcha know");
   
  
- Serial.print(">Tag4,");
+ Serial.print(">Module2,Tag4,");
  Serial.print(c);
  Serial.print("< ");
  Serial.print("blah blah blah");
  
- Serial.print(">Tag4.5,");
+ Serial.print(">Module2,Tag4.5,");
  Serial.print("state_on");
  Serial.println("<");
  
  Serial.print("1234567890");
  
- Serial.print(">Tag4.6,");
+ Serial.print(">Module2,Tag4.6,");
  Serial.print("state_off");
  Serial.println("<");
  
- Serial.print(">with a space,");
+ Serial.print(">Module2,with a space,");
    Serial.print("Space Here");
    Serial.println("<");
  
@@ -109,7 +109,7 @@ void loop()
    //pressed is low
    pushbutton = digitalRead(2);
    
-   Serial.print(">PushButton,");
+   Serial.print(">Module2,PushButton,");
    Serial.print(!pushbutton);
    Serial.println("<");
    
@@ -150,7 +150,7 @@ void loop()
   
   if(IsTimedOut(1000, LED1time))
   {
-    Serial.print(">LED1,");
+    Serial.print(">Module2,LED1,");
     Serial.print(LED1);
     Serial.println("<");
     LED1time = millis();
@@ -160,7 +160,7 @@ void loop()
   
     if(IsTimedOut(2000, LED2time))
   {
-    Serial.print(">LED2,");
+    Serial.print(">Module2,LED2,");
     Serial.print(LED2);
     Serial.println("<");
     LED2time = millis();
@@ -170,7 +170,7 @@ void loop()
   
     if(IsTimedOut(1500, LED3time))
   {
-    Serial.print(">LED3,");
+    Serial.print(">Module2,LED3,");
     Serial.print(LED3);
     Serial.println("<");
     LED3time = millis();

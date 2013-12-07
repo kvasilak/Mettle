@@ -1,4 +1,4 @@
-﻿//Charter, an embedded software analysis tool
+﻿//Mettle, an embedded software analysis tool
 //Copyright (C) 2013  Keith Vasilakes
 //
 //This program is free software: you can redistribute it and/or modify
@@ -25,7 +25,6 @@ namespace Mettle
 
     class Tags : IComparable<Tags>
     {
-        public string Module;
         public string Name;
         public List<string> Data = new List<string>();
         public bool ValueValid = false;
@@ -35,7 +34,6 @@ namespace Mettle
 
         public Tags(TagEvent e)
         {
-            Module = e.Module;
             Name = e.Name;
 
             if (e.ValueValid)
@@ -63,14 +61,7 @@ namespace Mettle
         public int CompareTo(Tags other)
         {
             // Alphabetic sort 
-            int equal = this.Module.CompareTo(other.Module);
-
-            if (0 == equal)
-            {
-                equal = this.Name.CompareTo(other.Name);
-            }
-
-            return equal;
+            return this.Name.CompareTo(other.Name);
         }
 
         public override string ToString()
@@ -91,6 +82,36 @@ namespace Mettle
                 min = v;
             }
 
+        }
+
+
+        //Add the unique data or min/max if it's a valid number
+        public void Uniques(TagEvent e)
+        {
+            bool DataFound = false;
+
+            if (e.ValueValid)
+            {
+                //Update the min / max of the tag
+                Value(e.Value);
+            }
+            else
+            {
+                //does this string already exist?
+                foreach (string s in Data)
+                {
+                    if (s == e.Data)
+                    {
+                        DataFound = true;
+                    }
+                }
+
+                //Add data string if not found
+                if (false == DataFound)
+                {
+                    Data.Add(e.Data);
+                }
+            }
         }
     }
 }

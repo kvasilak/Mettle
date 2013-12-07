@@ -1,4 +1,4 @@
-﻿//Charter, an embedded software analysis tool
+﻿//Mettle, an embedded software analysis tool
 //Copyright (C) 2013  Keith Vasilakes
 //
 //This program is free software: you can redistribute it and/or modify
@@ -43,12 +43,14 @@ namespace Mettle
 {
     public partial class FormMain : Form
     {
-        string RxString;
+        string RxString = string.Empty;
 
         public event TagHandeler TagEvent;
         public delegate void TagHandeler(TagEvent e);
-        private List<Tags>TagList = new List<Tags>();
- 
+        private List<Module>ModuleList = new List<Module>();
+        private String RXBuffer = string.Empty; //new StringBuilder();
+        private Module SelectedModule = null;
+
         public FormMain()
         {
             InitializeComponent();
@@ -137,15 +139,49 @@ namespace Mettle
         //we have recieved serial data, get a line of it and send it to the parser
         private void serialPort1_DataReceived(object sender, SerialDataReceivedEventArgs e)
         {
+            string temp;
+
             if (serialPort1.IsOpen)
             {
+                int cr;
                 try
                 {
-                    String tmpstr = serialPort1.ReadLine();
+                    //get rx chars
+                    RXBuffer += serialPort1.ReadExisting();
+                    
+                    //is there a \n?
+                    cr = RXBuffer.IndexOf("\n");
 
-                    RxString = tmpstr;
+                    //there HAS to be at least 1 character to be at all valid;
+                    while (cr > 0)
+                    {
+                        //copy all data up to \n
+                        //as long as there IS data
+                        if (cr > 1)
+                        {
+                            RxString = RXBuffer.Substring(0, cr);
 
-                    this.Invoke(new EventHandler(HandleMesage));
+                            //Process the message
+                            this.Invoke(new EventHandler(HandleMesage));
+                        }
+
+                        //Copy everything after \n back into rx buffer, removing string just sent
+                        int len = RXBuffer.Length - (cr + 1);
+                        temp = string.Empty;
+
+                        //Anything left to copy?
+                        if (len > 0)
+                        {
+                            temp = RXBuffer.Substring(cr + 1, len);
+                        }
+
+                        RXBuffer = temp;
+
+                        //any more \n?
+                        cr = RXBuffer.IndexOf("\n");
+
+                    }
+
                 }
                 catch (Exception ex)
                 {
@@ -197,28 +233,38 @@ namespace Mettle
                         //find the second comma
                         comma2 = instr.IndexOf(",", comma + 1);
 
-                        //set the tag recieved event
-                        TagEvent t = new TagEvent();
-
-                        //split the tag and cleanup any whitespace
-                        t.Module = instr.Substring(start + 1, comma - (start + 1)).Trim(); //module name
-                        t.Name = instr.Substring(comma + 1, comma2 - (comma + 1)).Trim(); //tag name
-                        t.Data = instr.Substring(comma2 + 1, end - (comma2 + 1)).Trim(); //data
-
-                        //see if there is a number in the data
-                        if (int.TryParse(t.Data, out d))
+                        if (comma2 > 0)
                         {
-                            t.Value = d;
-                            t.ValueValid = true;
+                            //set the tag recieved event
+                            TagEvent t = new TagEvent();
 
+                            //split the tag and cleanup any whitespace
+                            t.Module = instr.Substring(start + 1, comma - (start + 1)).Trim(); //module name
+                            t.Name = instr.Substring(comma + 1, comma2 - (comma + 1)).Trim(); //tag name
+                            t.Data = instr.Substring(comma2 + 1, end - (comma2 + 1)).Trim(); //data
+
+                            //see if there is a number in the data
+                            if (int.TryParse(t.Data, out d))
+                            {
+                                t.Value = d;
+                                t.ValueValid = true;
+
+                            }
+
+                            //make sure someone is listening
+                            if (null != TagEvent)
+                                TagEvent(t);
+
+                            Uniques(t);
                         }
-
-                        //make sure someone is listening
-                        if(null != TagEvent)
-                            TagEvent(t);
-
-                        Uniques(t);
-                        
+                        else
+                        {
+                            //error event
+                        }
+                    }
+                    else
+                    {
+                        //error event
                     }
                 }
             }
@@ -227,58 +273,35 @@ namespace Mettle
 
         private void Uniques(TagEvent e)
         {
-            bool NameFound = false;
-            bool DataFound = false;
+            bool ModuleNameFound = false;
 
             //Search to see if tag exists
-            foreach (Tags tg in TagList)
+            foreach (Module m in ModuleList)
             {
-                if (tg.Name == e.Name)
+                if (m.ModuleName == e.Module)
                 {
-                    //found, now check data and values
-                    NameFound = true;
+                    ModuleNameFound = true;
 
-                    if (e.ValueValid)
-                    {
-                        //Update the min / max of the tag
-                        tg.Value(e.Value);
-                    }
-                    else
-                    {
-
-                        foreach (string s in tg.Data)
-                        {
-                            if (s == e.Data)
-                            {
-                                DataFound = true;
-                            }
-                        }
-
-                        //Add data string if not found
-                        if (false == DataFound)
-                        {
-                            tg.Data.Add(e.Data);
-                        }
-                    }
+                    //module found, add tag or data if unique
+                    m.Uniques(e);
                 }
             }
 
-            //add tag to list of unique tags
-            if (false == NameFound)
+            if (false == ModuleNameFound)
             {
-                TagList.Add(new Tags(e));
+                ModuleList.Add(new Module(e));
 
-                TagList.Sort();
+                ModuleList.Sort();
 
                 //we have a new tag, redisplay them all
-                textUniques.Clear();
+                txtModules.Clear();
 
-                foreach (Tags tg in TagList)
+                foreach (Module m in ModuleList)
                 {
-                    textUniques.AppendText(tg.Name + "\n");
+                    txtModules.AppendText(m.ModuleName + "\n");
                 }
-            }
 
+            }
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -311,7 +334,7 @@ namespace Mettle
 
         private void serialPort1_ErrorReceived(object sender, SerialErrorReceivedEventArgs e)
         {
-            //MessageBox.Show("Serial port error; " + e.EventType.ToString());
+            MessageBox.Show("Serial port error; " + e.EventType.ToString());
         }
 
         private void btnPlay_Click(object sender, EventArgs e)
@@ -338,28 +361,51 @@ namespace Mettle
         {
             txtTagData.Clear();
 
-            int charindex = textUniques.GetCharIndexFromPosition(e.Location);
-            int line = textUniques.GetLineFromCharIndex(charindex);
+            int charindex = txtUniques.GetCharIndexFromPosition(e.Location);
+            int line = txtUniques.GetLineFromCharIndex(charindex);
 
-            string sx = textUniques.Lines[line];
+            string sx = txtUniques.Lines[line];
 
-            foreach (Tags tg in TagList)
+            foreach (Tags t in SelectedModule.TagList)
             {
-                if (tg.Name == sx)
+                if (t.Name == sx)
                 {
-
-                    if (tg.ValueValid)
+                    if (t.ValueValid)
                     {
-                        txtTagData.AppendText("Max; " + tg.max + "\n");
-                        txtTagData.AppendText("Min; " + tg.min + "\n");
+                        txtTagData.AppendText("Max; " + t.max + "\n");
+                        txtTagData.AppendText("Min; " + t.min + "\n");
                     }
                     else
                     {
                         //Display all data from tag
-                        foreach (string s in tg.Data)
+                        foreach (string s in t.Data)
                         {
                             txtTagData.AppendText(s + "\n");
                         }
+                    }
+                }
+            }
+        }
+
+        private void txtModules_MouseClick(object sender, MouseEventArgs e)
+        {
+            txtUniques.Clear();
+            txtTagData.Clear();
+
+            int charindex = txtModules.GetCharIndexFromPosition(e.Location);
+            int line = txtModules.GetLineFromCharIndex(charindex);
+
+            string sx = txtModules.Lines[line];
+
+            foreach (Module m in ModuleList)
+            {
+                if (m.ModuleName == sx)
+                {
+                    SelectedModule = m;
+
+                    foreach (Tags t in m.TagList)
+                    {
+                        txtUniques.AppendText(t.Name + "\n");
                     }
                 }
             }
@@ -369,7 +415,5 @@ namespace Mettle
         {
             MessageBox.Show("Embedded Monitoring Tool; V1.0\nCopyright 2013 Keith Vasilakes\n\nLicensed under GPL\nhttp://www.gnu.org/licenses", "Embedded Monitor");
         }
-
-
     }
 }
