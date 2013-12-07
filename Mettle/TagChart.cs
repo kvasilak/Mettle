@@ -35,6 +35,8 @@ namespace Mettle
             InitializeComponent();
         }
 
+
+        //Module names are ignored until we can figure it out!
         public void UpdateEvent(TagEvent e)
         {
             int i;
