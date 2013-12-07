@@ -37,6 +37,7 @@
             System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.tabMain = new System.Windows.Forms.TabControl();
             this.tabChart = new System.Windows.Forms.TabPage();
+            this.label4 = new System.Windows.Forms.Label();
             this.tabText = new System.Windows.Forms.TabPage();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -51,7 +52,6 @@
             this.btnPlay = new System.Windows.Forms.ToolStripButton();
             this.btnStop = new System.Windows.Forms.ToolStripButton();
             this.btnTools = new System.Windows.Forms.ToolStripButton();
-            this.label4 = new System.Windows.Forms.Label();
             this.btnAbout = new System.Windows.Forms.ToolStripButton();
             this.stateButton2 = new Mettle.TagState();
             this.tagChart1 = new Mettle.TagChart();
@@ -117,6 +117,15 @@
             this.tabChart.TabIndex = 1;
             this.tabChart.Tag = "Right";
             this.tabChart.Text = "Chart";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(482, 3);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(89, 13);
+            this.label4.TabIndex = 55;
+            this.label4.Text = "Some LEDS Kool";
             // 
             // tabText
             // 
@@ -256,15 +265,6 @@
             this.btnTools.ToolTipText = "Setup";
             this.btnTools.Click += new System.EventHandler(this.btnTools_Click);
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(482, 3);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(89, 13);
-            this.label4.TabIndex = 55;
-            this.label4.Text = "Some LEDS Kool";
-            // 
             // btnAbout
             // 
             this.btnAbout.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
@@ -279,6 +279,7 @@
             // 
             this.stateButton2.Checked = false;
             this.stateButton2.Location = new System.Drawing.Point(223, 88);
+            this.stateButton2.Module = null;
             this.stateButton2.Name = "stateButton2";
             this.stateButton2.Size = new System.Drawing.Size(75, 23);
             this.stateButton2.TabIndex = 40;
@@ -335,6 +336,7 @@
             // 
             this.stateButton4.Checked = false;
             this.stateButton4.Location = new System.Drawing.Point(319, 88);
+            this.stateButton4.Module = null;
             this.stateButton4.Name = "stateButton4";
             this.stateButton4.Size = new System.Drawing.Size(72, 23);
             this.stateButton4.TabIndex = 42;
@@ -345,6 +347,7 @@
             // 
             this.stateButton1.Checked = false;
             this.stateButton1.Location = new System.Drawing.Point(242, 30);
+            this.stateButton1.Module = null;
             this.stateButton1.Name = "stateButton1";
             this.stateButton1.Size = new System.Drawing.Size(75, 23);
             this.stateButton1.TabIndex = 39;
@@ -354,6 +357,7 @@
             // tagText5
             // 
             this.tagText5.Location = new System.Drawing.Point(233, 6);
+            this.tagText5.Module = null;
             this.tagText5.Name = "tagText5";
             this.tagText5.Size = new System.Drawing.Size(100, 20);
             this.tagText5.TabIndex = 52;
@@ -363,6 +367,7 @@
             // 
             this.stateButton3.Checked = false;
             this.stateButton3.Location = new System.Drawing.Point(280, 59);
+            this.stateButton3.Module = null;
             this.stateButton3.Name = "stateButton3";
             this.stateButton3.Size = new System.Drawing.Size(75, 23);
             this.stateButton3.TabIndex = 41;
@@ -374,6 +379,7 @@
             this.tagText4.AcceptsReturn = true;
             this.tagText4.AcceptsTab = true;
             this.tagText4.Location = new System.Drawing.Point(646, 53);
+            this.tagText4.Module = null;
             this.tagText4.Multiline = true;
             this.tagText4.Name = "tagText4";
             this.tagText4.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -386,6 +392,7 @@
             this.tagText3.AcceptsReturn = true;
             this.tagText3.AcceptsTab = true;
             this.tagText3.Location = new System.Drawing.Point(209, 135);
+            this.tagText3.Module = null;
             this.tagText3.Multiline = true;
             this.tagText3.Name = "tagText3";
             this.tagText3.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -398,6 +405,7 @@
             this.tagText2.AcceptsReturn = true;
             this.tagText2.AcceptsTab = true;
             this.tagText2.Location = new System.Drawing.Point(800, 53);
+            this.tagText2.Module = null;
             this.tagText2.Multiline = true;
             this.tagText2.Name = "tagText2";
             this.tagText2.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -410,6 +418,7 @@
             this.tagText1.AcceptsReturn = true;
             this.tagText1.AcceptsTab = true;
             this.tagText1.Location = new System.Drawing.Point(108, 30);
+            this.tagText1.Module = null;
             this.tagText1.Multiline = true;
             this.tagText1.Name = "tagText1";
             this.tagText1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -422,6 +431,7 @@
             this.ioState3.Checked = false;
             this.ioState3.ForeColor = System.Drawing.Color.Yellow;
             this.ioState3.Location = new System.Drawing.Point(552, 16);
+            this.ioState3.Module = null;
             this.ioState3.Name = "ioState3";
             this.ioState3.Size = new System.Drawing.Size(38, 24);
             this.ioState3.TabIndex = 46;
@@ -432,6 +442,7 @@
             this.ioState2.Checked = false;
             this.ioState2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.ioState2.Location = new System.Drawing.Point(509, 16);
+            this.ioState2.Module = null;
             this.ioState2.Name = "ioState2";
             this.ioState2.Size = new System.Drawing.Size(37, 24);
             this.ioState2.TabIndex = 45;
@@ -469,6 +480,7 @@
             this.aGauge3.Location = new System.Drawing.Point(8, 6);
             this.aGauge3.MaxValue = 1024F;
             this.aGauge3.MinValue = 0F;
+            this.aGauge3.Module = null;
             this.aGauge3.Name = "aGauge3";
             this.aGauge3.NeedleColor1 = Mettle.TagGauge.NeedleColorEnum.Red;
             this.aGauge3.NeedleColor2 = System.Drawing.Color.DimGray;
@@ -548,6 +560,7 @@
             this.ioState1.Checked = false;
             this.ioState1.ForeColor = System.Drawing.Color.Red;
             this.ioState1.Location = new System.Drawing.Point(469, 16);
+            this.ioState1.Module = null;
             this.ioState1.Name = "ioState1";
             this.ioState1.Size = new System.Drawing.Size(34, 24);
             this.ioState1.TabIndex = 44;
@@ -586,6 +599,7 @@
             this.aGauge5.Location = new System.Drawing.Point(880, 6);
             this.aGauge5.MaxValue = 1024F;
             this.aGauge5.MinValue = 0F;
+            this.aGauge5.Module = null;
             this.aGauge5.Name = "aGauge5";
             this.aGauge5.NeedleColor1 = Mettle.TagGauge.NeedleColorEnum.Blue;
             this.aGauge5.NeedleColor2 = System.Drawing.Color.DimGray;
@@ -692,6 +706,7 @@
             this.aGauge4.Location = new System.Drawing.Point(253, 17);
             this.aGauge4.MaxValue = 55F;
             this.aGauge4.MinValue = -55F;
+            this.aGauge4.Module = null;
             this.aGauge4.Name = "aGauge4";
             this.aGauge4.NeedleColor1 = Mettle.TagGauge.NeedleColorEnum.Blue;
             this.aGauge4.NeedleColor2 = System.Drawing.Color.DimGray;
@@ -773,6 +788,7 @@
             this.ClientSize = new System.Drawing.Size(990, 569);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.tabMain);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(908, 455);
             this.Name = "FormMain";
             this.Text = "Embedded Monitoring Tool";

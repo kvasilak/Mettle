@@ -20,3 +20,14 @@ C:\Projects\Exaktime\Mettle\Mettle\obj\x86\Debug\Mettle.TagIO.resources
 C:\Projects\Exaktime\Mettle\Mettle\obj\x86\Debug\Mettle.Properties.Resources.resources
 C:\Projects\Exaktime\Mettle\Mettle\obj\x86\Debug\Mettle.dlgSerial.resources
 C:\Projects\Exaktime\Mettle\Mettle\obj\x86\Debug\Mettle.TagState.resources
+C:\Users\Keith\Documents\CSharp\Mettle\Mettle\bin\Debug\Mettle.exe.config
+C:\Users\Keith\Documents\CSharp\Mettle\Mettle\bin\Debug\Mettle.exe
+C:\Users\Keith\Documents\CSharp\Mettle\Mettle\bin\Debug\Mettle.pdb
+C:\Users\Keith\Documents\CSharp\Mettle\Mettle\obj\x86\Debug\Mettle.FormMain.resources
+C:\Users\Keith\Documents\CSharp\Mettle\Mettle\obj\x86\Debug\Mettle.TagIO.resources
+C:\Users\Keith\Documents\CSharp\Mettle\Mettle\obj\x86\Debug\Mettle.Properties.Resources.resources
+C:\Users\Keith\Documents\CSharp\Mettle\Mettle\obj\x86\Debug\Mettle.dlgSerial.resources
+C:\Users\Keith\Documents\CSharp\Mettle\Mettle\obj\x86\Debug\Mettle.TagState.resources
+C:\Users\Keith\Documents\CSharp\Mettle\Mettle\obj\x86\Debug\Mettle.csproj.GenerateResource.Cache
+C:\Users\Keith\Documents\CSharp\Mettle\Mettle\obj\x86\Debug\Mettle.exe
+C:\Users\Keith\Documents\CSharp\Mettle\Mettle\obj\x86\Debug\Mettle.pdb
