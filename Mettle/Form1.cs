@@ -47,6 +47,11 @@ namespace Mettle
 
         public event TagHandeler TagEvent;
         public delegate void TagHandeler(TagEvent e);
+
+
+        public event ErrorHandeler TagErrorEvent;
+        public delegate void ErrorHandeler(string s);
+
         private List<Module>ModuleList = new List<Module>();
         private String RXBuffer = string.Empty; //new StringBuilder();
         private Module SelectedModule = null;
@@ -63,29 +68,32 @@ namespace Mettle
             //then register them for the tag recieved event
             foreach (Control c in tabMain.Controls)
             {
-                if (c.Name != "tabSetup")
+                foreach (Control ctl in c.Controls)
                 {
-                    foreach (Control ctl in c.Controls)
+                    //determine if the control is one of our custom ones,
+                    //our custom controls all implement ITagInterface
+                    if (ctl is ITagInterface)
                     {
-                        //determine if the control is one of our custom ones,
-                        //our custom controls all implement ITagInterface
-                        if (ctl is ITagInterface)
-                        {
-                            TagEvent += new TagHandeler( ((ITagInterface)ctl).UpdateEvent);
-                            ((ITagInterface)ctl).Initialize();
-                        }
+                        TagEvent += new TagHandeler( ((ITagInterface)ctl).UpdateEvent);
+                        ((ITagInterface)ctl).Initialize();
+                    }
 
-                        //look for and register child controls in containers
-                        //such as the panel and groupbox
-                        foreach (Control child in ctl.Controls)
-                        {
-                            if (child is ITagInterface)
-                            {
-                                Trace.WriteLine(child.Name);
+                    if (ctl is ITagErrorInterface)
+                    {
+                        TagErrorEvent += new ErrorHandeler( ((ITagErrorInterface)ctl).UpdateEvent);
+                        ((ITagErrorInterface)ctl).Initialize();
+                    }
 
-                                TagEvent += new TagHandeler(((ITagInterface)child).UpdateEvent);
-                                ((ITagInterface)child).Initialize();
-                            }
+                    //look for and register child controls in containers
+                    //such as the panel and groupbox
+                    foreach (Control child in ctl.Controls)
+                    {
+                        if (child is ITagInterface)
+                        {
+                            Trace.WriteLine(child.Name);
+
+                            TagEvent += new TagHandeler(((ITagInterface)child).UpdateEvent);
+                            ((ITagInterface)child).Initialize();
                         }
                     }
                 }
@@ -242,19 +250,27 @@ namespace Mettle
                                 TagEvent(t);
 
                             Uniques(t);
+
                         }
                         else
                         {
-                            //error event
+                            if(null != TagErrorEvent)
+                                TagErrorEvent(instr.Substring(offset));
                         }
                     }
                     else
                     {
-                        //error event
+                        if (null != TagErrorEvent)
+                            TagErrorEvent(instr.Substring(offset));
                     }
                 }
+                else
+                {
+                    if (null != TagErrorEvent)
+                        TagErrorEvent(instr.Substring(offset));
+                }
             }
-            return end;
+            return end+1;
         }
 
         private void Uniques(TagEvent e)

@@ -65,7 +65,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ITagErrorInterface.cs" />
     <Compile Include="Module.cs" />
+    <Compile Include="TagError.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="TagError.Designer.cs">
+      <DependentUpon>TagError.cs</DependentUpon>
+    </Compile>
     <Compile Include="TagGauge.cs">
       <SubType>Component</SubType>
     </Compile>

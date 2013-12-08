@@ -156,6 +156,14 @@ void loop()
     LED1time = millis();
     
     LED1 = LED1?0:1;
+    
+    Serial.println(">badTag, one,good<");//actually a good tag
+    Serial.println(">badTag, one,good<>badTag, two,<");
+    Serial.println(">badTag, one, bad");
+    Serial.println(">badTag, one,<"); //is this bad??
+    Serial.println(">badTag, one<");
+    Serial.println(">badTag<");
+    Serial.println("badTag, one,Bad too<");
   }
   
     if(IsTimedOut(2000, LED2time))
