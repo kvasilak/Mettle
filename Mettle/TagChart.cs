@@ -26,7 +26,7 @@ using System.Windows.Forms.DataVisualization.Charting;
 
 namespace Mettle
 {
-    public partial class TagChart : Chart
+    public partial class TagChart : Chart, ITagInterface
     {
         private int indx = 0;
         private string m_ModuleName;
@@ -38,7 +38,7 @@ namespace Mettle
 
 
         //Module names are ignored until we can figure it out!
-        public void UpdateEvent(TagEvent e)
+        void ITagInterface.UpdateEvent(TagEvent e)
         {
             int i;
 

@@ -70,36 +70,12 @@ namespace Mettle
                         //todo check for containers
                         //we might be in one
 
-                        //Todo, is there a more generic way to determine if a control
-                        //supoorts the tag event?
-
                         //determine if the control is one of our custom ones,
-                        //if it is add it to the tag event list
-                        if (d.GetType() == typeof(TagText))
+                        //our custom controls all implement ITagInterface
+
+                        if (d is ITagInterface)
                         {
-                            TagEvent += new TagHandeler( ((TagText)d).UpdateEvent);
-                        }
-
-                        if (d.GetType() == typeof(TagGauge))
-                        {
-                            TagEvent += new TagHandeler(((TagGauge)d).UpdateEvent);
-                        }
-
-                        if (d.GetType() == typeof(TagState ))
-                        {
-                            TagEvent += new TagHandeler(((TagState)d).UpdateEvent);
-                        }
-
-
-                        if (d.GetType() == typeof(TagIO))
-                        {
-                            TagEvent += new TagHandeler(((TagIO)d).UpdateEvent);
-                        }
-
-
-                        if (d.GetType() == typeof(TagChart))
-                        {
-                            TagEvent += new TagHandeler(((TagChart)d).UpdateEvent);
+                            TagEvent += new TagHandeler(((ITagInterface)d).UpdateEvent);
                         }
                     }
                 }

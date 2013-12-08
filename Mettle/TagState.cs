@@ -25,14 +25,14 @@ using System.Windows.Forms;
 
 namespace Mettle
 {
-    public partial class TagState : Control
+    public partial class TagState : Control, ITagInterface
     {
         public TagState()
         {
             InitializeComponent();
         }
 
-        public void UpdateEvent(TagEvent e)
+        void ITagInterface.UpdateEvent(TagEvent e)
         {
             if ((ModuleName == null) || (ModuleName == e.ModuleName))
             {

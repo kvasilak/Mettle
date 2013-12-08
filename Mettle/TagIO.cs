@@ -26,7 +26,7 @@ using System.Windows.Forms;
 
 namespace Mettle
 {
-    public partial class TagIO : Control
+    public partial class TagIO : Control, ITagInterface
     {
         private string m_ModuleName;
 
@@ -35,7 +35,7 @@ namespace Mettle
             InitializeComponent();
         }
 
-        public void UpdateEvent(TagEvent e)
+        void ITagInterface.UpdateEvent(TagEvent e)
         {
             if ((ModuleName == null) || (ModuleName == e.ModuleName))
             {

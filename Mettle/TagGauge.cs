@@ -36,7 +36,7 @@ namespace Mettle
     [ToolboxBitmapAttribute(typeof(TagGauge), "AGauge.bmp"), 
     DefaultEvent("ValueInRangeChanged"), 
     Description("Displays a value on an analog gauge. Raises an event if the value enters one of the definable ranges.")]
-    public partial class TagGauge : Control
+    public partial class TagGauge : Control, ITagInterface
     {
 #region enum, var, delegate, event
         public enum NeedleColorEnum
@@ -222,8 +222,7 @@ namespace Mettle
         /// </summary>
         /// <param name="f"></param>
         /// <param name="e"></param>
-        
-        public void UpdateEvent(TagEvent e)
+        void ITagInterface.UpdateEvent(TagEvent e)
         {
             if ((ModuleName == null) || (ModuleName == e.ModuleName))
             {
