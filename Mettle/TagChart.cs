@@ -29,6 +29,7 @@ namespace Mettle
     public partial class TagChart : Chart
     {
         private int indx = 0;
+        private string m_ModuleName;
 
         public TagChart()
         {
@@ -43,32 +44,50 @@ namespace Mettle
 
             //Todo; Suport multiple chart areas
 
-            //can have multiple series on one chart
-            for(i = 0; i < base.Series.Count; i++)
+            if ((ModuleName == null) || (ModuleName == e.ModuleName))
             {
-                //if (e.Name == base.Tag.ToString()) //base.ChartAreas[i].Name) //
-                if(base.Series[i].Name == e.Name)
+                //can have multiple series on one chart
+                for (i = 0; i < base.Series.Count; i++)
                 {
-                    
-                    if (base.Series[i].Points.Count < base.ChartAreas[0].AxisX.Maximum)
+                    //if (e.Name == base.Tag.ToString()) //base.ChartAreas[i].Name) //
+                    if (base.Series[i].Name == e.Name)
                     {
-                        base.Series[i].Points.Add(e.Value);
-                    }
-                    else
-                    {
-                        indx = int.Parse(base.Series[i].Points[0].GetCustomProperty("index"));
 
-                        base.Series[i].Points[indx].SetValueY(e.Value);
-                        
+                        if (base.Series[i].Points.Count < base.ChartAreas[0].AxisX.Maximum)
+                        {
+                            base.Series[i].Points.Add(e.Value);
+                        }
+                        else
+                        {
+                            indx = int.Parse(base.Series[i].Points[0].GetCustomProperty("index"));
 
-                        if (++indx > base.ChartAreas[0].AxisX.Maximum - 1) indx = 0;
+                            base.Series[i].Points[indx].SetValueY(e.Value);
 
-                        base.Series[i].Points[0].SetCustomProperty("index", indx.ToString());
 
-                        Invalidate();
+                            if (++indx > base.ChartAreas[0].AxisX.Maximum - 1) indx = 0;
+
+                            base.Series[i].Points[0].SetCustomProperty("index", indx.ToString());
+
+                            Invalidate();
+                        }
                     }
                 }
-           }
+            }
+        }
+
+        [System.ComponentModel.Browsable(true),
+        System.ComponentModel.Category("Mettle"),
+        System.ComponentModel.Description("The module name filter. Leave blank to see all module")]
+        public string ModuleName
+        {
+            get
+            {
+                return m_ModuleName;
+            }
+            set
+            {
+                m_ModuleName = value;
+            }
         }
     }
 }

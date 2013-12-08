@@ -51,7 +51,7 @@ namespace Mettle
         /// </summary>
         public bool ValueValid = false;
 
-        public string Module
+        public string ModuleName
         {
             set
             {

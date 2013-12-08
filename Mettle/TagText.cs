@@ -36,31 +36,34 @@ namespace Mettle
 
         public void UpdateEvent(TagEvent e)
         {
-            if (e.Name == base.Tag.ToString())
+            if ((ModuleName == null) || (ModuleName == e.ModuleName))
             {
-                if (base.Multiline)
+                if (e.Name == base.Tag.ToString())
                 {
-                    AppendText(e.Data + "\r\n");
+                    if (base.Multiline)
+                    {
+                        AppendText(e.Data + "\r\n");
 
-                    ScrollToCaret();
+                        ScrollToCaret();
+                    }
+                    else
+                    {
+                        base.Text = e.Data;
+                    }
                 }
-                else
-                {
-                    base.Text = e.Data;
-                }
-            }
 
-            if (base.Tag.ToString() == "*")
-            {
-                if (base.Multiline)
+                if (base.Tag.ToString() == "*")
                 {
-                    AppendText(e.Name + "\t\t" + e.Data + "\r\n");
+                    if (base.Multiline)
+                    {
+                        AppendText(e.Name + "\t\t" + e.Data + "\r\n");
 
-                    ScrollToCaret();
-                }
-                else
-                {
-                    Text = e.Name + "\t\t" + e.Data + "\r\n";
+                        ScrollToCaret();
+                    }
+                    else
+                    {
+                        Text = e.Name + "\t\t" + e.Data + "\r\n";
+                    }
                 }
             }
         }
@@ -68,7 +71,7 @@ namespace Mettle
         [System.ComponentModel.Browsable(true),
         System.ComponentModel.Category("Mettle"),
         System.ComponentModel.Description("The module name filter. Leave blank to see all module")]
-        public string Module
+        public string ModuleName
         {
             get
             {

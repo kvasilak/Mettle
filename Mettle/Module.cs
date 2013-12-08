@@ -29,7 +29,7 @@ namespace Mettle
 
         public Module(TagEvent e)
         {
-            ModuleName = e.Module;
+            ModuleName = e.ModuleName;
 
             TagList.Add(new Tags(e));
         }

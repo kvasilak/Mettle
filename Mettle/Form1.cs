@@ -239,7 +239,7 @@ namespace Mettle
                             TagEvent t = new TagEvent();
 
                             //split the tag and cleanup any whitespace
-                            t.Module = instr.Substring(start + 1, comma - (start + 1)).Trim(); //module name
+                            t.ModuleName = instr.Substring(start + 1, comma - (start + 1)).Trim(); //module name
                             t.Name = instr.Substring(comma + 1, comma2 - (comma + 1)).Trim(); //tag name
                             t.Data = instr.Substring(comma2 + 1, end - (comma2 + 1)).Trim(); //data
 
@@ -278,7 +278,7 @@ namespace Mettle
             //Search to see if tag exists
             foreach (Module m in ModuleList)
             {
-                if (m.ModuleName == e.Module)
+                if (m.ModuleName == e.ModuleName)
                 {
                     ModuleNameFound = true;
 

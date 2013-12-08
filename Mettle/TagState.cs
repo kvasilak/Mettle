@@ -34,7 +34,7 @@ namespace Mettle
 
         public void UpdateEvent(TagEvent e)
         {
-            if ((Module == null)  || (Module == e.Module) )
+            if ((ModuleName == null) || (ModuleName == e.ModuleName))
             {
                 if (e.Name == base.Tag.ToString())
                 {
@@ -88,7 +88,7 @@ namespace Mettle
         [System.ComponentModel.Browsable(true),
         System.ComponentModel.Category("Mettle"),
         System.ComponentModel.Description("The module name filter. Leave blank to see all modules")]
-        public string Module
+        public string ModuleName
         {
             get
             {
