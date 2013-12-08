@@ -22,16 +22,32 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Runtime.InteropServices;
 
 namespace Mettle
 {
     public partial class TagText : TextBox, ITagInterface
     {
+        private const int EM_SETTABSTOPS = 0x00CB;
+        [DllImport("User32.dll", CharSet = CharSet.Auto)]
+        private static extern IntPtr SendMessage(IntPtr h, int msg, int wParam, int[] lParam);
+        private const int TabSize = 4;
+
         private string m_ModuleName;
 
         public TagText()
         {
             InitializeComponent();
+        }
+
+        //Do any custom initialization here
+        void ITagInterface.Initialize()
+        {
+            // define value of the Tab indent 
+            int[] stops = { TabSize };
+            // change the indent 
+            //SendMessage(this.Handle, EM_SETTABSTOPS, 1, stops);
+            SendMessage(Handle, EM_SETTABSTOPS, 1, new int[] { TabSize * 4 });
         }
 
         void ITagInterface.UpdateEvent(TagEvent e)
@@ -56,7 +72,22 @@ namespace Mettle
                 {
                     if (base.Multiline)
                     {
-                        AppendText(e.Name + "\t\t" + e.Data + "\r\n");
+                        if (e.Name.Length < TabSize)
+                        {
+                            AppendText(e.Name + "\t\t\t\t" + e.Data + "\r\n");
+                        }
+                        else if (e.Name.Length < TabSize * 2)
+                        {
+                            AppendText(e.Name + "\t\t\t" + e.Data + "\r\n");
+                        }
+                        else if (e.Name.Length < TabSize*3)
+                        {
+                            AppendText(e.Name + "\t\t" + e.Data + "\r\n");
+                        }
+                        else 
+                        {
+                            AppendText(e.Name + "\t" + e.Data + "\r\n");
+                        }
 
                         ScrollToCaret();
                     }

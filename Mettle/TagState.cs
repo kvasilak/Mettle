@@ -32,6 +32,12 @@ namespace Mettle
             InitializeComponent();
         }
 
+        //Do any custom initialization here
+        void ITagInterface.Initialize()
+        {
+        }
+        
+        
         void ITagInterface.UpdateEvent(TagEvent e)
         {
             if ((ModuleName == null) || (ModuleName == e.ModuleName))

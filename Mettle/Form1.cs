@@ -65,17 +65,27 @@ namespace Mettle
             {
                 if (c.Name != "tabSetup")
                 {
-                    foreach (Control d in c.Controls)
+                    foreach (Control ctl in c.Controls)
                     {
-                        //todo check for containers
-                        //we might be in one
-
                         //determine if the control is one of our custom ones,
                         //our custom controls all implement ITagInterface
-
-                        if (d is ITagInterface)
+                        if (ctl is ITagInterface)
                         {
-                            TagEvent += new TagHandeler(((ITagInterface)d).UpdateEvent);
+                            TagEvent += new TagHandeler( ((ITagInterface)ctl).UpdateEvent);
+                            ((ITagInterface)ctl).Initialize();
+                        }
+
+                        //look for and register child controls in containers
+                        //such as the panel and groupbox
+                        foreach (Control child in ctl.Controls)
+                        {
+                            if (child is ITagInterface)
+                            {
+                                Trace.WriteLine(child.Name);
+
+                                TagEvent += new TagHandeler(((ITagInterface)child).UpdateEvent);
+                                ((ITagInterface)child).Initialize();
+                            }
                         }
                     }
                 }

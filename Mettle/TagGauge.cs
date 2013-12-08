@@ -216,6 +216,11 @@ namespace Mettle
             }
         }
 
+        //Do any custom initialization here
+        void ITagInterface.Initialize()
+        {
+        }
+
         /// <summary>
         /// This event gets called when a tag has been recieved
         /// if the name of the tag is the same as the components tag, set the value

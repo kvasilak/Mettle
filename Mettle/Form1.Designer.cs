@@ -55,6 +55,12 @@
             this.btnStop = new System.Windows.Forms.ToolStripButton();
             this.btnTools = new System.Windows.Forms.ToolStripButton();
             this.btnAbout = new System.Windows.Forms.ToolStripButton();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.tagState3 = new Mettle.TagState();
+            this.tagState4 = new Mettle.TagState();
+            this.tagState1 = new Mettle.TagState();
+            this.tagState2 = new Mettle.TagState();
             this.stateButton2 = new Mettle.TagState();
             this.tagChart1 = new Mettle.TagChart();
             this.stateButton4 = new Mettle.TagState();
@@ -77,6 +83,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart2)).BeginInit();
             this.toolStrip1.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tagChart1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -96,6 +104,8 @@
             // tabChart
             // 
             this.tabChart.BackColor = System.Drawing.SystemColors.Control;
+            this.tabChart.Controls.Add(this.groupBox1);
+            this.tabChart.Controls.Add(this.panel1);
             this.tabChart.Controls.Add(this.label4);
             this.tabChart.Controls.Add(this.stateButton2);
             this.tabChart.Controls.Add(this.tagChart1);
@@ -299,6 +309,71 @@
             this.btnAbout.Text = "About";
             this.btnAbout.Click += new System.EventHandler(this.btnAbout_Click);
             // 
+            // panel1
+            // 
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.tagState1);
+            this.panel1.Controls.Add(this.tagState2);
+            this.panel1.Location = new System.Drawing.Point(442, 75);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(128, 130);
+            this.panel1.TabIndex = 56;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.tagState3);
+            this.groupBox1.Controls.Add(this.tagState4);
+            this.groupBox1.Location = new System.Drawing.Point(634, 32);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(160, 107);
+            this.groupBox1.TabIndex = 57;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "groupBox1";
+            // 
+            // tagState3
+            // 
+            this.tagState3.Checked = false;
+            this.tagState3.Location = new System.Drawing.Point(24, 27);
+            this.tagState3.ModuleName = "Module1";
+            this.tagState3.Name = "tagState3";
+            this.tagState3.Size = new System.Drawing.Size(75, 23);
+            this.tagState3.TabIndex = 44;
+            this.tagState3.Tag = "This";
+            this.tagState3.Text = "State1";
+            // 
+            // tagState4
+            // 
+            this.tagState4.Checked = false;
+            this.tagState4.Location = new System.Drawing.Point(62, 56);
+            this.tagState4.ModuleName = "Module1";
+            this.tagState4.Name = "tagState4";
+            this.tagState4.Size = new System.Drawing.Size(75, 23);
+            this.tagState4.TabIndex = 45;
+            this.tagState4.Tag = "This";
+            this.tagState4.Text = "State3";
+            // 
+            // tagState1
+            // 
+            this.tagState1.Checked = false;
+            this.tagState1.Location = new System.Drawing.Point(8, 39);
+            this.tagState1.ModuleName = "Module1";
+            this.tagState1.Name = "tagState1";
+            this.tagState1.Size = new System.Drawing.Size(75, 23);
+            this.tagState1.TabIndex = 42;
+            this.tagState1.Tag = "This";
+            this.tagState1.Text = "State1";
+            // 
+            // tagState2
+            // 
+            this.tagState2.Checked = false;
+            this.tagState2.Location = new System.Drawing.Point(46, 68);
+            this.tagState2.ModuleName = "Module1";
+            this.tagState2.Name = "tagState2";
+            this.tagState2.Size = new System.Drawing.Size(75, 23);
+            this.tagState2.TabIndex = 43;
+            this.tagState2.Tag = "This";
+            this.tagState2.Text = "State3";
+            // 
             // stateButton2
             // 
             this.stateButton2.Checked = false;
@@ -403,14 +478,16 @@
             // 
             this.tagText4.AcceptsReturn = true;
             this.tagText4.AcceptsTab = true;
-            this.tagText4.Location = new System.Drawing.Point(646, 53);
+            this.tagText4.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tagText4.Location = new System.Drawing.Point(599, 135);
             this.tagText4.ModuleName = "Module2";
             this.tagText4.Multiline = true;
             this.tagText4.Name = "tagText4";
-            this.tagText4.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.tagText4.Size = new System.Drawing.Size(134, 168);
+            this.tagText4.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.tagText4.Size = new System.Drawing.Size(147, 133);
             this.tagText4.TabIndex = 50;
             this.tagText4.Tag = "*";
+            this.tagText4.WordWrap = false;
             // 
             // tagText3
             // 
@@ -828,6 +905,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.chart2)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.tagChart1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -872,6 +951,12 @@
         private System.Windows.Forms.ToolStripButton btnAbout;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtModules;
+        private System.Windows.Forms.Panel panel1;
+        private TagState tagState1;
+        private TagState tagState2;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private TagState tagState3;
+        private TagState tagState4;
     }
 }
 
