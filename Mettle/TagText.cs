@@ -40,6 +40,14 @@ namespace Mettle
             InitializeComponent();
         }
 
+
+        #region Interfaces
+
+        void ITagInterface.Reset()
+        {
+            Clear();
+        }
+
         //Do any custom initialization here
         void ITagInterface.Initialize()
         {
@@ -98,6 +106,8 @@ namespace Mettle
                 }
             }
         }
+
+        #endregion
 
         [System.ComponentModel.Browsable(true),
         System.ComponentModel.Category("Mettle"),

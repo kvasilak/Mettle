@@ -9,5 +9,6 @@ namespace Mettle
     {
         void UpdateEvent(string s);
         void Initialize();
+        void Reset();
     }
 }

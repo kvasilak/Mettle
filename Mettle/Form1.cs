@@ -417,5 +417,43 @@ namespace Mettle
         {
             MessageBox.Show("Embedded Monitoring Tool; V1.0\nCopyright 2013 Keith Vasilakes\n\nLicensed under GPL\nhttp://www.gnu.org/licenses", "Embedded Monitor");
         }
+
+        private void BtnReset_Click(object sender, EventArgs e)
+        {
+            txtAllText.Clear();
+
+            foreach (Control c in tabMain.Controls)
+            {
+                foreach (Control ctl in c.Controls)
+                {
+                    //determine if the control is one of our custom ones,
+                    //our custom controls all implement ITagInterface
+                    if (ctl is ITagInterface)
+                    {
+                        ((ITagInterface)ctl).Reset();
+                    }
+
+                    if (ctl is ITagErrorInterface)
+                    {
+                        ((ITagErrorInterface)ctl).Reset();
+                    }
+
+                    //look for and register child controls in containers
+                    //such as the panel and groupbox
+                    foreach (Control child in ctl.Controls)
+                    {
+                        if (child is ITagInterface)
+                        {
+                            ((ITagInterface)child).Reset();
+                        }
+
+                        if (child is ITagErrorInterface)
+                        {
+                            ((ITagErrorInterface)child).Reset();
+                        }
+                    }
+                }
+            }
+        }
     }
 }

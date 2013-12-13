@@ -216,6 +216,15 @@ namespace Mettle
             }
         }
 
+#endregion
+
+        #region Interfaces
+
+        void ITagInterface.Reset()
+        {
+            Value = 0;
+        }
+
         //Do any custom initialization here
         void ITagInterface.Initialize()
         {

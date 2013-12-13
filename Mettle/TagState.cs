@@ -32,6 +32,14 @@ namespace Mettle
             InitializeComponent();
         }
 
+
+        #region Interfaces
+
+        void ITagInterface.Reset()
+        {
+            Checked = false;
+        }
+
         //Do any custom initialization here
         void ITagInterface.Initialize()
         {
@@ -51,6 +59,7 @@ namespace Mettle
                 }
             }
         }
+        #endregion
 
         private void StateButton_Load(object sender, EventArgs e)
         {

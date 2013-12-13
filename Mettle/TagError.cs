@@ -24,7 +24,13 @@ namespace Mettle
             InitializeComponent();
         }
 
-        //Do any custom initialization here
+        #region Interfaces
+
+        void ITagErrorInterface.Reset()
+        {
+            Clear();
+        }
+
         void ITagErrorInterface.Initialize()
         {
             // define value of the Tab indent 
@@ -82,6 +88,8 @@ namespace Mettle
             //    }
             //}
         }
+
+        #endregion
 
         [System.ComponentModel.Browsable(true),
         System.ComponentModel.Category("Mettle"),

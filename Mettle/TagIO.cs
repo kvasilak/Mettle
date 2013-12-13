@@ -35,7 +35,13 @@ namespace Mettle
             InitializeComponent();
         }
 
-        //Do any custom initialization here
+#region Interfaces
+
+        void ITagInterface.Reset()
+        {
+            Checked = false;
+        }
+
         void ITagInterface.Initialize()
         {
         }
@@ -53,7 +59,7 @@ namespace Mettle
                 }
             }
         }
-
+#endregion
         public new string Text
         {
             get { return base.Text; }
