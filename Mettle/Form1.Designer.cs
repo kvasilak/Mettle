@@ -33,27 +33,8 @@
             this.tabMain = new System.Windows.Forms.TabControl();
             this.tabChart = new System.Windows.Forms.TabPage();
             this.txtAllText = new System.Windows.Forms.TextBox();
-            this.tagIO5 = new Mettle.TagIO();
-            this.tagIO4 = new Mettle.TagIO();
-            this.tagIO3 = new Mettle.TagIO();
-            this.tagIO2 = new Mettle.TagIO();
-            this.tagIO1 = new Mettle.TagIO();
             this.label6 = new System.Windows.Forms.Label();
-            this.ioState3 = new Mettle.TagIO();
-            this.ioState2 = new Mettle.TagIO();
-            this.ioState1 = new Mettle.TagIO();
             this.label4 = new System.Windows.Forms.Label();
-            this.tagText3 = new Mettle.TagText();
-            this.tagState5 = new Mettle.TagState();
-            this.tagState6 = new Mettle.TagState();
-            this.tagState1 = new Mettle.TagState();
-            this.tagState2 = new Mettle.TagState();
-            this.tagState3 = new Mettle.TagState();
-            this.tagState4 = new Mettle.TagState();
-            this.stateButton2 = new Mettle.TagState();
-            this.stateButton4 = new Mettle.TagState();
-            this.stateButton1 = new Mettle.TagState();
-            this.stateButton3 = new Mettle.TagState();
             this.tabText = new System.Windows.Forms.TabPage();
             this.label5 = new System.Windows.Forms.Label();
             this.txtModules = new System.Windows.Forms.TextBox();
@@ -70,14 +51,37 @@
             this.btnStop = new System.Windows.Forms.ToolStripButton();
             this.btnTools = new System.Windows.Forms.ToolStripButton();
             this.btnAbout = new System.Windows.Forms.ToolStripButton();
-            this.aGauge4 = new Mettle.TagGauge();
             this.BtnReset = new System.Windows.Forms.ToolStripButton();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.stripStatus = new System.Windows.Forms.ToolStripStatusLabel();
+            this.stripError = new System.Windows.Forms.ToolStripStatusLabel();
+            this.tagIO5 = new Mettle.TagIO();
+            this.tagIO4 = new Mettle.TagIO();
+            this.tagIO3 = new Mettle.TagIO();
+            this.tagIO2 = new Mettle.TagIO();
+            this.tagIO1 = new Mettle.TagIO();
+            this.ioState3 = new Mettle.TagIO();
+            this.ioState2 = new Mettle.TagIO();
+            this.ioState1 = new Mettle.TagIO();
+            this.tagText3 = new Mettle.TagText();
+            this.tagState5 = new Mettle.TagState();
+            this.tagState6 = new Mettle.TagState();
+            this.tagState1 = new Mettle.TagState();
+            this.tagState2 = new Mettle.TagState();
+            this.tagState3 = new Mettle.TagState();
+            this.tagState4 = new Mettle.TagState();
+            this.stateButton2 = new Mettle.TagState();
+            this.stateButton4 = new Mettle.TagState();
+            this.stateButton1 = new Mettle.TagState();
+            this.stateButton3 = new Mettle.TagState();
+            this.aGauge4 = new Mettle.TagGauge();
             this.tabMain.SuspendLayout();
             this.tabChart.SuspendLayout();
             this.tabText.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart2)).BeginInit();
             this.toolStrip1.SuspendLayout();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabMain
@@ -129,6 +133,9 @@
             // txtAllText
             // 
             this.txtAllText.AcceptsReturn = true;
+            this.txtAllText.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtAllText.HideSelection = false;
             this.txtAllText.Location = new System.Drawing.Point(26, 334);
             this.txtAllText.Multiline = true;
@@ -137,110 +144,15 @@
             this.txtAllText.Size = new System.Drawing.Size(322, 161);
             this.txtAllText.TabIndex = 85;
             // 
-            // tagIO5
-            // 
-            this.tagIO5.Checked = false;
-            this.tagIO5.ForeColor = System.Drawing.Color.Yellow;
-            this.tagIO5.Location = new System.Drawing.Point(884, 261);
-            this.tagIO5.ModuleName = null;
-            this.tagIO5.Name = "tagIO5";
-            this.tagIO5.Size = new System.Drawing.Size(46, 24);
-            this.tagIO5.TabIndex = 84;
-            this.tagIO5.Tag = "Ext_Pwr_Det";
-            this.tagIO5.Text = "Ext Pwr";
-            // 
-            // tagIO4
-            // 
-            this.tagIO4.Checked = false;
-            this.tagIO4.ForeColor = System.Drawing.Color.Yellow;
-            this.tagIO4.Location = new System.Drawing.Point(884, 229);
-            this.tagIO4.ModuleName = null;
-            this.tagIO4.Name = "tagIO4";
-            this.tagIO4.Size = new System.Drawing.Size(46, 24);
-            this.tagIO4.TabIndex = 83;
-            this.tagIO4.Tag = "nGSM_Pwr_Ind";
-            this.tagIO4.Text = "GSM Pwr";
-            // 
-            // tagIO3
-            // 
-            this.tagIO3.Checked = false;
-            this.tagIO3.ForeColor = System.Drawing.Color.Yellow;
-            this.tagIO3.Location = new System.Drawing.Point(888, 199);
-            this.tagIO3.ModuleName = null;
-            this.tagIO3.Name = "tagIO3";
-            this.tagIO3.Size = new System.Drawing.Size(34, 24);
-            this.tagIO3.TabIndex = 82;
-            this.tagIO3.Tag = "nChg_Det_In";
-            this.tagIO3.Text = "Chrg";
-            // 
-            // tagIO2
-            // 
-            this.tagIO2.Checked = false;
-            this.tagIO2.ForeColor = System.Drawing.Color.Yellow;
-            this.tagIO2.Location = new System.Drawing.Point(888, 169);
-            this.tagIO2.ModuleName = null;
-            this.tagIO2.Name = "tagIO2";
-            this.tagIO2.Size = new System.Drawing.Size(34, 24);
-            this.tagIO2.TabIndex = 81;
-            this.tagIO2.Tag = "nManager_Button";
-            this.tagIO2.Text = "Mgr";
-            // 
-            // tagIO1
-            // 
-            this.tagIO1.Checked = false;
-            this.tagIO1.ForeColor = System.Drawing.Color.Yellow;
-            this.tagIO1.Location = new System.Drawing.Point(888, 139);
-            this.tagIO1.ModuleName = null;
-            this.tagIO1.Name = "tagIO1";
-            this.tagIO1.Size = new System.Drawing.Size(34, 24);
-            this.tagIO1.TabIndex = 80;
-            this.tagIO1.Tag = "nGSM_CTS0";
-            this.tagIO1.Text = "CTS";
-            // 
             // label6
             // 
+            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(881, 15);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(78, 13);
             this.label6.TabIndex = 79;
             this.label6.Text = "Modem Control";
-            // 
-            // ioState3
-            // 
-            this.ioState3.Checked = false;
-            this.ioState3.ForeColor = System.Drawing.Color.Yellow;
-            this.ioState3.Location = new System.Drawing.Point(888, 88);
-            this.ioState3.ModuleName = null;
-            this.ioState3.Name = "ioState3";
-            this.ioState3.Size = new System.Drawing.Size(34, 24);
-            this.ioState3.TabIndex = 78;
-            this.ioState3.Tag = "PIN_GSM_FAST_SHUTDOWN";
-            this.ioState3.Text = "FSD";
-            // 
-            // ioState2
-            // 
-            this.ioState2.Checked = false;
-            this.ioState2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.ioState2.Location = new System.Drawing.Point(888, 58);
-            this.ioState2.ModuleName = null;
-            this.ioState2.Name = "ioState2";
-            this.ioState2.Size = new System.Drawing.Size(34, 24);
-            this.ioState2.TabIndex = 77;
-            this.ioState2.Tag = "PIN_GSM_RESET";
-            this.ioState2.Text = "Reset";
-            // 
-            // ioState1
-            // 
-            this.ioState1.Checked = false;
-            this.ioState1.ForeColor = System.Drawing.Color.Red;
-            this.ioState1.Location = new System.Drawing.Point(888, 28);
-            this.ioState1.ModuleName = null;
-            this.ioState1.Name = "ioState1";
-            this.ioState1.Size = new System.Drawing.Size(34, 24);
-            this.ioState1.TabIndex = 76;
-            this.ioState1.Tag = "PIN_GSM_ON2";
-            this.ioState1.Text = "On2";
             // 
             // label4
             // 
@@ -250,128 +162,6 @@
             this.label4.Size = new System.Drawing.Size(75, 13);
             this.label4.TabIndex = 75;
             this.label4.Text = "Modem States";
-            // 
-            // tagText3
-            // 
-            this.tagText3.Location = new System.Drawing.Point(245, 30);
-            this.tagText3.ModuleName = null;
-            this.tagText3.Multiline = true;
-            this.tagText3.Name = "tagText3";
-            this.tagText3.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.tagText3.Size = new System.Drawing.Size(201, 284);
-            this.tagText3.TabIndex = 74;
-            this.tagText3.Tag = "modem_state";
-            // 
-            // tagState5
-            // 
-            this.tagState5.Checked = false;
-            this.tagState5.Location = new System.Drawing.Point(26, 291);
-            this.tagState5.ModuleName = null;
-            this.tagState5.Name = "tagState5";
-            this.tagState5.Size = new System.Drawing.Size(213, 23);
-            this.tagState5.TabIndex = 73;
-            this.tagState5.Tag = "modem_state";
-            this.tagState5.Text = "MODEM_TURNING_OFF";
-            // 
-            // tagState6
-            // 
-            this.tagState6.Checked = false;
-            this.tagState6.Location = new System.Drawing.Point(26, 262);
-            this.tagState6.ModuleName = null;
-            this.tagState6.Name = "tagState6";
-            this.tagState6.Size = new System.Drawing.Size(213, 23);
-            this.tagState6.TabIndex = 72;
-            this.tagState6.Tag = "modem_state";
-            this.tagState6.Text = "MODEM_RUNNING_JAVA";
-            // 
-            // tagState1
-            // 
-            this.tagState1.Checked = false;
-            this.tagState1.Location = new System.Drawing.Point(26, 175);
-            this.tagState1.ModuleName = null;
-            this.tagState1.Name = "tagState1";
-            this.tagState1.Size = new System.Drawing.Size(213, 23);
-            this.tagState1.TabIndex = 69;
-            this.tagState1.Tag = "modem_state";
-            this.tagState1.Text = "MODEM_RUNNING_AT";
-            // 
-            // tagState2
-            // 
-            this.tagState2.Checked = false;
-            this.tagState2.Location = new System.Drawing.Point(26, 233);
-            this.tagState2.ModuleName = null;
-            this.tagState2.Name = "tagState2";
-            this.tagState2.Size = new System.Drawing.Size(213, 23);
-            this.tagState2.TabIndex = 71;
-            this.tagState2.Tag = "modem_state";
-            this.tagState2.Text = "MODEM_STARTING_JAVA_MSG";
-            // 
-            // tagState3
-            // 
-            this.tagState3.Checked = false;
-            this.tagState3.Location = new System.Drawing.Point(26, 146);
-            this.tagState3.ModuleName = null;
-            this.tagState3.Name = "tagState3";
-            this.tagState3.Size = new System.Drawing.Size(213, 23);
-            this.tagState3.TabIndex = 68;
-            this.tagState3.Tag = "modem_state";
-            this.tagState3.Text = "MODEM_STARTING_AT_MSG";
-            // 
-            // tagState4
-            // 
-            this.tagState4.Checked = false;
-            this.tagState4.Location = new System.Drawing.Point(26, 204);
-            this.tagState4.ModuleName = null;
-            this.tagState4.Name = "tagState4";
-            this.tagState4.Size = new System.Drawing.Size(213, 23);
-            this.tagState4.TabIndex = 70;
-            this.tagState4.Tag = "modem_state";
-            this.tagState4.Text = "MODEM_STARTING_JAVA";
-            // 
-            // stateButton2
-            // 
-            this.stateButton2.Checked = false;
-            this.stateButton2.Location = new System.Drawing.Point(26, 59);
-            this.stateButton2.ModuleName = null;
-            this.stateButton2.Name = "stateButton2";
-            this.stateButton2.Size = new System.Drawing.Size(213, 23);
-            this.stateButton2.TabIndex = 65;
-            this.stateButton2.Tag = "modem_state";
-            this.stateButton2.Text = "MODEM_INIT";
-            // 
-            // stateButton4
-            // 
-            this.stateButton4.Checked = false;
-            this.stateButton4.Location = new System.Drawing.Point(26, 117);
-            this.stateButton4.ModuleName = null;
-            this.stateButton4.Name = "stateButton4";
-            this.stateButton4.Size = new System.Drawing.Size(213, 23);
-            this.stateButton4.TabIndex = 67;
-            this.stateButton4.Tag = "modem_state";
-            this.stateButton4.Text = "MODEM_STARTING_AT";
-            // 
-            // stateButton1
-            // 
-            this.stateButton1.BackColor = System.Drawing.SystemColors.Control;
-            this.stateButton1.Checked = false;
-            this.stateButton1.Location = new System.Drawing.Point(26, 30);
-            this.stateButton1.ModuleName = null;
-            this.stateButton1.Name = "stateButton1";
-            this.stateButton1.Size = new System.Drawing.Size(213, 23);
-            this.stateButton1.TabIndex = 64;
-            this.stateButton1.Tag = "modem_state";
-            this.stateButton1.Text = "MODEM_OFF";
-            // 
-            // stateButton3
-            // 
-            this.stateButton3.Checked = false;
-            this.stateButton3.Location = new System.Drawing.Point(26, 88);
-            this.stateButton3.ModuleName = null;
-            this.stateButton3.Name = "stateButton3";
-            this.stateButton3.Size = new System.Drawing.Size(213, 23);
-            this.stateButton3.TabIndex = 66;
-            this.stateButton3.Tag = "modem_state";
-            this.stateButton3.Text = "MODEM_LOW_VOLTAGE";
             // 
             // tabText
             // 
@@ -536,6 +326,268 @@
             this.btnAbout.Text = "About";
             this.btnAbout.Click += new System.EventHandler(this.btnAbout_Click);
             // 
+            // BtnReset
+            // 
+            this.BtnReset.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.BtnReset.Image = ((System.Drawing.Image)(resources.GetObject("BtnReset.Image")));
+            this.BtnReset.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.BtnReset.Name = "BtnReset";
+            this.BtnReset.Size = new System.Drawing.Size(39, 22);
+            this.BtnReset.Text = "Reset";
+            this.BtnReset.ToolTipText = "Reset and clear UI";
+            this.BtnReset.Click += new System.EventHandler(this.BtnReset_Click);
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.stripStatus,
+            this.stripError});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 547);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(990, 22);
+            this.statusStrip1.TabIndex = 2;
+            this.statusStrip1.Text = "Status";
+            // 
+            // stripStatus
+            // 
+            this.stripStatus.Name = "stripStatus";
+            this.stripStatus.Size = new System.Drawing.Size(39, 17);
+            this.stripStatus.Text = "Status";
+            this.stripStatus.ToolTipText = "Application status";
+            // 
+            // stripError
+            // 
+            this.stripError.Name = "stripError";
+            this.stripError.Size = new System.Drawing.Size(32, 17);
+            this.stripError.Text = "Error";
+            this.stripError.ToolTipText = "Application errors";
+            // 
+            // tagIO5
+            // 
+            this.tagIO5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.tagIO5.Checked = false;
+            this.tagIO5.ForeColor = System.Drawing.Color.Yellow;
+            this.tagIO5.Location = new System.Drawing.Point(884, 261);
+            this.tagIO5.ModuleName = null;
+            this.tagIO5.Name = "tagIO5";
+            this.tagIO5.Size = new System.Drawing.Size(46, 24);
+            this.tagIO5.TabIndex = 84;
+            this.tagIO5.Tag = "Ext_Pwr_Det";
+            this.tagIO5.Text = "Ext Pwr";
+            // 
+            // tagIO4
+            // 
+            this.tagIO4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.tagIO4.Checked = false;
+            this.tagIO4.ForeColor = System.Drawing.Color.Yellow;
+            this.tagIO4.Location = new System.Drawing.Point(884, 229);
+            this.tagIO4.ModuleName = null;
+            this.tagIO4.Name = "tagIO4";
+            this.tagIO4.Size = new System.Drawing.Size(46, 24);
+            this.tagIO4.TabIndex = 83;
+            this.tagIO4.Tag = "nGSM_Pwr_Ind";
+            this.tagIO4.Text = "GSM Pwr";
+            // 
+            // tagIO3
+            // 
+            this.tagIO3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.tagIO3.Checked = false;
+            this.tagIO3.ForeColor = System.Drawing.Color.Yellow;
+            this.tagIO3.Location = new System.Drawing.Point(888, 199);
+            this.tagIO3.ModuleName = null;
+            this.tagIO3.Name = "tagIO3";
+            this.tagIO3.Size = new System.Drawing.Size(34, 24);
+            this.tagIO3.TabIndex = 82;
+            this.tagIO3.Tag = "nChg_Det_In";
+            this.tagIO3.Text = "Chrg";
+            // 
+            // tagIO2
+            // 
+            this.tagIO2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.tagIO2.Checked = false;
+            this.tagIO2.ForeColor = System.Drawing.Color.Yellow;
+            this.tagIO2.Location = new System.Drawing.Point(888, 169);
+            this.tagIO2.ModuleName = null;
+            this.tagIO2.Name = "tagIO2";
+            this.tagIO2.Size = new System.Drawing.Size(34, 24);
+            this.tagIO2.TabIndex = 81;
+            this.tagIO2.Tag = "nManager_Button";
+            this.tagIO2.Text = "Mgr";
+            // 
+            // tagIO1
+            // 
+            this.tagIO1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.tagIO1.Checked = false;
+            this.tagIO1.ForeColor = System.Drawing.Color.Yellow;
+            this.tagIO1.Location = new System.Drawing.Point(888, 139);
+            this.tagIO1.ModuleName = null;
+            this.tagIO1.Name = "tagIO1";
+            this.tagIO1.Size = new System.Drawing.Size(34, 24);
+            this.tagIO1.TabIndex = 80;
+            this.tagIO1.Tag = "nGSM_CTS0";
+            this.tagIO1.Text = "CTS";
+            // 
+            // ioState3
+            // 
+            this.ioState3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ioState3.Checked = false;
+            this.ioState3.ForeColor = System.Drawing.Color.Yellow;
+            this.ioState3.Location = new System.Drawing.Point(888, 88);
+            this.ioState3.ModuleName = null;
+            this.ioState3.Name = "ioState3";
+            this.ioState3.Size = new System.Drawing.Size(34, 24);
+            this.ioState3.TabIndex = 78;
+            this.ioState3.Tag = "PIN_GSM_FAST_SHUTDOWN";
+            this.ioState3.Text = "FSD";
+            // 
+            // ioState2
+            // 
+            this.ioState2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ioState2.Checked = false;
+            this.ioState2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.ioState2.Location = new System.Drawing.Point(888, 58);
+            this.ioState2.ModuleName = null;
+            this.ioState2.Name = "ioState2";
+            this.ioState2.Size = new System.Drawing.Size(34, 24);
+            this.ioState2.TabIndex = 77;
+            this.ioState2.Tag = "PIN_GSM_RESET";
+            this.ioState2.Text = "Reset";
+            // 
+            // ioState1
+            // 
+            this.ioState1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ioState1.Checked = false;
+            this.ioState1.ForeColor = System.Drawing.Color.Red;
+            this.ioState1.Location = new System.Drawing.Point(888, 28);
+            this.ioState1.ModuleName = null;
+            this.ioState1.Name = "ioState1";
+            this.ioState1.Size = new System.Drawing.Size(34, 24);
+            this.ioState1.TabIndex = 76;
+            this.ioState1.Tag = "PIN_GSM_ON2";
+            this.ioState1.Text = "On2";
+            // 
+            // tagText3
+            // 
+            this.tagText3.Location = new System.Drawing.Point(245, 30);
+            this.tagText3.ModuleName = null;
+            this.tagText3.Multiline = true;
+            this.tagText3.Name = "tagText3";
+            this.tagText3.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.tagText3.Size = new System.Drawing.Size(201, 284);
+            this.tagText3.TabIndex = 74;
+            this.tagText3.Tag = "modem_state";
+            // 
+            // tagState5
+            // 
+            this.tagState5.Checked = false;
+            this.tagState5.Location = new System.Drawing.Point(26, 291);
+            this.tagState5.ModuleName = null;
+            this.tagState5.Name = "tagState5";
+            this.tagState5.Size = new System.Drawing.Size(213, 23);
+            this.tagState5.TabIndex = 73;
+            this.tagState5.Tag = "modem_state";
+            this.tagState5.Text = "MODEM_TURNING_OFF";
+            // 
+            // tagState6
+            // 
+            this.tagState6.Checked = false;
+            this.tagState6.Location = new System.Drawing.Point(26, 262);
+            this.tagState6.ModuleName = null;
+            this.tagState6.Name = "tagState6";
+            this.tagState6.Size = new System.Drawing.Size(213, 23);
+            this.tagState6.TabIndex = 72;
+            this.tagState6.Tag = "modem_state";
+            this.tagState6.Text = "MODEM_RUNNING_JAVA";
+            // 
+            // tagState1
+            // 
+            this.tagState1.Checked = false;
+            this.tagState1.Location = new System.Drawing.Point(26, 175);
+            this.tagState1.ModuleName = null;
+            this.tagState1.Name = "tagState1";
+            this.tagState1.Size = new System.Drawing.Size(213, 23);
+            this.tagState1.TabIndex = 69;
+            this.tagState1.Tag = "modem_state";
+            this.tagState1.Text = "MODEM_RUNNING_AT";
+            // 
+            // tagState2
+            // 
+            this.tagState2.Checked = false;
+            this.tagState2.Location = new System.Drawing.Point(26, 233);
+            this.tagState2.ModuleName = null;
+            this.tagState2.Name = "tagState2";
+            this.tagState2.Size = new System.Drawing.Size(213, 23);
+            this.tagState2.TabIndex = 71;
+            this.tagState2.Tag = "modem_state";
+            this.tagState2.Text = "MODEM_STARTING_JAVA_MSG";
+            // 
+            // tagState3
+            // 
+            this.tagState3.Checked = false;
+            this.tagState3.Location = new System.Drawing.Point(26, 146);
+            this.tagState3.ModuleName = null;
+            this.tagState3.Name = "tagState3";
+            this.tagState3.Size = new System.Drawing.Size(213, 23);
+            this.tagState3.TabIndex = 68;
+            this.tagState3.Tag = "modem_state";
+            this.tagState3.Text = "MODEM_STARTING_AT_MSG";
+            // 
+            // tagState4
+            // 
+            this.tagState4.Checked = false;
+            this.tagState4.Location = new System.Drawing.Point(26, 204);
+            this.tagState4.ModuleName = null;
+            this.tagState4.Name = "tagState4";
+            this.tagState4.Size = new System.Drawing.Size(213, 23);
+            this.tagState4.TabIndex = 70;
+            this.tagState4.Tag = "modem_state";
+            this.tagState4.Text = "MODEM_STARTING_JAVA";
+            // 
+            // stateButton2
+            // 
+            this.stateButton2.Checked = false;
+            this.stateButton2.Location = new System.Drawing.Point(26, 59);
+            this.stateButton2.ModuleName = null;
+            this.stateButton2.Name = "stateButton2";
+            this.stateButton2.Size = new System.Drawing.Size(213, 23);
+            this.stateButton2.TabIndex = 65;
+            this.stateButton2.Tag = "modem_state";
+            this.stateButton2.Text = "MODEM_INIT";
+            // 
+            // stateButton4
+            // 
+            this.stateButton4.Checked = false;
+            this.stateButton4.Location = new System.Drawing.Point(26, 117);
+            this.stateButton4.ModuleName = null;
+            this.stateButton4.Name = "stateButton4";
+            this.stateButton4.Size = new System.Drawing.Size(213, 23);
+            this.stateButton4.TabIndex = 67;
+            this.stateButton4.Tag = "modem_state";
+            this.stateButton4.Text = "MODEM_STARTING_AT";
+            // 
+            // stateButton1
+            // 
+            this.stateButton1.BackColor = System.Drawing.SystemColors.Control;
+            this.stateButton1.Checked = false;
+            this.stateButton1.Location = new System.Drawing.Point(26, 30);
+            this.stateButton1.ModuleName = null;
+            this.stateButton1.Name = "stateButton1";
+            this.stateButton1.Size = new System.Drawing.Size(213, 23);
+            this.stateButton1.TabIndex = 64;
+            this.stateButton1.Tag = "modem_state";
+            this.stateButton1.Text = "MODEM_OFF";
+            // 
+            // stateButton3
+            // 
+            this.stateButton3.Checked = false;
+            this.stateButton3.Location = new System.Drawing.Point(26, 88);
+            this.stateButton3.ModuleName = null;
+            this.stateButton3.Name = "stateButton3";
+            this.stateButton3.Size = new System.Drawing.Size(213, 23);
+            this.stateButton3.TabIndex = 66;
+            this.stateButton3.Tag = "modem_state";
+            this.stateButton3.Text = "MODEM_LOW_VOLTAGE";
+            // 
             // aGauge4
             // 
             this.aGauge4.BaseArcColor = System.Drawing.Color.Gray;
@@ -643,22 +695,12 @@
             this.aGauge4.Text = "aGauge4";
             this.aGauge4.Value = 0F;
             // 
-            // BtnReset
-            // 
-            this.BtnReset.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.BtnReset.Image = ((System.Drawing.Image)(resources.GetObject("BtnReset.Image")));
-            this.BtnReset.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.BtnReset.Name = "BtnReset";
-            this.BtnReset.Size = new System.Drawing.Size(39, 22);
-            this.BtnReset.Text = "Reset";
-            this.BtnReset.ToolTipText = "Reset and clear UI";
-            this.BtnReset.Click += new System.EventHandler(this.BtnReset_Click);
-            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(990, 569);
+            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.tabMain);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -676,6 +718,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.chart2)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -725,6 +769,9 @@
         private TagState stateButton1;
         private TagState stateButton3;
         private System.Windows.Forms.ToolStripButton BtnReset;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel stripStatus;
+        private System.Windows.Forms.ToolStripStatusLabel stripError;
     }
 }
 

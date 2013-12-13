@@ -122,10 +122,14 @@ namespace Mettle
                     serialPort1.Open();
                     serialPort1.DiscardInBuffer();
 
+                    stripStatus.Text = "Running";
+                    stripError.Text = "No Errors";
+
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show("Serial port; " + ex.Message, "Error!");
+                    stripError.Text = "Serial open Error; " + ex.Message;
                 }
             }
         }
@@ -147,7 +151,7 @@ namespace Mettle
                     cr = RXBuffer.IndexOf("\n");
 
                     //there HAS to be at least 1 character to be at all valid;
-                    while (cr > 0)
+                    while (cr >= 0)
                     {
                         //copy all data up to \n
                         //as long as there IS data
@@ -176,6 +180,7 @@ namespace Mettle
 
                     }
 
+                    stripError.Text = "No Errors";
                 }
                 catch (Exception ex)
                 {
@@ -309,6 +314,8 @@ namespace Mettle
         private void btnClose_Click(object sender, EventArgs e)
         {
             SafeSerialClose();
+
+            stripStatus.Text = "Stopped";
         }
 
 
@@ -336,7 +343,9 @@ namespace Mettle
 
         private void serialPort1_ErrorReceived(object sender, SerialErrorReceivedEventArgs e)
         {
-            MessageBox.Show("Serial port error; " + e.EventType.ToString());
+            //MessageBox.Show("Serial port error; " + e.EventType.ToString());
+
+            stripError.Text = "Error!" + e.EventType.ToString();
         }
 
         private void btnPlay_Click(object sender, EventArgs e)
