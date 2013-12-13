@@ -9,11 +9,6 @@ C:\Projects\Exaktime\Mettle\Charter\obj\x86\Debug\Charter.TagState.resources
 C:\Projects\Exaktime\Mettle\Charter\obj\x86\Debug\Mettle.csproj.GenerateResource.Cache
 C:\Projects\Exaktime\Mettle\Charter\obj\x86\Debug\Charter.exe
 C:\Projects\Exaktime\Mettle\Charter\obj\x86\Debug\Charter.pdb
-C:\Projects\Exaktime\Mettle\Mettle\bin\Debug\Charter.exe.config
-C:\Projects\Exaktime\Mettle\Mettle\obj\x86\Debug\Charter.exe
-C:\Projects\Exaktime\Mettle\Mettle\obj\x86\Debug\Charter.pdb
-C:\Projects\Exaktime\Mettle\Mettle\bin\Debug\Charter.exe
-C:\Projects\Exaktime\Mettle\Mettle\bin\Debug\Charter.pdb
 C:\Projects\Exaktime\Mettle\Mettle\obj\x86\Debug\Mettle.csproj.GenerateResource.Cache
 C:\Projects\Exaktime\Mettle\Mettle\obj\x86\Debug\Mettle.FormMain.resources
 C:\Projects\Exaktime\Mettle\Mettle\obj\x86\Debug\Mettle.TagIO.resources
@@ -32,3 +27,9 @@ C:\Users\Keith\Documents\CSharp\Mettle\Mettle\obj\x86\Debug\Mettle.csproj.Genera
 C:\Users\Keith\Documents\CSharp\Mettle\Mettle\obj\x86\Debug\Mettle.exe
 C:\Users\Keith\Documents\CSharp\Mettle\Mettle\obj\x86\Debug\Mettle.pdb
 C:\Users\Keith\Documents\CSharp\Mettle\Mettle\obj\x86\Debug\Mettle.csprojResolveAssemblyReference.cache
+C:\Projects\Exaktime\Mettle\Mettle\bin\Debug\Mettle.exe.config
+C:\Projects\Exaktime\Mettle\Mettle\bin\Debug\Mettle.exe
+C:\Projects\Exaktime\Mettle\Mettle\bin\Debug\Mettle.pdb
+C:\Projects\Exaktime\Mettle\Mettle\obj\x86\Debug\Mettle.csprojResolveAssemblyReference.cache
+C:\Projects\Exaktime\Mettle\Mettle\obj\x86\Debug\Mettle.exe
+C:\Projects\Exaktime\Mettle\Mettle\obj\x86\Debug\Mettle.pdb
