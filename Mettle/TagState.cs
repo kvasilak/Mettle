@@ -1,4 +1,4 @@
-﻿//Charter, an embedded software analysis tool
+﻿//Mettle, an embedded software analysis tool
 //Copyright (C) 2013  Keith Vasilakes
 //
 //This program is free software: you can redistribute it and/or modify
@@ -25,18 +25,22 @@ using System.Windows.Forms;
 
 namespace Mettle
 {
-    public partial class TagState : Control
+    public partial class TagState : Control, ITagInterface
     {
-        private string m_ModuleName;
-
         public TagState()
         {
             InitializeComponent();
         }
 
-        public void UpdateEvent(TagEvent e)
+        //Do any custom initialization here
+        void ITagInterface.Initialize()
         {
-            if ((Module.Length == 0) || (Module == e.Module))
+        }
+        
+        
+        void ITagInterface.UpdateEvent(TagEvent e)
+        {
+            if ((ModuleName == null) || (ModuleName == e.ModuleName))
             {
                 if (e.Name == base.Tag.ToString())
                 {
@@ -81,6 +85,24 @@ namespace Mettle
                 _Checked = value;
 
                 Invalidate();
+            }
+        }
+
+
+        private string _ModuleName;
+
+        [System.ComponentModel.Browsable(true),
+        System.ComponentModel.Category("Mettle"),
+        System.ComponentModel.Description("The module name filter. Leave blank to see all modules")]
+        public string ModuleName
+        {
+            get
+            {
+                return _ModuleName;
+            }
+            set
+            {
+                _ModuleName = value;
             }
         }
 
@@ -130,19 +152,5 @@ namespace Mettle
             base.OnPaintBackground(pevent);
         }
 
-        [System.ComponentModel.Browsable(true),
-        System.ComponentModel.Category("Mettle"),
-        System.ComponentModel.Description("The module name filter. Leave blank to see all module")]
-        public string Module
-        {
-            get
-            {
-                return m_ModuleName;
-            }
-            set
-            {
-                m_ModuleName = value;
-            }
-        }
     }
 }

@@ -1,4 +1,4 @@
-﻿//Charter, an embedded software analysis tool
+﻿//Mettle, an embedded software analysis tool
 //Copyright (C) 2013  Keith Vasilakes
 //
 //This program is free software: you can redistribute it and/or modify
@@ -26,7 +26,7 @@ using System.Windows.Forms;
 
 namespace Mettle
 {
-    public partial class TagIO : Control
+    public partial class TagIO : Control, ITagInterface
     {
         private string m_ModuleName;
 
@@ -35,9 +35,14 @@ namespace Mettle
             InitializeComponent();
         }
 
-        public void UpdateEvent(TagEvent e)
+        //Do any custom initialization here
+        void ITagInterface.Initialize()
         {
-            if ((Module.Length == 0) || (Module == e.Module))
+        }
+
+        void ITagInterface.UpdateEvent(TagEvent e)
+        {
+            if ((ModuleName == null) || (ModuleName == e.ModuleName))
             {
                 if (e.Name == base.Tag.ToString())
                 {
@@ -119,7 +124,7 @@ namespace Mettle
         [System.ComponentModel.Browsable(true),
         System.ComponentModel.Category("Mettle"),
         System.ComponentModel.Description("The module name filter. Leave blank to see all module")]
-        public string Module
+        public string ModuleName
         {
             get
             {

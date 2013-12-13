@@ -16,8 +16,8 @@
 //     misrepresented as being the original software.
 //  3. This notice may not be removed or altered from any source distribution.
 
-//This code has been renamed from AGauge to TagGauge to provide consistancy in the main program
-//Also an event handeler has been added to hook it into the Charter framework
+//This code has been renamed from AGauge to TagGauge to provide consistancy in the Mettle program
+//Also an event handeler has been added to hook it into the Mettle framework
 ////Copyright (C) 2013  Keith Vasilakes
 
 using System;
@@ -36,7 +36,7 @@ namespace Mettle
     [ToolboxBitmapAttribute(typeof(TagGauge), "AGauge.bmp"), 
     DefaultEvent("ValueInRangeChanged"), 
     Description("Displays a value on an analog gauge. Raises an event if the value enters one of the definable ranges.")]
-    public partial class TagGauge : Control
+    public partial class TagGauge : Control, ITagInterface
     {
 #region enum, var, delegate, event
         public enum NeedleColorEnum
@@ -216,18 +216,25 @@ namespace Mettle
             }
         }
 
+        //Do any custom initialization here
+        void ITagInterface.Initialize()
+        {
+        }
+
         /// <summary>
         /// This event gets called when a tag has been recieved
         /// if the name of the tag is the same as the components tag, set the value
         /// </summary>
         /// <param name="f"></param>
         /// <param name="e"></param>
-        
-        public void UpdateEvent(TagEvent e)
+        void ITagInterface.UpdateEvent(TagEvent e)
         {
-            if (e.Name == base.Tag.ToString())
+            if ((ModuleName == null) || (ModuleName == e.ModuleName))
             {
-                Value = e.Value;
+                if (e.Name == base.Tag.ToString())
+                {
+                    Value = e.Value;
+                }
             }
         }
         #endregion
@@ -243,7 +250,7 @@ namespace Mettle
         [System.ComponentModel.Browsable(true),
         System.ComponentModel.Category("Mettle"),
         System.ComponentModel.Description("The module name filter. Leave blank to see all module")]
-        public string Module
+        public string ModuleName
         {
             get
             {

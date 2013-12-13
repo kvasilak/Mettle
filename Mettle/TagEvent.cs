@@ -1,4 +1,4 @@
-﻿//Charter, an embedded software analysis tool
+﻿//Mettle, an embedded software analysis tool
 //Copyright (C) 2013  Keith Vasilakes
 //
 //This program is free software: you can redistribute it and/or modify
@@ -23,7 +23,10 @@ namespace Mettle
 {
     public class TagEvent : EventArgs
     {
-        private string ModuleName;
+        /// <summary>
+        /// The module name of the recieved tag
+        /// </summary>
+        private string EventModule;
 
         /// <summary>
         /// The name of the tag recieved
@@ -35,6 +38,9 @@ namespace Mettle
         /// </summary>
         private int EventValue;
 
+        //how to do this....
+        //private double EventDoubleValue;
+
         /// <summary>
         /// The event data string associated with the tag
         /// </summary>
@@ -45,15 +51,15 @@ namespace Mettle
         /// </summary>
         public bool ValueValid = false;
 
-        public string Module
+        public string ModuleName
         {
             set
             {
-                ModuleName = value;
+                EventModule = value;
             }
             get
             {
-                return this.ModuleName;
+                return this.EventModule;
             }
         }
 

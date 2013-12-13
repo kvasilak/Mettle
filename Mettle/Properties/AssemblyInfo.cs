@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Charter")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("Mettle")]
+[assembly: AssemblyDescription("Firmware debug tool")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Charter")]
-[assembly: AssemblyCopyright("Copyright ©  2013")]
+[assembly: AssemblyCompany("Corvette Engineering")]
+[assembly: AssemblyProduct("Mettle Head")]
+[assembly: AssemblyCopyright("Copyright ©  2013 Keith Vasilakes")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
