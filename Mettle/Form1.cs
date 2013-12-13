@@ -370,6 +370,12 @@ namespace Mettle
             MessageBox.Show("Embedded Monitoring Tool; V1.0\nCopyright 2013 Keith Vasilakes\n\nLicensed under GPL\nhttp://www.gnu.org/licenses", "Embedded Monitor");
         }
 
+        //Clear everything
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+
+        }
+
 
     }
 }

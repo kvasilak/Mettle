@@ -20,3 +20,4 @@ C:\Projects\Exaktime\Mettle\Mettle\obj\x86\Debug\Mettle.TagIO.resources
 C:\Projects\Exaktime\Mettle\Mettle\obj\x86\Debug\Mettle.Properties.Resources.resources
 C:\Projects\Exaktime\Mettle\Mettle\obj\x86\Debug\Mettle.dlgSerial.resources
 C:\Projects\Exaktime\Mettle\Mettle\obj\x86\Debug\Mettle.TagState.resources
+C:\Projects\Exaktime\Mettle\Mettle\obj\x86\Debug\Mettle.csprojResolveAssemblyReference.cache
