@@ -27,6 +27,7 @@ using System.IO.Ports;
 using System.Collections;
 using System.Diagnostics;
 using System.Threading;
+using MettleLib;
 
 //
 // This program is designed to recieve tagged data from an embedded device over a serial connection. RS232 or USB
@@ -70,30 +71,35 @@ namespace Mettle
             {
                 foreach (Control ctl in c.Controls)
                 {
+                    
+
                     //determine if the control is one of our custom ones,
                     //our custom controls all implement ITagInterface
-                    if (ctl is ITagInterface)
+                    if (ctl is MettleLib.ITagInterface)
                     {
-                        TagEvent += new TagHandeler( ((ITagInterface)ctl).UpdateEvent);
-                        ((ITagInterface)ctl).Initialize();
+                        Trace.WriteLine(ctl.GetType().ToString());
+
+                        TagEvent += new TagHandeler(((MettleLib.ITagInterface)ctl).UpdateEvent);
+                        ((MettleLib.ITagInterface)ctl).Initialize();
+                        
                     }
 
-                    if (ctl is ITagErrorInterface)
+                    if (ctl is MettleLib.ITagErrorInterface)
                     {
-                        TagErrorEvent += new ErrorHandeler( ((ITagErrorInterface)ctl).UpdateEvent);
-                        ((ITagErrorInterface)ctl).Initialize();
+                        TagErrorEvent += new ErrorHandeler(((MettleLib.ITagErrorInterface)ctl).UpdateEvent);
+                        ((MettleLib.ITagErrorInterface)ctl).Initialize();
                     }
 
                     //look for and register child controls in containers
                     //such as the panel and groupbox
                     foreach (Control child in ctl.Controls)
                     {
-                        if (child is ITagInterface)
+                        if (child is MettleLib.ITagInterface)
                         {
                             Trace.WriteLine(child.Name);
 
-                            TagEvent += new TagHandeler(((ITagInterface)child).UpdateEvent);
-                            ((ITagInterface)child).Initialize();
+                            TagEvent += new TagHandeler(((MettleLib.ITagInterface)child).UpdateEvent);
+                            ((MettleLib.ITagInterface)child).Initialize();
                         }
                     }
                 }
