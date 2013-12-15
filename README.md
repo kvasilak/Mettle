@@ -16,3 +16,10 @@ or better; <br>
 
 Note that all numbers are integers
 
+This is the test/demo app for the Mettle Lib where all the custom control code is
+
+To use Mettle;
+1. copy Mettlelib into your project.
+2. Add a reference to it.
+3. add a using MettleLib statement to your form
+4. Call open in response to the user electing start in your application
