@@ -28,12 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             this.tabMain = new System.Windows.Forms.TabControl();
             this.tabChart = new System.Windows.Forms.TabPage();
@@ -67,7 +66,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtTagData = new System.Windows.Forms.TextBox();
             this.txtUniques = new System.Windows.Forms.TextBox();
-            this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.chart2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
@@ -559,41 +557,41 @@
             this.tagChart1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea2.AxisX.MajorGrid.Interval = 10D;
-            chartArea2.AxisX.Maximum = 500D;
-            chartArea2.AxisX.Minimum = 0D;
-            chartArea2.AxisY.IsStartedFromZero = false;
-            chartArea2.AxisY.MajorGrid.Interval = 0D;
-            chartArea2.AxisY.Maximum = 896D;
-            chartArea2.AxisY.Minimum = 128D;
-            chartArea2.Name = "main";
-            this.tagChart1.ChartAreas.Add(chartArea2);
-            legend2.Enabled = false;
-            legend2.Name = "Legend1";
-            this.tagChart1.Legends.Add(legend2);
+            chartArea1.AxisX.MajorGrid.Interval = 10D;
+            chartArea1.AxisX.Maximum = 500D;
+            chartArea1.AxisX.Minimum = 0D;
+            chartArea1.AxisY.IsStartedFromZero = false;
+            chartArea1.AxisY.MajorGrid.Interval = 0D;
+            chartArea1.AxisY.Maximum = 896D;
+            chartArea1.AxisY.Minimum = 128D;
+            chartArea1.Name = "main";
+            this.tagChart1.ChartAreas.Add(chartArea1);
+            legend1.Enabled = false;
+            legend1.Name = "Legend1";
+            this.tagChart1.Legends.Add(legend1);
             this.tagChart1.Location = new System.Drawing.Point(4, 234);
             this.tagChart1.ModuleName = null;
             this.tagChart1.Name = "tagChart1";
-            series4.ChartArea = "main";
-            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
-            series4.CustomProperties = "index=0";
-            series4.IsVisibleInLegend = false;
-            series4.Legend = "Legend1";
-            series4.Name = "XAxis";
-            series5.ChartArea = "main";
-            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
-            series5.CustomProperties = "index=0";
-            series5.Enabled = false;
-            series5.Legend = "Legend1";
-            series5.Name = "YAxis";
-            series6.ChartArea = "main";
-            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
-            series6.CustomProperties = "index=0";
-            series6.Legend = "Legend1";
-            series6.Name = "ZAxis";
-            this.tagChart1.Series.Add(series4);
-            this.tagChart1.Series.Add(series5);
-            this.tagChart1.Series.Add(series6);
+            series1.ChartArea = "main";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
+            series1.CustomProperties = "index=0";
+            series1.IsVisibleInLegend = false;
+            series1.Legend = "Legend1";
+            series1.Name = "XAxis";
+            series2.ChartArea = "main";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
+            series2.CustomProperties = "index=0";
+            series2.Enabled = false;
+            series2.Legend = "Legend1";
+            series2.Name = "YAxis";
+            series3.ChartArea = "main";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
+            series3.CustomProperties = "index=0";
+            series3.Legend = "Legend1";
+            series3.Name = "ZAxis";
+            this.tagChart1.Series.Add(series1);
+            this.tagChart1.Series.Add(series2);
+            this.tagChart1.Series.Add(series3);
             this.tagChart1.Size = new System.Drawing.Size(1031, 260);
             this.tagChart1.TabIndex = 0;
             this.tagChart1.Text = "tagChart1";
@@ -700,11 +698,6 @@
             this.txtUniques.Size = new System.Drawing.Size(172, 388);
             this.txtUniques.TabIndex = 1;
             this.txtUniques.MouseClick += new System.Windows.Forms.MouseEventHandler(this.textUniques_MouseClick);
-            // 
-            // serialPort1
-            // 
-            this.serialPort1.ErrorReceived += new System.IO.Ports.SerialErrorReceivedEventHandler(this.serialPort1_ErrorReceived);
-            this.serialPort1.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.serialPort1_DataReceived);
             // 
             // chart1
             // 
@@ -850,7 +843,6 @@
         private System.Windows.Forms.TabControl tabMain;
         private System.Windows.Forms.TabPage tabText;
         private System.Windows.Forms.TabPage tabChart;
-        private System.IO.Ports.SerialPort serialPort1;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart2;
         private System.Windows.Forms.ToolStrip toolStrip1;

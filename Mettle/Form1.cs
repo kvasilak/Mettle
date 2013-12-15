@@ -24,9 +24,9 @@ using System.Text;
 using System.Windows.Forms;
 
 using System.IO.Ports;
-using System.Collections;
-using System.Diagnostics;
-using System.Threading;
+//using System.Collections;
+//using System.Diagnostics;
+//using System.Threading;
 using MettleLib;
 
 //
@@ -46,16 +46,18 @@ namespace Mettle
     {
         string RxString = string.Empty;
 
-        public event TagHandeler TagEvent;
-        public delegate void TagHandeler(TagEvent e);
+        //public event TagHandeler TagEvent;
+        //public delegate void TagHandeler(TagEvent e);
 
 
-        public event ErrorHandeler TagErrorEvent;
-        public delegate void ErrorHandeler(string s);
+        //public event ErrorHandeler TagErrorEvent;
+        //public delegate void ErrorHandeler(string s);
 
-        private List<Module>ModuleList = new List<Module>();
-        private String RXBuffer = string.Empty; //new StringBuilder();
-        private Module SelectedModule = null;
+        //private List<Module>ModuleList = new List<Module>();
+        //private String RXBuffer = string.Empty; //new StringBuilder();
+        //private Module SelectedModule = null;
+
+        MettleHead myMettle = new MettleHead();
 
         public FormMain()
         {
@@ -65,303 +67,50 @@ namespace Mettle
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            //Walk through each tab and find all our custom controls
-            //then register them for the tag recieved event
-            foreach (Control c in tabMain.Controls)
-            {
-                foreach (Control ctl in c.Controls)
-                {
-                    
-
-                    //determine if the control is one of our custom ones,
-                    //our custom controls all implement ITagInterface
-                    if (ctl is MettleLib.ITagInterface)
-                    {
-                        Trace.WriteLine(ctl.GetType().ToString());
-
-                        TagEvent += new TagHandeler(((MettleLib.ITagInterface)ctl).UpdateEvent);
-                        ((MettleLib.ITagInterface)ctl).Initialize();
-                        
-                    }
-
-                    if (ctl is MettleLib.ITagErrorInterface)
-                    {
-                        TagErrorEvent += new ErrorHandeler(((MettleLib.ITagErrorInterface)ctl).UpdateEvent);
-                        ((MettleLib.ITagErrorInterface)ctl).Initialize();
-                    }
-
-                    //look for and register child controls in containers
-                    //such as the panel and groupbox
-                    foreach (Control child in ctl.Controls)
-                    {
-                        if (child is MettleLib.ITagInterface)
-                        {
-                            Trace.WriteLine(child.Name);
-
-                            TagEvent += new TagHandeler(((MettleLib.ITagInterface)child).UpdateEvent);
-                            ((MettleLib.ITagInterface)child).Initialize();
-                        }
-                    }
-                }
-            }
+            myMettle.FindControlls(this);
         }
 
 
         private void btnOK_Click(object sender, EventArgs e)
         {
-            OpenSerialPort();
-        }
-
-        private void OpenSerialPort()
-        {
-            if (!serialPort1.IsOpen)
-            {
-                try
-                {
-                    serialPort1.PortName = Properties.Settings.Default.COMport;
-                    serialPort1.BaudRate = int.Parse(Properties.Settings.Default.BaudRate.ToString());
-                    serialPort1.DataBits = 8;
-                    serialPort1.Parity = System.IO.Ports.Parity.None;
-                    serialPort1.StopBits = System.IO.Ports.StopBits.One;
-                    //serialPort1.RtsEnable = true;
-                    serialPort1.Encoding = Encoding.GetEncoding(28591); //So I can read all 8 bits from the stupid serial port
-                    serialPort1.Open();
-                    serialPort1.DiscardInBuffer();
-
-                    stripStatus.Text = "Running";
-                    stripError.Text = "No Errors";
-
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Serial port; " + ex.Message, "Error!");
-                    stripError.Text = "Serial open Error; " + ex.Message;
-                }
-            }
-        }
-
-        //we have recieved serial data, get a line of it and send it to the parser
-        private void serialPort1_DataReceived(object sender, SerialDataReceivedEventArgs e)
-        {
-            string temp;
-
-            if (serialPort1.IsOpen)
-            {
-                int cr;
-                try
-                {
-                    //get rx chars
-                    RXBuffer += serialPort1.ReadExisting();
-                    
-                    //is there a \n?
-                    cr = RXBuffer.IndexOf("\n");
-
-                    //there HAS to be at least 1 character to be at all valid;
-                    while (cr >= 0)
-                    {
-                        //copy all data up to \n
-                        //as long as there IS data
-                        if (cr > 1)
-                        {
-                            RxString = RXBuffer.Substring(0, cr);
-
-                            //Process the message
-                            this.Invoke(new EventHandler(HandleMesage));
-                        }
-
-                        //Copy everything after \n back into rx buffer, removing string just sent
-                        int len = RXBuffer.Length - (cr + 1);
-                        temp = string.Empty;
-
-                        //Anything left to copy?
-                        if (len > 0)
-                        {
-                            temp = RXBuffer.Substring(cr + 1, len);
-                        }
-
-                        RXBuffer = temp;
-
-                        //any more \n?
-                        cr = RXBuffer.IndexOf("\n");
-
-                    }
-
-                    stripError.Text = "No Errors";
-                }
-                catch (Exception ex)
-                {
-                    Type ep = ex.GetType();
-                    return;
-                }
-            }
-        }
-
-        //Update the serial output box and call the parser
-        private void HandleMesage(object sender, EventArgs e)
-        {
-            int position = 0;
-
-            txtAllText.AppendText(RxString);
-            txtAllText.AppendText("\n");
-
-
-            do //may have multiple tags per line
-            {
-                position = ParseTags(RxString, position);
-            }
-            while ((position >0) && (position < RxString.Length));
-        }
-        
-        //find the next tag and data, set an event to all listeners
-        private int ParseTags(string instr, int offset)
-        {
-            int start;
-            int end = instr.Length;
-            int comma;
-            int comma2;
-            int d;
-
-            //Tag format is >string, string<
-            start = instr.IndexOf(">", offset);
-
-            if(start >= 0)//May be first character
-            {
-                end = instr.IndexOf("<", start + 1);
-
-                if (end > 0)
-                {
-                    //found start and end, find the comma
-                    comma = instr.IndexOf(",", start + 1);
-
-                    if (comma > 0)
-                    {
-                        //find the second comma
-                        comma2 = instr.IndexOf(",", comma + 1);
-
-                        if (comma2 > 0)
-                        {
-                            //set the tag recieved event
-                            TagEvent t = new TagEvent();
-
-                            //split the tag and cleanup any whitespace
-                            t.ModuleName = instr.Substring(start + 1, comma - (start + 1)).Trim(); //module name
-                            t.Name = instr.Substring(comma + 1, comma2 - (comma + 1)).Trim(); //tag name
-                            t.Data = instr.Substring(comma2 + 1, end - (comma2 + 1)).Trim(); //data
-
-                            //see if there is a number in the data
-                            if (int.TryParse(t.Data, out d))
-                            {
-                                t.Value = d;
-                                t.ValueValid = true;
-
-                            }
-
-                            //make sure someone is listening
-                            if (null != TagEvent)
-                                TagEvent(t);
-
-                            Uniques(t);
-
-                        }
-                        else
-                        {
-                            if(null != TagErrorEvent)
-                                TagErrorEvent(instr.Substring(offset));
-                        }
-                    }
-                    else
-                    {
-                        if (null != TagErrorEvent)
-                            TagErrorEvent(instr.Substring(offset));
-                    }
-                }
-                else
-                {
-                    if (null != TagErrorEvent)
-                        TagErrorEvent(instr.Substring(offset));
-                }
-            }
-            return end+1;
-        }
-
-        private void Uniques(TagEvent e)
-        {
-            bool ModuleNameFound = false;
-
-            //Search to see if tag exists
-            foreach (Module m in ModuleList)
-            {
-                if (m.ModuleName == e.ModuleName)
-                {
-                    ModuleNameFound = true;
-
-                    //module found, add tag or data if unique
-                    m.Uniques(e);
-                }
-            }
-
-            if (false == ModuleNameFound)
-            {
-                ModuleList.Add(new Module(e));
-
-                ModuleList.Sort();
-
-                //we have a new tag, redisplay them all
-                txtModules.Clear();
-
-                foreach (Module m in ModuleList)
-                {
-                    txtModules.AppendText(m.ModuleName + "\n");
-                }
-
-            }
+            myMettle.Open();
+            //OpenSerialPort();
         }
 
         private void btnClose_Click(object sender, EventArgs e)
         {
-            SafeSerialClose();
+            myMettle.Close();
+            //SafeSerialClose();
 
             stripStatus.Text = "Stopped";
         }
 
-
-        // close the serial port in a seperate thread to prevent
-        //A GUI deadlock
-        private void SafeSerialClose()
-        {
-            Thread myThread = new System.Threading.Thread(delegate()
-            {
-                if (serialPort1.IsOpen)
-                {
-                    serialPort1.Close();
-                }
-            });
-            myThread.Start();
-        }
-
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            SafeSerialClose();
+            myMettle.Close();
+            //SafeSerialClose();
 
             //Wait for serialPort1 port To actually close
-            Thread.Sleep(200);
+            //Thread.Sleep(200);
         }
 
         private void serialPort1_ErrorReceived(object sender, SerialErrorReceivedEventArgs e)
         {
             //MessageBox.Show("Serial port error; " + e.EventType.ToString());
 
-            stripError.Text = "Error!" + e.EventType.ToString();
+            //stripError.Text = "Error!" + e.EventType.ToString();
         }
 
         private void btnPlay_Click(object sender, EventArgs e)
         {
-            OpenSerialPort();
+            myMettle.Open();
+            //OpenSerialPort();
         }
 
         private void btnStop_Click(object sender, EventArgs e)
         {
-            SafeSerialClose();
+            myMettle.Close();
+            //SafeSerialClose();
         }
 
         private void btnTools_Click(object sender, EventArgs e)
@@ -376,56 +125,56 @@ namespace Mettle
 
         private void textUniques_MouseClick(object sender, MouseEventArgs e)
         {
-            txtTagData.Clear();
+            //txtTagData.Clear();
 
-            int charindex = txtUniques.GetCharIndexFromPosition(e.Location);
-            int line = txtUniques.GetLineFromCharIndex(charindex);
+            //int charindex = txtUniques.GetCharIndexFromPosition(e.Location);
+            //int line = txtUniques.GetLineFromCharIndex(charindex);
 
-            string sx = txtUniques.Lines[line];
+            //string sx = txtUniques.Lines[line];
 
-            foreach (Tags t in SelectedModule.TagList)
-            {
-                if (t.Name == sx)
-                {
-                    if (t.ValueValid)
-                    {
-                        txtTagData.AppendText("Max; " + t.max + "\n");
-                        txtTagData.AppendText("Min; " + t.min + "\n");
-                    }
-                    else
-                    {
-                        //Display all data from tag
-                        foreach (string s in t.Data)
-                        {
-                            txtTagData.AppendText(s + "\n");
-                        }
-                    }
-                }
-            }
+            //foreach (Tags t in SelectedModule.TagList)
+            //{
+            //    if (t.Name == sx)
+            //    {
+            //        if (t.ValueValid)
+            //        {
+            //            txtTagData.AppendText("Max; " + t.max + "\n");
+            //            txtTagData.AppendText("Min; " + t.min + "\n");
+            //        }
+            //        else
+            //        {
+            //            //Display all data from tag
+            //            foreach (string s in t.Data)
+            //            {
+            //                txtTagData.AppendText(s + "\n");
+            //            }
+            //        }
+            //    }
+            //}
         }
 
         private void txtModules_MouseClick(object sender, MouseEventArgs e)
         {
-            txtUniques.Clear();
-            txtTagData.Clear();
+            //txtUniques.Clear();
+            //txtTagData.Clear();
 
-            int charindex = txtModules.GetCharIndexFromPosition(e.Location);
-            int line = txtModules.GetLineFromCharIndex(charindex);
+            //int charindex = txtModules.GetCharIndexFromPosition(e.Location);
+            //int line = txtModules.GetLineFromCharIndex(charindex);
 
-            string sx = txtModules.Lines[line];
+            //string sx = txtModules.Lines[line];
 
-            foreach (Module m in ModuleList)
-            {
-                if (m.ModuleName == sx)
-                {
-                    SelectedModule = m;
+            //foreach (Module m in ModuleList)
+            //{
+            //    if (m.ModuleName == sx)
+            //    {
+            //        SelectedModule = m;
 
-                    foreach (Tags t in m.TagList)
-                    {
-                        txtUniques.AppendText(t.Name + "\n");
-                    }
-                }
-            }
+            //        foreach (Tags t in m.TagList)
+            //        {
+            //            txtUniques.AppendText(t.Name + "\n");
+            //        }
+            //    }
+            //}
         }
 
         private void btnAbout_Click(object sender, EventArgs e)
@@ -435,40 +184,43 @@ namespace Mettle
 
         private void BtnReset_Click(object sender, EventArgs e)
         {
-            txtAllText.Clear();
 
-            foreach (Control c in tabMain.Controls)
-            {
-                foreach (Control ctl in c.Controls)
-                {
-                    //determine if the control is one of our custom ones,
-                    //our custom controls all implement ITagInterface
-                    if (ctl is ITagInterface)
-                    {
-                        ((ITagInterface)ctl).Reset();
-                    }
+            myMettle.Reset();
 
-                    if (ctl is ITagErrorInterface)
-                    {
-                        ((ITagErrorInterface)ctl).Reset();
-                    }
+            //txtAllText.Clear();
 
-                    //look for and register child controls in containers
-                    //such as the panel and groupbox
-                    foreach (Control child in ctl.Controls)
-                    {
-                        if (child is ITagInterface)
-                        {
-                            ((ITagInterface)child).Reset();
-                        }
+            //foreach (Control c in tabMain.Controls)
+            //{
+            //    foreach (Control ctl in c.Controls)
+            //    {
+            //        //determine if the control is one of our custom ones,
+            //        //our custom controls all implement ITagInterface
+            //        if (ctl is ITagInterface)
+            //        {
+            //            ((ITagInterface)ctl).Reset();
+            //        }
 
-                        if (child is ITagErrorInterface)
-                        {
-                            ((ITagErrorInterface)child).Reset();
-                        }
-                    }
-                }
-            }
+            //        if (ctl is ITagErrorInterface)
+            //        {
+            //            ((ITagErrorInterface)ctl).Reset();
+            //        }
+
+            //        //look for and register child controls in containers
+            //        //such as the panel and groupbox
+            //        foreach (Control child in ctl.Controls)
+            //        {
+            //            if (child is ITagInterface)
+            //            {
+            //                ((ITagInterface)child).Reset();
+            //            }
+
+            //            if (child is ITagErrorInterface)
+            //            {
+            //                ((ITagErrorInterface)child).Reset();
+            //            }
+            //        }
+            //    }
+            //}
         }
     }
 }
