@@ -58,8 +58,9 @@
     <StartupObject>Mettle.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="MettleLib">
-      <HintPath>.\MettleLib.dll</HintPath>
+    <Reference Include="MettleLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\MettleLib\bin\Debug\MettleLib.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

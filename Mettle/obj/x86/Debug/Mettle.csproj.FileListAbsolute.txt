@@ -32,3 +32,4 @@ C:\Projects\Exaktime\Mettle\Mettle\bin\Debug\MettleLib.dll
 C:\Projects\Exaktime\Mettle\Mettle\bin\Debug\MettleLib.pdb
 C:\Projects\Exaktime\Mettle\Mettle\obj\x86\Debug\Mettle.csprojResolveAssemblyReference.cache
 C:\Users\Keith\Documents\CSharp\Mettle\Mettle\bin\Debug\MettleLib.dll
+C:\Users\Keith\Documents\CSharp\Mettle\Mettle\bin\Debug\MettleLib.pdb
