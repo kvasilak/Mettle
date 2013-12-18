@@ -28,11 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             this.tabMain = new System.Windows.Forms.TabControl();
             this.tabChart = new System.Windows.Forms.TabPage();
@@ -56,7 +51,6 @@
             this.tagState1 = new MettleLib.TagState();
             this.tagText1 = new MettleLib.TagText();
             this.tagGauge1 = new MettleLib.TagGauge();
-            this.tagChart1 = new MettleLib.TagChart();
             this.tabText = new System.Windows.Forms.TabPage();
             this.txtAllText = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -81,7 +75,6 @@
             this.tabChart.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tagChart1)).BeginInit();
             this.tabText.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart2)).BeginInit();
@@ -120,7 +113,6 @@
             this.tabChart.Controls.Add(this.tagState1);
             this.tabChart.Controls.Add(this.tagText1);
             this.tabChart.Controls.Add(this.tagGauge1);
-            this.tabChart.Controls.Add(this.tagChart1);
             this.tabChart.Location = new System.Drawing.Point(4, 22);
             this.tabChart.Name = "tabChart";
             this.tabChart.Padding = new System.Windows.Forms.Padding(3);
@@ -552,50 +544,6 @@
             this.tagGauge1.Text = "tagGauge1";
             this.tagGauge1.Value = 0F;
             // 
-            // tagChart1
-            // 
-            this.tagChart1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea1.AxisX.MajorGrid.Interval = 10D;
-            chartArea1.AxisX.Maximum = 500D;
-            chartArea1.AxisX.Minimum = 0D;
-            chartArea1.AxisY.IsStartedFromZero = false;
-            chartArea1.AxisY.MajorGrid.Interval = 0D;
-            chartArea1.AxisY.Maximum = 896D;
-            chartArea1.AxisY.Minimum = 128D;
-            chartArea1.Name = "main";
-            this.tagChart1.ChartAreas.Add(chartArea1);
-            legend1.Enabled = false;
-            legend1.Name = "Legend1";
-            this.tagChart1.Legends.Add(legend1);
-            this.tagChart1.Location = new System.Drawing.Point(4, 234);
-            this.tagChart1.ModuleName = null;
-            this.tagChart1.Name = "tagChart1";
-            series1.ChartArea = "main";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
-            series1.CustomProperties = "index=0";
-            series1.IsVisibleInLegend = false;
-            series1.Legend = "Legend1";
-            series1.Name = "XAxis";
-            series2.ChartArea = "main";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
-            series2.CustomProperties = "index=0";
-            series2.Enabled = false;
-            series2.Legend = "Legend1";
-            series2.Name = "YAxis";
-            series3.ChartArea = "main";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
-            series3.CustomProperties = "index=0";
-            series3.Legend = "Legend1";
-            series3.Name = "ZAxis";
-            this.tagChart1.Series.Add(series1);
-            this.tagChart1.Series.Add(series2);
-            this.tagChart1.Series.Add(series3);
-            this.tagChart1.Size = new System.Drawing.Size(1031, 260);
-            this.tagChart1.TabIndex = 0;
-            this.tagChart1.Text = "tagChart1";
-            // 
             // tabText
             // 
             this.tabText.Controls.Add(this.txtAllText);
@@ -824,7 +772,6 @@
             this.tabChart.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.tagChart1)).EndInit();
             this.tabText.ResumeLayout(false);
             this.tabText.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
@@ -862,7 +809,6 @@
         private System.Windows.Forms.ToolStripStatusLabel stripStatus;
         private System.Windows.Forms.ToolStripStatusLabel stripError;
         private System.Windows.Forms.TextBox txtAllText;
-        private MettleLib.TagChart tagChart1;
         private MettleLib.TagGauge tagGauge1;
         private MettleLib.TagState tagState1;
         private MettleLib.TagText tagText1;

@@ -58,17 +58,17 @@ void loop()
  if(a++> 100) a=0;
  if(b++> 100) b=0;
  if(c++> 100) c=0;
- Serial.println("Line one");
+ //Serial.println("Line one");
  
- Serial.print(">Module2,Left,");
- Serial.print(a);
- Serial.println("<");
+ //Serial.print(">Module2,Left,");
+ //Serial.print(a);
+ //Serial.println("<");
  
- Serial.print(">Module2,Right,");
- Serial.print(b);
- Serial.println("<");
+ //Serial.print(">Module2,Right,");
+ //Serial.print(b);
+ //Serial.println("<");
  
- Serial.println("more lines n stuff");
+ //Serial.println("more lines n stuff");
  
  Serial.print(">Module2,XAxis,");
  Serial.print(analogRead(0));
