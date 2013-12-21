@@ -46,23 +46,11 @@ namespace Mettle
     {
         string RxString = string.Empty;
 
-        //public event TagHandeler TagEvent;
-        //public delegate void TagHandeler(TagEvent e);
-
-
-        //public event ErrorHandeler TagErrorEvent;
-        //public delegate void ErrorHandeler(string s);
-
-        //private List<Module>ModuleList = new List<Module>();
-        //private String RXBuffer = string.Empty; //new StringBuilder();
-        //private Module SelectedModule = null;
-
         MettleHead myMettle = new MettleHead();
 
         public FormMain()
         {
             InitializeComponent();
-
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -74,13 +62,11 @@ namespace Mettle
         private void btnOK_Click(object sender, EventArgs e)
         {
             myMettle.Open();
-            //OpenSerialPort();
         }
 
         private void btnClose_Click(object sender, EventArgs e)
         {
             myMettle.Close();
-            //SafeSerialClose();
 
             stripStatus.Text = "Stopped";
         }
@@ -88,10 +74,6 @@ namespace Mettle
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             myMettle.Close();
-            //SafeSerialClose();
-
-            //Wait for serialPort1 port To actually close
-            //Thread.Sleep(200);
         }
 
         private void serialPort1_ErrorReceived(object sender, SerialErrorReceivedEventArgs e)
@@ -104,13 +86,11 @@ namespace Mettle
         private void btnPlay_Click(object sender, EventArgs e)
         {
             myMettle.Open();
-            //OpenSerialPort();
         }
 
         private void btnStop_Click(object sender, EventArgs e)
         {
             myMettle.Close();
-            //SafeSerialClose();
         }
 
         private void btnTools_Click(object sender, EventArgs e)
@@ -184,43 +164,7 @@ namespace Mettle
 
         private void BtnReset_Click(object sender, EventArgs e)
         {
-
-            myMettle.Reset();
-
-            //txtAllText.Clear();
-
-            //foreach (Control c in tabMain.Controls)
-            //{
-            //    foreach (Control ctl in c.Controls)
-            //    {
-            //        //determine if the control is one of our custom ones,
-            //        //our custom controls all implement ITagInterface
-            //        if (ctl is ITagInterface)
-            //        {
-            //            ((ITagInterface)ctl).Reset();
-            //        }
-
-            //        if (ctl is ITagErrorInterface)
-            //        {
-            //            ((ITagErrorInterface)ctl).Reset();
-            //        }
-
-            //        //look for and register child controls in containers
-            //        //such as the panel and groupbox
-            //        foreach (Control child in ctl.Controls)
-            //        {
-            //            if (child is ITagInterface)
-            //            {
-            //                ((ITagInterface)child).Reset();
-            //            }
-
-            //            if (child is ITagErrorInterface)
-            //            {
-            //                ((ITagErrorInterface)child).Reset();
-            //            }
-            //        }
-            //    }
-            //}
+            myMettle.Reset(this);
         }
     }
 }

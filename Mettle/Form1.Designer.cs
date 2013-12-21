@@ -28,14 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             this.tabMain = new System.Windows.Forms.TabControl();
             this.tabChart = new System.Windows.Forms.TabPage();
+            this.tagChart1 = new MettleLib.TagChart();
             this.tagGauge2 = new MettleLib.TagGauge();
             this.tagText4 = new MettleLib.TagText();
             this.tagText3 = new MettleLib.TagText();
@@ -56,7 +57,6 @@
             this.tagState1 = new MettleLib.TagState();
             this.tagText1 = new MettleLib.TagText();
             this.tagGauge1 = new MettleLib.TagGauge();
-            this.tagChart1 = new MettleLib.TagChart();
             this.tabText = new System.Windows.Forms.TabPage();
             this.txtAllText = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -77,18 +77,16 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.stripStatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.stripError = new System.Windows.Forms.ToolStripStatusLabel();
-            this.tagChart1 = new MettleLib.TagChart();
             this.tabMain.SuspendLayout();
             this.tabChart.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tagChart1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tagChart1)).BeginInit();
             this.tabText.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart2)).BeginInit();
             this.toolStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tagChart1)).BeginInit();
             this.SuspendLayout();
             // 
             // tabMain
@@ -123,7 +121,6 @@
             this.tabChart.Controls.Add(this.tagState1);
             this.tabChart.Controls.Add(this.tagText1);
             this.tabChart.Controls.Add(this.tagGauge1);
-            this.tabChart.Controls.Add(this.tagChart1);
             this.tabChart.Location = new System.Drawing.Point(4, 22);
             this.tabChart.Name = "tabChart";
             this.tabChart.Padding = new System.Windows.Forms.Padding(3);
@@ -131,6 +128,41 @@
             this.tabChart.TabIndex = 1;
             this.tabChart.Tag = "Right";
             this.tabChart.Text = "Chart";
+            // 
+            // tagChart1
+            // 
+            this.tagChart1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            chartArea1.AxisX.Maximum = 500D;
+            chartArea1.AxisX.Minimum = 0D;
+            chartArea1.AxisY.Maximum = 768D;
+            chartArea1.AxisY.Minimum = 0D;
+            chartArea1.Name = "ChartArea1";
+            this.tagChart1.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.tagChart1.Legends.Add(legend1);
+            this.tagChart1.Location = new System.Drawing.Point(3, 259);
+            this.tagChart1.Module = "Module2";
+            this.tagChart1.Name = "tagChart1";
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
+            series1.Legend = "Legend1";
+            series1.Name = "XAxis";
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
+            series2.Legend = "Legend1";
+            series2.Name = "YAxis";
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
+            series3.Legend = "Legend1";
+            series3.Name = "ZAxis";
+            this.tagChart1.Series.Add(series1);
+            this.tagChart1.Series.Add(series2);
+            this.tagChart1.Series.Add(series3);
+            this.tagChart1.Size = new System.Drawing.Size(1003, 235);
+            this.tagChart1.TabIndex = 16;
+            this.tagChart1.Text = "tagChart1";
             // 
             // tagGauge2
             // 
@@ -254,7 +286,7 @@
             this.tagText4.Size = new System.Drawing.Size(100, 194);
             this.tagText4.Sort = "Right";
             this.tagText4.TabIndex = 14;
-            this.tagText4.Tag = "Right";
+            this.tagText4.Tag = "right-b";
             // 
             // tagText3
             // 
@@ -266,7 +298,7 @@
             this.tagText3.Name = "tagText3";
             this.tagText3.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.tagText3.Size = new System.Drawing.Size(161, 95);
-            this.tagText3.Sort = "*";
+            this.tagText3.Sort = null;
             this.tagText3.TabIndex = 13;
             this.tagText3.Tag = "*";
             // 
@@ -288,8 +320,8 @@
             this.tagState8.Module = "Module1";
             this.tagState8.Name = "tagState8";
             this.tagState8.Size = new System.Drawing.Size(75, 23);
-            this.tagState8.Sort = "This";
-            this.tagState8.State = "State3";
+            this.tagState8.Sort = "bob";
+            this.tagState8.State = "bob";
             this.tagState8.TabIndex = 9;
             this.tagState8.Tag = "This";
             this.tagState8.Text = "State3";
@@ -301,8 +333,8 @@
             this.tagState9.Module = "Module1";
             this.tagState9.Name = "tagState9";
             this.tagState9.Size = new System.Drawing.Size(75, 23);
-            this.tagState9.Sort = "This";
-            this.tagState9.State = "State1";
+            this.tagState9.Sort = "bob";
+            this.tagState9.State = "bob";
             this.tagState9.TabIndex = 8;
             this.tagState9.Tag = "This";
             this.tagState9.Text = "State1";
@@ -364,8 +396,8 @@
             this.tagState5.Module = "Module1";
             this.tagState5.Name = "tagState5";
             this.tagState5.Size = new System.Drawing.Size(75, 23);
-            this.tagState5.Sort = "This";
-            this.tagState5.State = "State2";
+            this.tagState5.Sort = "bob";
+            this.tagState5.State = "bob";
             this.tagState5.TabIndex = 8;
             this.tagState5.Tag = "This";
             this.tagState5.Text = "State2";
@@ -377,8 +409,8 @@
             this.tagState6.Module = "Module1";
             this.tagState6.Name = "tagState6";
             this.tagState6.Size = new System.Drawing.Size(75, 23);
-            this.tagState6.Sort = "This";
-            this.tagState6.State = "State3";
+            this.tagState6.Sort = "bob";
+            this.tagState6.State = "bob";
             this.tagState6.TabIndex = 7;
             this.tagState6.Tag = "This";
             this.tagState6.Text = "State3";
@@ -390,8 +422,8 @@
             this.tagState7.Module = "Module1";
             this.tagState7.Name = "tagState7";
             this.tagState7.Size = new System.Drawing.Size(75, 23);
-            this.tagState7.Sort = "This";
-            this.tagState7.State = "State1";
+            this.tagState7.Sort = "bob";
+            this.tagState7.State = "bob";
             this.tagState7.TabIndex = 6;
             this.tagState7.Tag = "This";
             this.tagState7.Text = "State1";
@@ -406,7 +438,7 @@
             this.tagText2.Name = "tagText2";
             this.tagText2.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.tagText2.Size = new System.Drawing.Size(161, 95);
-            this.tagText2.Sort = "This";
+            this.tagText2.Sort = null;
             this.tagText2.TabIndex = 7;
             this.tagText2.Tag = "This";
             // 
@@ -417,8 +449,8 @@
             this.tagState4.Module = "Module1";
             this.tagState4.Name = "tagState4";
             this.tagState4.Size = new System.Drawing.Size(75, 23);
-            this.tagState4.Sort = "This";
-            this.tagState4.State = "State4";
+            this.tagState4.Sort = "bob";
+            this.tagState4.State = "bob";
             this.tagState4.TabIndex = 6;
             this.tagState4.Tag = "This";
             this.tagState4.Text = "State4";
@@ -430,8 +462,8 @@
             this.tagState3.Module = "Module1";
             this.tagState3.Name = "tagState3";
             this.tagState3.Size = new System.Drawing.Size(75, 23);
-            this.tagState3.Sort = "This";
-            this.tagState3.State = "State2";
+            this.tagState3.Sort = "bob";
+            this.tagState3.State = "bob";
             this.tagState3.TabIndex = 5;
             this.tagState3.Tag = "This";
             this.tagState3.Text = "State2";
@@ -443,8 +475,8 @@
             this.tagState2.Module = "Module1";
             this.tagState2.Name = "tagState2";
             this.tagState2.Size = new System.Drawing.Size(75, 23);
-            this.tagState2.Sort = "This";
-            this.tagState2.State = "State3";
+            this.tagState2.Sort = "bob";
+            this.tagState2.State = "bob";
             this.tagState2.TabIndex = 4;
             this.tagState2.Tag = "This";
             this.tagState2.Text = "State3";
@@ -456,8 +488,8 @@
             this.tagState1.Module = "Module1";
             this.tagState1.Name = "tagState1";
             this.tagState1.Size = new System.Drawing.Size(75, 23);
-            this.tagState1.Sort = "This";
-            this.tagState1.State = "State1";
+            this.tagState1.Sort = "bob";
+            this.tagState1.State = "bob";
             this.tagState1.TabIndex = 3;
             this.tagState1.Tag = "This";
             this.tagState1.Text = "State1";
@@ -472,7 +504,7 @@
             this.tagText1.Name = "tagText1";
             this.tagText1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.tagText1.Size = new System.Drawing.Size(100, 197);
-            this.tagText1.Sort = "Left";
+            this.tagText1.Sort = null;
             this.tagText1.TabIndex = 2;
             this.tagText1.Tag = "Left";
             // 
@@ -584,50 +616,6 @@
             this.tagGauge1.Tag = "XAxis";
             this.tagGauge1.Text = "tagGauge1";
             this.tagGauge1.Value = 0F;
-            // 
-            // tagChart1
-            // 
-            this.tagChart1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea1.AxisX.MajorGrid.Interval = 10D;
-            chartArea1.AxisX.Maximum = 500D;
-            chartArea1.AxisX.Minimum = 0D;
-            chartArea1.AxisY.IsStartedFromZero = false;
-            chartArea1.AxisY.MajorGrid.Interval = 0D;
-            chartArea1.AxisY.Maximum = 896D;
-            chartArea1.AxisY.Minimum = 128D;
-            chartArea1.Name = "main";
-            this.tagChart1.ChartAreas.Add(chartArea1);
-            legend1.Enabled = false;
-            legend1.Name = "Legend1";
-            this.tagChart1.Legends.Add(legend1);
-            this.tagChart1.Location = new System.Drawing.Point(4, 234);
-            this.tagChart1.ModuleName = null;
-            this.tagChart1.Name = "tagChart1";
-            series1.ChartArea = "main";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
-            series1.CustomProperties = "index=0";
-            series1.IsVisibleInLegend = false;
-            series1.Legend = "Legend1";
-            series1.Name = "XAxis";
-            series2.ChartArea = "main";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
-            series2.CustomProperties = "index=0";
-            series2.Enabled = false;
-            series2.Legend = "Legend1";
-            series2.Name = "YAxis";
-            series3.ChartArea = "main";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
-            series3.CustomProperties = "index=0";
-            series3.Legend = "Legend1";
-            series3.Name = "ZAxis";
-            this.tagChart1.Series.Add(series1);
-            this.tagChart1.Series.Add(series2);
-            this.tagChart1.Series.Add(series3);
-            this.tagChart1.Size = new System.Drawing.Size(1031, 260);
-            this.tagChart1.TabIndex = 0;
-            this.tagChart1.Text = "tagChart1";
             // 
             // tabText
             // 
@@ -838,41 +826,6 @@
             this.stripError.Text = "Error";
             this.stripError.ToolTipText = "Application errors";
             // 
-            // tagChart1
-            // 
-            this.tagChart1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea1.AxisX.Maximum = 500D;
-            chartArea1.AxisX.Minimum = 0D;
-            chartArea1.AxisY.Maximum = 768D;
-            chartArea1.AxisY.Minimum = 0D;
-            chartArea1.Name = "ChartArea1";
-            this.tagChart1.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.tagChart1.Legends.Add(legend1);
-            this.tagChart1.Location = new System.Drawing.Point(3, 259);
-            this.tagChart1.Module = "Module2";
-            this.tagChart1.Name = "tagChart1";
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
-            series1.Legend = "Legend1";
-            series1.Name = "XAxis";
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
-            series2.Legend = "Legend1";
-            series2.Name = "YAxis";
-            series3.ChartArea = "ChartArea1";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
-            series3.Legend = "Legend1";
-            series3.Name = "ZAxis";
-            this.tagChart1.Series.Add(series1);
-            this.tagChart1.Series.Add(series2);
-            this.tagChart1.Series.Add(series3);
-            this.tagChart1.Size = new System.Drawing.Size(1003, 235);
-            this.tagChart1.TabIndex = 16;
-            this.tagChart1.Text = "tagChart1";
-            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -890,9 +843,9 @@
             this.tabMain.ResumeLayout(false);
             this.tabChart.ResumeLayout(false);
             this.tabChart.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tagChart1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.tagChart1)).EndInit();
             this.tabText.ResumeLayout(false);
             this.tabText.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
@@ -901,7 +854,6 @@
             this.toolStrip1.PerformLayout();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tagChart1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -931,7 +883,6 @@
         private System.Windows.Forms.ToolStripStatusLabel stripStatus;
         private System.Windows.Forms.ToolStripStatusLabel stripError;
         private System.Windows.Forms.TextBox txtAllText;
-        private MettleLib.TagChart tagChart1;
         private MettleLib.TagGauge tagGauge1;
         private MettleLib.TagState tagState1;
         private MettleLib.TagText tagText1;
