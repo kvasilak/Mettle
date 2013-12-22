@@ -8,10 +8,12 @@ int Statethis;
 uint32_t LED1time;
 uint32_t LED2time;
 uint32_t LED3time;
+uint32_t LED4time;
 
 int LED1;
 int LED2;
 int LED3;
+int LED4;
 
 bool pushbutton;
 
@@ -26,8 +28,9 @@ void setup() {
   LED3time = millis();
   
   LED1 = 1;
-  LED2 = 2;
-  LED3 = 3;
+  LED2 = 1;
+  LED3 = 1;
+  LED4 = 1;
   
   Statethis = 1;
   
@@ -60,13 +63,13 @@ void loop()
  if(c++> 100) c=0;
  //Serial.println("Line one");
  
- //Serial.print(">Module2,Left,");
- //Serial.print(a);
- //Serial.println("<");
+ Serial.print(">Module2,Left,");
+ Serial.print(a);
+ Serial.println("<");
  
- //Serial.print(">Module2,Right,");
- //Serial.print(b);
- //Serial.println("<");
+ Serial.print(">Module2,Right,");
+ Serial.print(b);
+ Serial.println("<");
  
  //Serial.println("more lines n stuff");
  
@@ -184,5 +187,17 @@ void loop()
     LED3time = millis();
     
     LED3 = LED3?0:1;
+  }
+  
+  if(IsTimedOut(1500, LED4time))
+  {
+    Serial.print(">Module2,Solenoid,");
+    Serial.print(LED4);
+    Serial.println("<");
+    LED4time = millis();
+    
+    LED4 = (LED4 << 1);
+    
+    if(LED4 > 16) LED4 = 1;
   }
 }
