@@ -38,9 +38,9 @@ namespace Mettle.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("9600")]
-        public uint BaudRate {
+        public int BaudRate {
             get {
-                return ((uint)(this["BaudRate"]));
+                return ((int)(this["BaudRate"]));
             }
             set {
                 this["BaudRate"] = value;

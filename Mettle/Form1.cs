@@ -150,8 +150,14 @@ namespace Mettle
 
         private void btnOK_Click(object sender, EventArgs e)
         {
-            myMettle.Open();
-            stripStatus.Text = "Running";
+           if( myMettle.Open(Properties.Settings.Default.COMport.ToString(), Properties.Settings.Default.BaudRate))
+                stripStatus.Text = "Running";
+        }
+
+        private void btnPlay_Click(object sender, EventArgs e)
+        {
+            if (myMettle.Open(Properties.Settings.Default.COMport.ToString(), Properties.Settings.Default.BaudRate))
+                stripStatus.Text = "Running";
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -165,12 +171,6 @@ namespace Mettle
         {
             myMettle.Close();
             stripStatus.Text = "Stopped";
-        }
-
-        private void btnPlay_Click(object sender, EventArgs e)
-        {
-            myMettle.Open();
-            stripStatus.Text = "Running";
         }
 
         private void btnStop_Click(object sender, EventArgs e)

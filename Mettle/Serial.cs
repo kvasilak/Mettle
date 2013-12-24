@@ -48,7 +48,7 @@ namespace Mettle
         private void btnOK_Click(object sender, EventArgs e)
         {
             Properties.Settings.Default.COMport = cboPort.Text;
-            Properties.Settings.Default.BaudRate = UInt32.Parse(cboBaud.Text);
+            Properties.Settings.Default.BaudRate = int.Parse(cboBaud.Text);
             Properties.Settings.Default.Save();
         }
 
