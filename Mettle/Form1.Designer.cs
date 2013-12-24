@@ -208,9 +208,9 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(391, 25);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(47, 13);
+            this.label5.Size = new System.Drawing.Size(138, 13);
             this.label5.TabIndex = 7;
-            this.label5.Text = "Modules";
+            this.label5.Text = "Modules; Click to see  Sorts";
             // 
             // txtModules
             // 
@@ -242,9 +242,9 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(587, 25);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(31, 13);
+            this.label2.Size = new System.Drawing.Size(118, 13);
             this.label2.TabIndex = 4;
-            this.label2.Text = "Tags";
+            this.label2.Text = "Sorts; Click to see Data";
             // 
             // label1
             // 
@@ -514,17 +514,14 @@
             this.tagChart1.Name = "tagChart1";
             series1.ChartArea = "ChartArea1";
             series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
-            series1.CustomProperties = "index=0";
             series1.Legend = "Legend1";
             series1.Name = "XAxis";
             series2.ChartArea = "ChartArea1";
             series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
-            series2.CustomProperties = "index=0";
             series2.Legend = "Legend1";
             series2.Name = "YAxis";
             series3.ChartArea = "ChartArea1";
             series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
-            series3.CustomProperties = "index=0";
             series3.Legend = "Legend1";
             series3.Name = "ZAxis";
             this.tagChart1.Series.Add(series1);
