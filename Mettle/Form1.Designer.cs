@@ -28,16 +28,43 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             this.tabMain = new System.Windows.Forms.TabControl();
             this.tabChart = new System.Windows.Forms.TabPage();
+            this.tagIO8 = new MettleLib.TagIO();
+            this.tagIO7 = new MettleLib.TagIO();
+            this.tagIO6 = new MettleLib.TagIO();
+            this.tagIO5 = new MettleLib.TagIO();
+            this.tagIO4 = new MettleLib.TagIO();
+            this.tagText7 = new MettleLib.TagText();
+            this.tagText6 = new MettleLib.TagText();
+            this.tagText5 = new MettleLib.TagText();
+            this.tagChart1 = new MettleLib.TagChart();
+            this.tagGauge2 = new MettleLib.TagGauge();
+            this.tagText4 = new MettleLib.TagText();
+            this.tagText3 = new MettleLib.TagText();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.tagState8 = new MettleLib.TagState();
+            this.tagState9 = new MettleLib.TagState();
+            this.tagIO3 = new MettleLib.TagIO();
+            this.tagIO2 = new MettleLib.TagIO();
+            this.tagIO1 = new MettleLib.TagIO();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.tagState5 = new MettleLib.TagState();
+            this.tagState6 = new MettleLib.TagState();
+            this.tagState7 = new MettleLib.TagState();
+            this.tagText2 = new MettleLib.TagText();
+            this.tagState4 = new MettleLib.TagState();
+            this.tagState3 = new MettleLib.TagState();
+            this.tagState2 = new MettleLib.TagState();
+            this.tagState1 = new MettleLib.TagState();
+            this.tagText1 = new MettleLib.TagText();
+            this.tagGauge1 = new MettleLib.TagGauge();
             this.tabText = new System.Windows.Forms.TabPage();
             this.txtAllText = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -58,35 +85,11 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.stripStatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.stripError = new System.Windows.Forms.ToolStripStatusLabel();
-            this.tagIO8 = new MettleLib.TagIO();
-            this.tagIO7 = new MettleLib.TagIO();
-            this.tagIO6 = new MettleLib.TagIO();
-            this.tagIO5 = new MettleLib.TagIO();
-            this.tagIO4 = new MettleLib.TagIO();
-            this.tagText7 = new MettleLib.TagText();
-            this.tagText6 = new MettleLib.TagText();
-            this.tagText5 = new MettleLib.TagText();
-            this.tagChart1 = new MettleLib.TagChart();
-            this.tagGauge2 = new MettleLib.TagGauge();
-            this.tagText4 = new MettleLib.TagText();
-            this.tagText3 = new MettleLib.TagText();
-            this.tagState8 = new MettleLib.TagState();
-            this.tagState9 = new MettleLib.TagState();
-            this.tagIO3 = new MettleLib.TagIO();
-            this.tagIO2 = new MettleLib.TagIO();
-            this.tagIO1 = new MettleLib.TagIO();
-            this.tagState5 = new MettleLib.TagState();
-            this.tagState6 = new MettleLib.TagState();
-            this.tagState7 = new MettleLib.TagState();
-            this.tagText2 = new MettleLib.TagText();
-            this.tagState4 = new MettleLib.TagState();
-            this.tagState3 = new MettleLib.TagState();
-            this.tagState2 = new MettleLib.TagState();
-            this.tagState1 = new MettleLib.TagState();
-            this.tagText1 = new MettleLib.TagText();
-            this.tagGauge1 = new MettleLib.TagGauge();
+            this.tagGauge3 = new MettleLib.TagGauge();
+            this.button1 = new System.Windows.Forms.Button();
             this.tabMain.SuspendLayout();
             this.tabChart.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tagChart1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tabText.SuspendLayout();
@@ -94,7 +97,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.chart2)).BeginInit();
             this.toolStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tagChart1)).BeginInit();
             this.SuspendLayout();
             // 
             // tabMain
@@ -107,12 +109,14 @@
             this.tabMain.Location = new System.Drawing.Point(0, 28);
             this.tabMain.Name = "tabMain";
             this.tabMain.SelectedIndex = 0;
-            this.tabMain.Size = new System.Drawing.Size(1039, 542);
+            this.tabMain.Size = new System.Drawing.Size(1224, 542);
             this.tabMain.TabIndex = 0;
             // 
             // tabChart
             // 
             this.tabChart.BackColor = System.Drawing.SystemColors.Control;
+            this.tabChart.Controls.Add(this.button1);
+            this.tabChart.Controls.Add(this.tagGauge3);
             this.tabChart.Controls.Add(this.tagIO8);
             this.tabChart.Controls.Add(this.tagIO7);
             this.tabChart.Controls.Add(this.tagIO6);
@@ -140,262 +144,10 @@
             this.tabChart.Location = new System.Drawing.Point(4, 22);
             this.tabChart.Name = "tabChart";
             this.tabChart.Padding = new System.Windows.Forms.Padding(3);
-            this.tabChart.Size = new System.Drawing.Size(1031, 516);
+            this.tabChart.Size = new System.Drawing.Size(1216, 516);
             this.tabChart.TabIndex = 1;
             this.tabChart.Tag = "Right";
             this.tabChart.Text = "Chart";
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.tagState8);
-            this.groupBox1.Controls.Add(this.tagState9);
-            this.groupBox1.Location = new System.Drawing.Point(435, 136);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(90, 92);
-            this.groupBox1.TabIndex = 12;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox1";
-            // 
-            // panel1
-            // 
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel1.Controls.Add(this.tagState5);
-            this.panel1.Controls.Add(this.tagState6);
-            this.panel1.Controls.Add(this.tagState7);
-            this.panel1.Location = new System.Drawing.Point(427, 21);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(98, 105);
-            this.panel1.TabIndex = 8;
-            // 
-            // tabText
-            // 
-            this.tabText.Controls.Add(this.txtAllText);
-            this.tabText.Controls.Add(this.label5);
-            this.tabText.Controls.Add(this.txtModules);
-            this.tabText.Controls.Add(this.label3);
-            this.tabText.Controls.Add(this.label2);
-            this.tabText.Controls.Add(this.label1);
-            this.tabText.Controls.Add(this.txtTagData);
-            this.tabText.Controls.Add(this.txtUniques);
-            this.tabText.Location = new System.Drawing.Point(4, 22);
-            this.tabText.Name = "tabText";
-            this.tabText.Padding = new System.Windows.Forms.Padding(3);
-            this.tabText.Size = new System.Drawing.Size(1031, 516);
-            this.tabText.TabIndex = 0;
-            this.tabText.Text = "Text";
-            this.tabText.UseVisualStyleBackColor = true;
-            // 
-            // txtAllText
-            // 
-            this.txtAllText.AcceptsReturn = true;
-            this.txtAllText.AcceptsTab = true;
-            this.txtAllText.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtAllText.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.txtAllText.HideSelection = false;
-            this.txtAllText.Location = new System.Drawing.Point(34, 68);
-            this.txtAllText.Multiline = true;
-            this.txtAllText.Name = "txtAllText";
-            this.txtAllText.ReadOnly = true;
-            this.txtAllText.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtAllText.Size = new System.Drawing.Size(277, 325);
-            this.txtAllText.TabIndex = 86;
-            this.txtAllText.WordWrap = false;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(391, 25);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(138, 13);
-            this.label5.TabIndex = 7;
-            this.label5.Text = "Modules; Click to see  Sorts";
-            // 
-            // txtModules
-            // 
-            this.txtModules.AcceptsReturn = true;
-            this.txtModules.AcceptsTab = true;
-            this.txtModules.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.txtModules.HideSelection = false;
-            this.txtModules.Location = new System.Drawing.Point(394, 41);
-            this.txtModules.Multiline = true;
-            this.txtModules.Name = "txtModules";
-            this.txtModules.ReadOnly = true;
-            this.txtModules.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtModules.Size = new System.Drawing.Size(172, 388);
-            this.txtModules.TabIndex = 6;
-            this.txtModules.WordWrap = false;
-            this.txtModules.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtModules_MouseClick);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(780, 25);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(52, 13);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "Tag Data";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(587, 25);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(118, 13);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Sorts; Click to see Data";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(31, 25);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(69, 13);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "All serial data";
-            // 
-            // txtTagData
-            // 
-            this.txtTagData.AcceptsReturn = true;
-            this.txtTagData.AcceptsTab = true;
-            this.txtTagData.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.txtTagData.HideSelection = false;
-            this.txtTagData.Location = new System.Drawing.Point(783, 41);
-            this.txtTagData.Multiline = true;
-            this.txtTagData.Name = "txtTagData";
-            this.txtTagData.ReadOnly = true;
-            this.txtTagData.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtTagData.Size = new System.Drawing.Size(172, 388);
-            this.txtTagData.TabIndex = 2;
-            this.txtTagData.WordWrap = false;
-            // 
-            // txtUniques
-            // 
-            this.txtUniques.AcceptsReturn = true;
-            this.txtUniques.AcceptsTab = true;
-            this.txtUniques.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.txtUniques.HideSelection = false;
-            this.txtUniques.Location = new System.Drawing.Point(590, 41);
-            this.txtUniques.Multiline = true;
-            this.txtUniques.Name = "txtUniques";
-            this.txtUniques.ReadOnly = true;
-            this.txtUniques.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtUniques.Size = new System.Drawing.Size(172, 388);
-            this.txtUniques.TabIndex = 1;
-            this.txtUniques.WordWrap = false;
-            this.txtUniques.MouseClick += new System.Windows.Forms.MouseEventHandler(this.textUniques_MouseClick);
-            // 
-            // chart1
-            // 
-            this.chart1.Location = new System.Drawing.Point(0, 0);
-            this.chart1.Name = "chart1";
-            this.chart1.Size = new System.Drawing.Size(300, 300);
-            this.chart1.TabIndex = 0;
-            // 
-            // chart2
-            // 
-            this.chart2.Location = new System.Drawing.Point(0, 0);
-            this.chart2.Name = "chart2";
-            this.chart2.Size = new System.Drawing.Size(300, 300);
-            this.chart2.TabIndex = 0;
-            // 
-            // toolStrip1
-            // 
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.btnPlay,
-            this.btnStop,
-            this.btnTools,
-            this.btnAbout,
-            this.BtnReset});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1039, 25);
-            this.toolStrip1.TabIndex = 1;
-            this.toolStrip1.Text = "toolStrip1";
-            // 
-            // btnPlay
-            // 
-            this.btnPlay.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnPlay.Image = ((System.Drawing.Image)(resources.GetObject("btnPlay.Image")));
-            this.btnPlay.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnPlay.Name = "btnPlay";
-            this.btnPlay.Size = new System.Drawing.Size(23, 22);
-            this.btnPlay.Text = "toolStripButton1";
-            this.btnPlay.ToolTipText = "Start !";
-            this.btnPlay.Click += new System.EventHandler(this.btnPlay_Click);
-            // 
-            // btnStop
-            // 
-            this.btnStop.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnStop.Image = ((System.Drawing.Image)(resources.GetObject("btnStop.Image")));
-            this.btnStop.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnStop.Name = "btnStop";
-            this.btnStop.Size = new System.Drawing.Size(23, 22);
-            this.btnStop.Text = "toolStripButton2";
-            this.btnStop.ToolTipText = "Stop!";
-            this.btnStop.Click += new System.EventHandler(this.btnStop_Click);
-            // 
-            // btnTools
-            // 
-            this.btnTools.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnTools.Image = ((System.Drawing.Image)(resources.GetObject("btnTools.Image")));
-            this.btnTools.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnTools.Name = "btnTools";
-            this.btnTools.Size = new System.Drawing.Size(23, 22);
-            this.btnTools.ToolTipText = "Setup";
-            this.btnTools.Click += new System.EventHandler(this.btnTools_Click);
-            // 
-            // btnAbout
-            // 
-            this.btnAbout.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.btnAbout.Image = ((System.Drawing.Image)(resources.GetObject("btnAbout.Image")));
-            this.btnAbout.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnAbout.Name = "btnAbout";
-            this.btnAbout.Size = new System.Drawing.Size(44, 22);
-            this.btnAbout.Text = "About";
-            this.btnAbout.Click += new System.EventHandler(this.btnAbout_Click);
-            // 
-            // BtnReset
-            // 
-            this.BtnReset.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.BtnReset.Image = ((System.Drawing.Image)(resources.GetObject("BtnReset.Image")));
-            this.BtnReset.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.BtnReset.Name = "BtnReset";
-            this.BtnReset.Size = new System.Drawing.Size(39, 22);
-            this.BtnReset.Text = "Reset";
-            this.BtnReset.ToolTipText = "Reset and clear UI";
-            this.BtnReset.Click += new System.EventHandler(this.BtnReset_Click);
-            // 
-            // statusStrip1
-            // 
-            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.stripStatus,
-            this.stripError});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 547);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1039, 22);
-            this.statusStrip1.TabIndex = 2;
-            this.statusStrip1.Text = "Status";
-            // 
-            // stripStatus
-            // 
-            this.stripStatus.AutoSize = false;
-            this.stripStatus.Name = "stripStatus";
-            this.stripStatus.Size = new System.Drawing.Size(100, 17);
-            this.stripStatus.Text = "Status";
-            this.stripStatus.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.stripStatus.ToolTipText = "Application status";
-            // 
-            // stripError
-            // 
-            this.stripError.AutoSize = false;
-            this.stripError.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.stripError.Name = "stripError";
-            this.stripError.Size = new System.Drawing.Size(200, 17);
-            this.stripError.Text = "No Error";
-            this.stripError.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.stripError.ToolTipText = "Application errors";
             // 
             // tagIO8
             // 
@@ -527,7 +279,7 @@
             this.tagChart1.Series.Add(series1);
             this.tagChart1.Series.Add(series2);
             this.tagChart1.Series.Add(series3);
-            this.tagChart1.Size = new System.Drawing.Size(1028, 235);
+            this.tagChart1.Size = new System.Drawing.Size(1213, 235);
             this.tagChart1.TabIndex = 16;
             this.tagChart1.Text = "tagChart1";
             // 
@@ -561,7 +313,7 @@
         ""};
             this.tagGauge2.CapText = "";
             this.tagGauge2.Center = new System.Drawing.Point(-80, 110);
-            this.tagGauge2.Location = new System.Drawing.Point(904, 6);
+            this.tagGauge2.Location = new System.Drawing.Point(1089, 6);
             this.tagGauge2.MaxValue = 1024F;
             this.tagGauge2.MinValue = 0F;
             this.tagGauge2.Module = "Module2";
@@ -653,7 +405,7 @@
             this.tagText4.Multiline = true;
             this.tagText4.Name = "tagText4";
             this.tagText4.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.tagText4.Size = new System.Drawing.Size(100, 194);
+            this.tagText4.Size = new System.Drawing.Size(285, 194);
             this.tagText4.Sort = "Right";
             this.tagText4.TabIndex = 14;
             this.tagText4.Tag = "Right";
@@ -671,6 +423,17 @@
             this.tagText3.Sort = "*";
             this.tagText3.TabIndex = 13;
             this.tagText3.Tag = "*";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.tagState8);
+            this.groupBox1.Controls.Add(this.tagState9);
+            this.groupBox1.Location = new System.Drawing.Point(435, 136);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(90, 92);
+            this.groupBox1.TabIndex = 12;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "groupBox1";
             // 
             // tagState8
             // 
@@ -736,6 +499,17 @@
             this.tagIO1.TabIndex = 9;
             this.tagIO1.Tag = "PushButton";
             this.tagIO1.U16_Mask = ((ushort)(1));
+            // 
+            // panel1
+            // 
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.tagState5);
+            this.panel1.Controls.Add(this.tagState6);
+            this.panel1.Controls.Add(this.tagState7);
+            this.panel1.Location = new System.Drawing.Point(427, 21);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(98, 105);
+            this.panel1.TabIndex = 8;
             // 
             // tagState5
             // 
@@ -965,11 +739,358 @@
             this.tagGauge1.Text = "tagGauge1";
             this.tagGauge1.Value = 0F;
             // 
+            // tabText
+            // 
+            this.tabText.Controls.Add(this.txtAllText);
+            this.tabText.Controls.Add(this.label5);
+            this.tabText.Controls.Add(this.txtModules);
+            this.tabText.Controls.Add(this.label3);
+            this.tabText.Controls.Add(this.label2);
+            this.tabText.Controls.Add(this.label1);
+            this.tabText.Controls.Add(this.txtTagData);
+            this.tabText.Controls.Add(this.txtUniques);
+            this.tabText.Location = new System.Drawing.Point(4, 22);
+            this.tabText.Name = "tabText";
+            this.tabText.Padding = new System.Windows.Forms.Padding(3);
+            this.tabText.Size = new System.Drawing.Size(1031, 516);
+            this.tabText.TabIndex = 0;
+            this.tabText.Text = "Text";
+            this.tabText.UseVisualStyleBackColor = true;
+            // 
+            // txtAllText
+            // 
+            this.txtAllText.AcceptsReturn = true;
+            this.txtAllText.AcceptsTab = true;
+            this.txtAllText.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtAllText.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.txtAllText.HideSelection = false;
+            this.txtAllText.Location = new System.Drawing.Point(34, 68);
+            this.txtAllText.Multiline = true;
+            this.txtAllText.Name = "txtAllText";
+            this.txtAllText.ReadOnly = true;
+            this.txtAllText.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.txtAllText.Size = new System.Drawing.Size(277, 325);
+            this.txtAllText.TabIndex = 86;
+            this.txtAllText.WordWrap = false;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(391, 25);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(138, 13);
+            this.label5.TabIndex = 7;
+            this.label5.Text = "Modules; Click to see  Sorts";
+            // 
+            // txtModules
+            // 
+            this.txtModules.AcceptsReturn = true;
+            this.txtModules.AcceptsTab = true;
+            this.txtModules.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.txtModules.HideSelection = false;
+            this.txtModules.Location = new System.Drawing.Point(394, 41);
+            this.txtModules.Multiline = true;
+            this.txtModules.Name = "txtModules";
+            this.txtModules.ReadOnly = true;
+            this.txtModules.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.txtModules.Size = new System.Drawing.Size(172, 388);
+            this.txtModules.TabIndex = 6;
+            this.txtModules.WordWrap = false;
+            this.txtModules.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtModules_MouseClick);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(780, 25);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(52, 13);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "Tag Data";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(587, 25);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(118, 13);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Sorts; Click to see Data";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(31, 25);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(69, 13);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "All serial data";
+            // 
+            // txtTagData
+            // 
+            this.txtTagData.AcceptsReturn = true;
+            this.txtTagData.AcceptsTab = true;
+            this.txtTagData.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.txtTagData.HideSelection = false;
+            this.txtTagData.Location = new System.Drawing.Point(783, 41);
+            this.txtTagData.Multiline = true;
+            this.txtTagData.Name = "txtTagData";
+            this.txtTagData.ReadOnly = true;
+            this.txtTagData.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.txtTagData.Size = new System.Drawing.Size(172, 388);
+            this.txtTagData.TabIndex = 2;
+            this.txtTagData.WordWrap = false;
+            // 
+            // txtUniques
+            // 
+            this.txtUniques.AcceptsReturn = true;
+            this.txtUniques.AcceptsTab = true;
+            this.txtUniques.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.txtUniques.HideSelection = false;
+            this.txtUniques.Location = new System.Drawing.Point(590, 41);
+            this.txtUniques.Multiline = true;
+            this.txtUniques.Name = "txtUniques";
+            this.txtUniques.ReadOnly = true;
+            this.txtUniques.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.txtUniques.Size = new System.Drawing.Size(172, 388);
+            this.txtUniques.TabIndex = 1;
+            this.txtUniques.WordWrap = false;
+            this.txtUniques.MouseClick += new System.Windows.Forms.MouseEventHandler(this.textUniques_MouseClick);
+            // 
+            // chart1
+            // 
+            this.chart1.Location = new System.Drawing.Point(0, 0);
+            this.chart1.Name = "chart1";
+            this.chart1.Size = new System.Drawing.Size(300, 300);
+            this.chart1.TabIndex = 0;
+            // 
+            // chart2
+            // 
+            this.chart2.Location = new System.Drawing.Point(0, 0);
+            this.chart2.Name = "chart2";
+            this.chart2.Size = new System.Drawing.Size(300, 300);
+            this.chart2.TabIndex = 0;
+            // 
+            // toolStrip1
+            // 
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btnPlay,
+            this.btnStop,
+            this.btnTools,
+            this.btnAbout,
+            this.BtnReset});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(1224, 25);
+            this.toolStrip1.TabIndex = 1;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // btnPlay
+            // 
+            this.btnPlay.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnPlay.Image = ((System.Drawing.Image)(resources.GetObject("btnPlay.Image")));
+            this.btnPlay.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnPlay.Name = "btnPlay";
+            this.btnPlay.Size = new System.Drawing.Size(23, 22);
+            this.btnPlay.Text = "toolStripButton1";
+            this.btnPlay.ToolTipText = "Start !";
+            this.btnPlay.Click += new System.EventHandler(this.btnPlay_Click);
+            // 
+            // btnStop
+            // 
+            this.btnStop.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnStop.Image = ((System.Drawing.Image)(resources.GetObject("btnStop.Image")));
+            this.btnStop.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnStop.Name = "btnStop";
+            this.btnStop.Size = new System.Drawing.Size(23, 22);
+            this.btnStop.Text = "toolStripButton2";
+            this.btnStop.ToolTipText = "Stop!";
+            this.btnStop.Click += new System.EventHandler(this.btnStop_Click);
+            // 
+            // btnTools
+            // 
+            this.btnTools.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnTools.Image = ((System.Drawing.Image)(resources.GetObject("btnTools.Image")));
+            this.btnTools.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnTools.Name = "btnTools";
+            this.btnTools.Size = new System.Drawing.Size(23, 22);
+            this.btnTools.ToolTipText = "Setup";
+            this.btnTools.Click += new System.EventHandler(this.btnTools_Click);
+            // 
+            // btnAbout
+            // 
+            this.btnAbout.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.btnAbout.Image = ((System.Drawing.Image)(resources.GetObject("btnAbout.Image")));
+            this.btnAbout.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnAbout.Name = "btnAbout";
+            this.btnAbout.Size = new System.Drawing.Size(44, 22);
+            this.btnAbout.Text = "About";
+            this.btnAbout.Click += new System.EventHandler(this.btnAbout_Click);
+            // 
+            // BtnReset
+            // 
+            this.BtnReset.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.BtnReset.Image = ((System.Drawing.Image)(resources.GetObject("BtnReset.Image")));
+            this.BtnReset.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.BtnReset.Name = "BtnReset";
+            this.BtnReset.Size = new System.Drawing.Size(39, 22);
+            this.BtnReset.Text = "Reset";
+            this.BtnReset.ToolTipText = "Reset and clear UI";
+            this.BtnReset.Click += new System.EventHandler(this.BtnReset_Click);
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.stripStatus,
+            this.stripError});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 547);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(1224, 22);
+            this.statusStrip1.TabIndex = 2;
+            this.statusStrip1.Text = "Status";
+            // 
+            // stripStatus
+            // 
+            this.stripStatus.AutoSize = false;
+            this.stripStatus.Name = "stripStatus";
+            this.stripStatus.Size = new System.Drawing.Size(100, 17);
+            this.stripStatus.Text = "Status";
+            this.stripStatus.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.stripStatus.ToolTipText = "Application status";
+            // 
+            // stripError
+            // 
+            this.stripError.AutoSize = false;
+            this.stripError.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.stripError.Name = "stripError";
+            this.stripError.Size = new System.Drawing.Size(200, 17);
+            this.stripError.Text = "No Error";
+            this.stripError.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.stripError.ToolTipText = "Application errors";
+            // 
+            // tagGauge3
+            // 
+            this.tagGauge3.BaseArcColor = System.Drawing.Color.Gray;
+            this.tagGauge3.BaseArcRadius = 80;
+            this.tagGauge3.BaseArcStart = 135;
+            this.tagGauge3.BaseArcSweep = 270;
+            this.tagGauge3.BaseArcWidth = 2;
+            this.tagGauge3.Cap_Idx = ((byte)(1));
+            this.tagGauge3.CapColors = new System.Drawing.Color[] {
+        System.Drawing.Color.Black,
+        System.Drawing.Color.Black,
+        System.Drawing.Color.Black,
+        System.Drawing.Color.Black,
+        System.Drawing.Color.Black};
+            this.tagGauge3.CapPosition = new System.Drawing.Point(10, 10);
+            this.tagGauge3.CapsPosition = new System.Drawing.Point[] {
+        new System.Drawing.Point(10, 10),
+        new System.Drawing.Point(10, 10),
+        new System.Drawing.Point(10, 10),
+        new System.Drawing.Point(10, 10),
+        new System.Drawing.Point(10, 10)};
+            this.tagGauge3.CapsText = new string[] {
+        "",
+        "",
+        "",
+        "",
+        ""};
+            this.tagGauge3.CapText = "";
+            this.tagGauge3.Center = new System.Drawing.Point(100, 100);
+            this.tagGauge3.Location = new System.Drawing.Point(541, 187);
+            this.tagGauge3.MaxValue = 400F;
+            this.tagGauge3.MinValue = -100F;
+            this.tagGauge3.Module = null;
+            this.tagGauge3.Name = "tagGauge3";
+            this.tagGauge3.NeedleColor1 = MettleLib.TagGauge.NeedleColorEnum.Gray;
+            this.tagGauge3.NeedleColor2 = System.Drawing.Color.DimGray;
+            this.tagGauge3.NeedleRadius = 80;
+            this.tagGauge3.NeedleType = 0;
+            this.tagGauge3.NeedleWidth = 2;
+            this.tagGauge3.Range_Idx = ((byte)(0));
+            this.tagGauge3.RangeColor = System.Drawing.Color.LightGreen;
+            this.tagGauge3.RangeEnabled = true;
+            this.tagGauge3.RangeEndValue = 300F;
+            this.tagGauge3.RangeInnerRadius = 70;
+            this.tagGauge3.RangeOuterRadius = 80;
+            this.tagGauge3.RangesColor = new System.Drawing.Color[] {
+        System.Drawing.Color.LightGreen,
+        System.Drawing.Color.Red,
+        System.Drawing.SystemColors.Control,
+        System.Drawing.SystemColors.Control,
+        System.Drawing.SystemColors.Control};
+            this.tagGauge3.RangesEnabled = new bool[] {
+        true,
+        true,
+        false,
+        false,
+        false};
+            this.tagGauge3.RangesEndValue = new float[] {
+        300F,
+        400F,
+        0F,
+        0F,
+        0F};
+            this.tagGauge3.RangesInnerRadius = new int[] {
+        70,
+        70,
+        70,
+        70,
+        70};
+            this.tagGauge3.RangesOuterRadius = new int[] {
+        80,
+        80,
+        80,
+        80,
+        80};
+            this.tagGauge3.RangesStartValue = new float[] {
+        -100F,
+        300F,
+        0F,
+        0F,
+        0F};
+            this.tagGauge3.RangeStartValue = -100F;
+            this.tagGauge3.ScaleLinesInterColor = System.Drawing.Color.Black;
+            this.tagGauge3.ScaleLinesInterInnerRadius = 73;
+            this.tagGauge3.ScaleLinesInterOuterRadius = 80;
+            this.tagGauge3.ScaleLinesInterWidth = 1;
+            this.tagGauge3.ScaleLinesMajorColor = System.Drawing.Color.Black;
+            this.tagGauge3.ScaleLinesMajorInnerRadius = 70;
+            this.tagGauge3.ScaleLinesMajorOuterRadius = 80;
+            this.tagGauge3.ScaleLinesMajorStepValue = 50F;
+            this.tagGauge3.ScaleLinesMajorWidth = 2;
+            this.tagGauge3.ScaleLinesMinorColor = System.Drawing.Color.Gray;
+            this.tagGauge3.ScaleLinesMinorInnerRadius = 75;
+            this.tagGauge3.ScaleLinesMinorNumOf = 9;
+            this.tagGauge3.ScaleLinesMinorOuterRadius = 80;
+            this.tagGauge3.ScaleLinesMinorWidth = 1;
+            this.tagGauge3.ScaleNumbersColor = System.Drawing.Color.Black;
+            this.tagGauge3.ScaleNumbersFormat = null;
+            this.tagGauge3.ScaleNumbersRadius = 95;
+            this.tagGauge3.ScaleNumbersRotation = 0;
+            this.tagGauge3.ScaleNumbersStartScaleLine = 0;
+            this.tagGauge3.ScaleNumbersStepScaleLines = 1;
+            this.tagGauge3.Size = new System.Drawing.Size(227, 201);
+            this.tagGauge3.Sort = null;
+            this.tagGauge3.TabIndex = 25;
+            this.tagGauge3.Text = "tagGauge3";
+            this.tagGauge3.Value = 0F;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(587, 147);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 26;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1039, 569);
+            this.ClientSize = new System.Drawing.Size(1224, 569);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.tabMain);
@@ -982,6 +1103,7 @@
             this.tabMain.ResumeLayout(false);
             this.tabChart.ResumeLayout(false);
             this.tabChart.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tagChart1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.tabText.ResumeLayout(false);
@@ -992,7 +1114,6 @@
             this.toolStrip1.PerformLayout();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tagChart1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1051,6 +1172,8 @@
         private MettleLib.TagIO tagIO6;
         private MettleLib.TagIO tagIO5;
         private MettleLib.TagIO tagIO4;
+        private System.Windows.Forms.Button button1;
+        private MettleLib.TagGauge tagGauge3;
     }
 }
 

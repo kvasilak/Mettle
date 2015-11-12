@@ -24,19 +24,19 @@ using System.Text;
 using System.Windows.Forms;
 
 using System.IO.Ports;
-//using System.Collections;
 using System.Diagnostics;
-//using System.Threading;
 using MettleLib;
 
 //
 // This program is designed to recieve tagged data from an embedded device over a serial connection. RS232 or USB
-// a tag consists of a name and data. When a tag is recieved, it is ent to all the custom controls on all the tabs
-// Each controll then looks at the tag name to decide if they are interested in it. If they are they can get the data and display it
+// a tag consists of three tags, >module, Tag1, Tag2<. The >< define there is a tag inside. When a tag is recieved, 
+// it is sent to all the custom controls on all the tabs
+// Each controll then looks at the tag name to decide if they are interested in it. If they are, they display the data
 // If a tag contains a valid integer, the integer is available as well as the string representation.
-//A tag can use the name and the data or just the name or anything it wants to do with the data when it recieves the event.
+// A tag can use the name and the data or just the name or anything it wants to do with the data when it recieves the event.
 //
-//To use this program, just drag one of the custom controls onto a tab, set the tag property to what you want it to respond to and 
+//To use this program, just drag one of the custom controls onto a formview, set the Module, Sort and tag properties
+// to what you want it to respond to and 
 //set the name for controls like tagstate. All other properties are available for use as a normal program.
 //Then run the program and watch the magic!
 //
@@ -46,31 +46,78 @@ namespace Mettle
     {
         string RxString = string.Empty;
 
+		//the actual mettle object
         MettleHead myMettle = new MettleHead();
 
         //keep track of the unique tags
         private Module SelectedModule = null;
         private List<Module> ModuleList = new List<Module>();
 
+		//standard form stuff
         public FormMain()
         {
             InitializeComponent();
         }
 
+		//Find all Mettle controlls and register them
+		//Also setup handlers
         private void Form1_Load(object sender, EventArgs e)
         {
             myMettle.FindControlls(this);
 
+			//these handlers are all Optional
             myMettle.TagLine += new MettleHead.TagLIneHandeler(NewLIneRecieved);
             myMettle.TagEvents += new MettleHead.TagHandeler(MyUpdate);
             myMettle.TagErrorEvent +=new MettleHead.ErrorHandeler(myErrorHandeler);
         }
 
+		//Open the serial port and start Mettle running
+        private void btnOK_Click(object sender, EventArgs e)
+        {
+           if( myMettle.Open(Properties.Settings.Default.COMport.ToString(), Properties.Settings.Default.BaudRate))
+                stripStatus.Text = "Running";
+        }
+
+		//Open the serial port and start Mettle running
+        private void btnPlay_Click(object sender, EventArgs e)
+        {
+            if (myMettle.Open(Properties.Settings.Default.COMport.ToString(), Properties.Settings.Default.BaudRate))
+                stripStatus.Text = "Running";
+        }
+
+		//Close the serial port ( yes it's the same as stop )
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            myMettle.Close();
+
+            stripStatus.Text = "Stopped";
+        }
+
+		//Close the serial port when the application closes
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            myMettle.Close();
+            stripStatus.Text = "Stopped";
+        }
+
+	//Close the serial port
+        private void btnStop_Click(object sender, EventArgs e)
+        {
+            myMettle.Close();
+            stripStatus.Text = "Stopped";
+        }
+		
+		
+		
+/* ******** optional ************/
+
+//Optional, CR terminate the current line
         private void NewLIneRecieved(string s)
         {
             AppendLineTextBox(s + "\n");
         }
 
+		//optional, print the current line to the all text textbox
         public void AppendLineTextBox(string value)
         {
             if (InvokeRequired)
@@ -82,7 +129,7 @@ namespace Mettle
             txtAllText.ScrollToCaret();
         }
 
-        //update the list of unique tags
+        //Optional, update the list of unique tags
         private void MyUpdate(TagEvent e)
         {
             bool ModuleNameFound = false;
@@ -116,6 +163,7 @@ namespace Mettle
             }
         }
 
+		//optional, clear just the modules text box
         public void ClearModuleTextBox(char c)
         {
             if (InvokeRequired)
@@ -126,6 +174,7 @@ namespace Mettle
             txtModules.Clear();
         }
 
+		//optional, Add this module to the modules text box
         public void AppendModuleTextBox(string value)
         {
             if (InvokeRequired)
@@ -137,7 +186,7 @@ namespace Mettle
             txtModules.ScrollToCaret();
         }
 
-        //Display any errors
+        //Optional, Display any errors
         private void myErrorHandeler(string s)
         {
             if (InvokeRequired)
@@ -148,37 +197,7 @@ namespace Mettle
             stripError.Text = "Error! " + s;
         }
 
-        private void btnOK_Click(object sender, EventArgs e)
-        {
-           if( myMettle.Open(Properties.Settings.Default.COMport.ToString(), Properties.Settings.Default.BaudRate))
-                stripStatus.Text = "Running";
-        }
-
-        private void btnPlay_Click(object sender, EventArgs e)
-        {
-            if (myMettle.Open(Properties.Settings.Default.COMport.ToString(), Properties.Settings.Default.BaudRate))
-                stripStatus.Text = "Running";
-        }
-
-        private void btnClose_Click(object sender, EventArgs e)
-        {
-            myMettle.Close();
-
-            stripStatus.Text = "Stopped";
-        }
-
-        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            myMettle.Close();
-            stripStatus.Text = "Stopped";
-        }
-
-        private void btnStop_Click(object sender, EventArgs e)
-        {
-            myMettle.Close();
-            stripStatus.Text = "Stopped";
-        }
-
+		//Optional, allow the user to specify the serial port
         private void btnTools_Click(object sender, EventArgs e)
         {
             dlgSerial SetupDialog = new dlgSerial();
@@ -189,6 +208,7 @@ namespace Mettle
 
         }
 
+		//Optional, Shows the text for the selected Modules tags
         private void textUniques_MouseClick(object sender, MouseEventArgs e)
         {
             txtTagData.Clear();
@@ -222,6 +242,7 @@ namespace Mettle
             }
         }
 
+		//Optional, Debugging, shows the tags for the selected module 
         private void txtModules_MouseClick(object sender, MouseEventArgs e)
         {
             txtUniques.Clear();
@@ -253,14 +274,17 @@ namespace Mettle
             }
         }
 
+		//Optional, show version info
         private void btnAbout_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Embedded Monitoring Tool; V1.0\nCopyright 2013 Keith Vasilakes\n\nLicensed under GPL\nhttp://www.gnu.org/licenses", "Embedded Monitor");
         }
 
+		//Optional, Clear all Mettle UI objects
         private void BtnReset_Click(object sender, EventArgs e)
         {
             myMettle.Reset(this);
         }
+
     }
 }

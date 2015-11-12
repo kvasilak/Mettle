@@ -8,7 +8,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mettle", "Mettle\Mettle.csp
 		{480909D3-2187-4D31-892E-73F7DDAA7816} = {480909D3-2187-4D31-892E-73F7DDAA7816}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MettleLib", "MettleLib\MettleLib.csproj", "{480909D3-2187-4D31-892E-73F7DDAA7816}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MettleLib", "..\MettleLib\MettleLib.csproj", "{480909D3-2187-4D31-892E-73F7DDAA7816}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
