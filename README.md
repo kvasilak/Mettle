@@ -20,13 +20,18 @@ This is the test/demo app for the Mettle Lib where all the custom control code i
 
 To use Mettle;
 0. Create a C# windows FormView Application in Visual Studio 2013
+
 1. Copy Mettlelib.dll into your project.
 	MyProject\bin\Debug
+	
 2. Add a reference to it.
 	Right click 'References' in Solution explorer and browse for the MettleLib.dll
+	
 3. Add a "using MettleLib;" statement to your form
+
 4. Add a Mettle object;
 	MettleHead myMettle = new MettleHead();
+	
 5. In form load add a call to find controls and references to optional handlers
 	private void Form1_Load(object sender, EventArgs e)
 	{
@@ -37,6 +42,7 @@ To use Mettle;
 		myMettle.TagEvents += new MettleHead.TagHandeler(MyUpdate);
 		myMettle.TagErrorEvent +=new MettleHead.ErrorHandeler(myErrorHandeler);
 	}
+	
 6. call myMettle.Open() with the com port and baud rate desired
 	Mettle willl now handle all serial traffic, parse the tags and update all Mettle controls.
 	You don not need to create a thread for Mettle, it's all done in the DLL
